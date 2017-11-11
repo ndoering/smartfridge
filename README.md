@@ -4,7 +4,7 @@
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
 
-### Markdown Cheat-Sheet for better usage:
+### Cheat-Sheet for a quick Markdown-introduction
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 https://guides.github.com/features/mastering-markdown/
