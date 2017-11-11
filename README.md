@@ -4,6 +4,11 @@
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
 
+### Markdown Cheat-Sheet for better usage:
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+https://guides.github.com/features/mastering-markdown/
+
 Hi everyone!  Please feel free to contribute in order to make this requirement document valid outlook for our SmartFridge solution. 
 
 **Some ToDos (to be continued):**
@@ -35,10 +40,6 @@ Hi everyone!  Please feel free to contribute in order to make this requirement d
 ##### Paper UI prototype
 ##### Formal specification
 
-### Markdown Cheat-Sheet for better usage:
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-https://guides.github.com/features/mastering-markdown/
 
 ### 1.	Introduction
 
