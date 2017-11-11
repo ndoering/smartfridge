@@ -4,15 +4,14 @@
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
 
-Hi everyone! 
-Please feel free to contribute in order to make this requirement document valid outlook for our SmartFridge solution. 
+Hi everyone!  Please feel free to contribute in order to make this requirement document valid outlook for our SmartFridge solution. 
 
-** Some ToDos (to be continued): **
+**Some ToDos (to be continued):**
 
 - [ ] Please elaborate about a valid feature hierachy and add them underneath in the first place.
 - [ ] Formulate precise requirement sentences within the template structure.
 
-** Quick feature List (to be continued)...**
+**Quick feature List (to be continued)...**
 - Feature
 - Feature
   - Subfeature
