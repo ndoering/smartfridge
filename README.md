@@ -19,21 +19,21 @@ Hi everyone!  Please feel free to contribute in order to make this requirement d
   - ...
 - ...
 
-Use cases
+##### Use cases
 
     People can be assured that their fridge content is still fresh.
     People who lack an overview of their fridge content can look it up remotely.
     optional: People obtain a log of the food they put in the fridge.
 
-Feature list
+##### Feature list
 
     taking a picture of the fridge interior (single shelf)
     detection of food aging process
         optional: tracking timestamp of entry and healthiness
     notification of critical food status
 
-Paper UI prototype
-Formal specification
+##### Paper UI prototype
+##### Formal specification
 
 ### Markdown Cheat-Sheet for better usage:
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
