@@ -4,7 +4,8 @@
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
 
-Hi everyone! Please feel free to contribute in order to make this requirement document valid outlook for our SmartFridge solution. 
+Hi everyone! 
+Please feel free to contribute in order to make this requirement document valid outlook for our SmartFridge solution. 
 
 ** Some ToDos (to be continued): **
 
