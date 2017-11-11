@@ -3,7 +3,21 @@
 ## Systems and Software Engineering - Winter Term 2017
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
-**- [ ] ToDo everyone: Adding Family Names and Sorting**
+
+Hi everyone! Please feel free to contribute in order to make this requirement document valid outlook for our SmartFridge solution. 
+
+** Some ToDos (to be continued): **
+
+- [ ] Please elaborate about a valid feature hierachy and add them underneath in the first place.
+- [ ] Formulate precise requirement sentences within the template structure.
+
+** Quick feature List (to be continued)...**
+- Feature
+- Feature
+  - Subfeature
+  - Subfeature
+  - ...
+- ...
 
 ### Markdown Cheat-Sheet for better usage:
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
