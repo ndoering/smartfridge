@@ -1,6 +1,9 @@
 # Requirements Specification for Project 'Smartfridge'
 
+
 ## Systems and Software Engineering - Winter Term 2017
+
+
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
 - [ ] ToDo everyone: Adding Family Names and Sorting
