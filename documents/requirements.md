@@ -47,9 +47,9 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 	4.2	Detection of food aging process
  
- 4.3 Notification of critical food status
+ 	4.3 Notification of critical food status
  
- 4.4 Tracking of entry and healthiness
+ 	4.4 Tracking of entry and healthiness
 
 ### 5.	Other Nonfunctional Requirements
 
