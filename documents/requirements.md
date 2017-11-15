@@ -1,5 +1,5 @@
 # Requirements Specification for Project 'Smartfridge'
-by Melanie, Liuba, Nils, Jörn, Chris
+by Melanie, Liuba, Nils, Jörn, Chris   
 based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploads/2016/11/srs_template-ieee.doc)
 
 
@@ -65,32 +65,49 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 ## 1.	Introduction
 ##### 1.1	Purpose
-~~<Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.>~~
+~~<Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.>~~   
 This document specifies the software requirements for the SmartFridge project (no release number yet). It describes the whole system.
 
 ~~##### 1.2	Document Conventions
-<Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.>~~
+<Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.>~~
 
 ##### 1.3	Intended Audience and Reading Suggestions
-~~<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>~~
+~~<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>~~   
 This document is intended for the class of Systems and Software Engineering (WS 2017/2018) at University of Frankfurt. It should be read in whole as each section is relevant for the students' task.
 
 ##### 1.4	Product Scope
-~~<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>~~
+~~<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>~~   
 A device that determines the freshness of food in a fridge. It can optionally be used to track and show the current fridge content.
 
-~~##### 1.5	References
-<List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>~~
+##### 1.5	References
+<List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>   
 
 ## 2.	Overall Description
 ##### 2.1	Product Perspective
-<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>
+<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>   
+The described product is a university class project. It can serve as an add-on to fridges already equipped with "smart" technology like a touchpad and internet connection. It can also be used as a stand-alone product. It has a prototype nature and will not be ready to be shipped.
 
 ##### 2.2	Product Functions
 <Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>
 
 ##### 2.3	User Classes and Characteristics
-<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>
+~~<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>~~   
++ tech-savvy and curious
+	+ open to try out unfamiliar products
+	+ will provide valuable feedback on what to improve or add to the functionality
+	+ benefit that the product provides: a new experience
+	+ importance: high
++ conscious about food consumption
+	+ wants to have an detailed and exact overview of what food he consumes
+	+ cares about not letting food get wasted
+	+ most likely to be a long-time user when satisfied
+	+ benefit the product provides: logs food consumption
+	+ importance: high
++ housewife / homemaker
+	+ in charge of grocery shopping
+	+ likes to show off new kitchen equipment to peers (marketing)
+	+ benefit the product provides: notifies/reminds on what food needs to be bought
+	+ importance: medium
 
 ##### 2.4	Operating Environment
 ~~<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>~~
@@ -99,7 +116,12 @@ Attached to it is a camera module with a 5MP sensor that is able to take picture
 A power bank is used for energy supply.
 
 ##### 2.5	Design and Implementation Constraints
-<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>
+~~<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>~~   
++ the RaspberryPi's limited RAM and CPU power might hamper the image processing
++ the knowledge of used programming language(s) might be insufficient
++ the camera module has no auto focus
++ the inside of the fridge is usually not illuminated while the fridge is closed
++ putting the Pi into the fridge for a longer period will be harmful due to humidity and temperature
 
 ##### 2.6	User Documentation
 ~~<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>~~
@@ -123,7 +145,7 @@ Currently no user documentation is planned.
 <Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
 
 ## 4.	System Features
-<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>
+~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
 
 ~~##### 4.1	System Feature 1
 <Don’t really say “System Feature 1.” State the feature name in just a few words.>~~
