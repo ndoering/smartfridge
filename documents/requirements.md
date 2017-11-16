@@ -153,7 +153,7 @@ Currently no user documentation is planned.
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
 
-The web-based user interface enables the user to view the content of his refridgerator shelf via a browser. Moreover text notifications and one chart shall visualize the fruit's edibility at first sight.
+The web-based user interface enables the user to view the content of his refridgerator shelf via a browser. Moreover text notifications and one chart visualize the fruit's edibility at first sight.
 
 ![User Interface](https://github.com/ndoering/smartfridge/blob/master/documents/GUI.PNG)
 
@@ -163,8 +163,12 @@ The web-based user interface enables the user to view the content of his refridg
 ##### 3.3	Software Interfaces
 <Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
 
+The picture recognition and freshness prediction software shall be accessible via a a web based user interface. Hence it is feasible to hst this website on a local web server on the device. 
+
 ##### 3.4	Communications Interfaces
 <Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
+
+The Raspberry Pi is equipped with a WLAN interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi network. In order to provide a high radio range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone, or  a loptop.
 
 ## 4.	System Features
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
