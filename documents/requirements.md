@@ -99,6 +99,8 @@ The system's basic functionalities will be:
 + Reporting regarding food the current status of these food items via a web-based user interface.
 	+ Prediction of a 'best before date'
 	+ Statistical overview via one basic chart visualization.
+	
+Please take note of the following graphic for the concept.
 
 ![High Level Flow Chart](https://github.com/ndoering/smartfridge/blob/master/documents/flowdiagram_highlevel.png)
 
