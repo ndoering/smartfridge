@@ -93,12 +93,19 @@ The described product is a university class project. It can serve as an add-on t
 
 ##### 2.2	Product Functions
 ~~<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>~~   
+
+The system's basic functionalities will be:
++ Tracking of freshness and edibility of fruits and vegetables within refridgerators via optical recognition of the food items' changing colour and shape.
++ Reporting regarding food the current status of these food items via a web-based user interface.
+	+ Prediction of a 'best before date'
+	+ Statistical overview via one basic chart visualization.
+
 ![High Level Flow Chart](https://github.com/ndoering/smartfridge/blob/master/documents/flowdiagram_highlevel.png)
 
 ##### 2.3	User Classes and Characteristics
 ~~<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>~~  
 
-Our group believes in user-centric systems. Hence we elaborated several user groups that share the following attitudes:
+We strive for user-centric systems. Hence we elaborated several user groups that share the following attitudes:
 
 + Early adaptors. (Technology-savvy and curious users...)
 	+ are open-minded and willing to try out unfamiliar products
@@ -111,7 +118,7 @@ Our group believes in user-centric systems. Hence we elaborated several user gro
 	+ are most likely to be a long-time user if they are satisfied
 	+ benefit the product provides: logs of food consumption
 	+ User group importance: high
-+ housewifes / homemakers
++ Housewifes / homemakers
 	+ are in charge of grocery shopping
 	+ like to show off new kitchen equipment to peers (marketing)
 	+ benefit the product provides: notifies/reminds on what food needs to be bought
@@ -133,6 +140,7 @@ A power bank is used for energy supply.
 
 ##### 2.6	User Documentation
 ~~<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>~~
+
 Currently no user documentation is planned.
 
 ##### 2.7	Assumptions and Dependencies
@@ -142,6 +150,7 @@ Currently no user documentation is planned.
 
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
+
 The User Interface allows the user to view the content of his shelf from the website. He also get's his notifications from there. 
 ![User Interface](https://github.com/ndoering/smartfridge/blob/master/documents/GUI.PNG)
 
