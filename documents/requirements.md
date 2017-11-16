@@ -134,7 +134,9 @@ Currently no user documentation is planned.
 ## 3.	External Interface Requirements
 
 ##### 3.1	User Interfaces
-<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>
+~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
+The User Interface allows the user to view the content of his shelf from the website. He also get's his notifications from there. 
+![User Interface](https://github.com/ndoering/smartfridge/blob/master/documents/GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
 <Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
@@ -158,7 +160,9 @@ The camera module placed inside the fridge takes a picture of a single shelf and
 Priority: high
 
 ###### 4.1.2	Stimulus/Response Sequences
-<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>
+~~<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>~~
+*   User puts fruits in the fridge
+*   User activates the smartfridge-software
 
 ###### 4.1.3	Functional Requirements
 <Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
@@ -172,13 +176,13 @@ REQ-2:
 #### 4.2	Detection of food aging process
 
 ###### 4.2.1	Description and Priority
-
+The pictures of the food are categorized by their state of freshness. 
 Priority: high
 
 ###### 4.2.2	Stimulus/Response Sequences
 
 ###### 4.2.3	Functional Requirements
-
+The system checks the pictures in regular intervals. If there are not enough current pictures, it updates this information to the website. 
 
 #### 4.3	Notification of critical food status
 
