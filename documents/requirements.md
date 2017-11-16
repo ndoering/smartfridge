@@ -153,7 +153,8 @@ Currently no user documentation is planned.
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
 
-The User Interface allows the user to view the content of his shelf from the website. He also get's his notifications from there. 
+The web-based user interface enables the user to view the content of his refridgerator shelf via a browser. Moreover text notifications and one chart shall visualize the fruit's edibility at first sight.
+
 ![User Interface](https://github.com/ndoering/smartfridge/blob/master/documents/GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
