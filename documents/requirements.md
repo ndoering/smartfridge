@@ -176,13 +176,14 @@ REQ-2:
 #### 4.2	Detection of food aging process
 
 ###### 4.2.1	Description and Priority
-The pictures of the food are categorized by their state of freshness. 
+The pictures of the food are categorized by their state of freshness. If there are not enough current pictures, it updates this information to the website. 
 Priority: high
 
 ###### 4.2.2	Stimulus/Response Sequences
+*   The images, taken in 4.1, trigger this process.
 
 ###### 4.2.3	Functional Requirements
-The system checks the pictures in regular intervals. If there are not enough current pictures, it updates this information to the website. 
+The pictures get analysed by the software. Therefore the software must be able to analyse and store images.   
 
 #### 4.3	Notification of critical food status
 
@@ -191,9 +192,10 @@ If the food has matured significantly the user gets alerted.
 Priority: medium
 
 ###### 4.3.2	Stimulus/Response Sequences
+*   The outcomes of 4.2 trigger this event.
 
 ###### 4.3.3	Functional Requirements
-
+The notification system (or the website) must be implemented. 
 
 #### 4.4	Tracking of entry and healthiness
 
@@ -202,9 +204,10 @@ The residence time of the food on the shelf will be tracked and its healthiness 
 Priority: medium
 
 ###### 4.4.2	Stimulus/Response Sequences
+*   Event triggered by the analysis in 4.2, if the pictures show the food has reached a tipping point the healthiness-state will be updated
 
 ###### 4.4.3	Functional Requirements
-
+A Database about different states of freshness must be accessible. 
 
 ## 5.	Other Nonfunctional Requirements
 
@@ -212,11 +215,13 @@ Priority: medium
 <If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
 
 ##### 5.2	Safety Requirements
-<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>
+~~<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>~~
+One requirement would be to guarantee the safety of the hardware that needs to be put in the fridge, it must not get to hot, to minimize the energy consumpution of the fridge. 
 
 ##### 5.3	Security Requirements
-<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>
-
+~~<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>~~
+The data regarding the fridgecontent must be only accessible by the fridge-owner. 
+	
 ##### 5.4	Software Quality Attributes
 <Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
 
