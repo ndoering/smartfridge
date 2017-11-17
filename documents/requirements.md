@@ -2,34 +2,32 @@
 by Melanie, Liuba, Nils, Jörn, Chris   
 based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploads/2016/11/srs_template-ieee.doc)
 
+### Table of contents
+1. [Introduction](#1introduction)
 
-### 1.	Introduction
+	1.1 [Purpose](#11purpose)
+	
+	1.2 [Intended Audience and Reading Suggestions](#12intended-audience-and-reading-suggestions)
+	
+	1.3 [Product scope](#13product-scope)
+	
+	1.4 [References](#14references)
 
-	1.1	Purpose
+2. [Overall Description](#2overall-description)
 
-	1.2	Document Conventions
+	2.1	[Product Perspective](#21product-perspective)
 
-	1.3	Intended Audience and Reading Suggestions
+	2.2	[Product Functions](#22product-functions)
 
-	1.4	Product Scope
+	2.3	[User Classes and Characteristics](#23user-classes-and-characteristics)
 
-	1.5	References
+	2.4	[Operating Environment](#24operating-environment)
 
-### 2.	Overall Description
+	2.5	[Design and Implementation Constraints](#25design-and-implementation-constraints)
 
-	2.1	Product Perspective
+	2.6	[User Documentation](#26user-documentation)
 
-	2.2	Product Functions
-
-	2.3	User Classes and Characteristics
-
-	2.4	Operating Environment
-
-	2.5	Design and Implementation Constraints
-
-	2.6	User Documentation
-
-	2.7	Assumptions and Dependencies
+	2.7	[Assumptions and Dependencies](#27assumptions-and-dependencies)
 
 ### 3.	External Interface Requirements
 
@@ -62,6 +60,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 	5.5	Business Rules
 
 <div style="page-break-after: always;"></div>
+
 ## 1.	Introduction
 ##### 1.1	Purpose
 ~~<Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.>~~
@@ -71,20 +70,21 @@ This document specifies the software requirements for the SmartFridge project (n
 ~~##### 1.2	Document Conventions
 <Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.>~~
 
-##### 1.3	Intended Audience and Reading Suggestions
+##### 1.2	Intended Audience and Reading Suggestions
 ~~<Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.>~~
 
 This document is intended for the class of Systems and Software Engineering (WS 2017/2018) at University of Frankfurt. It should be read in whole as each section is relevant for the students' task.
 
-##### 1.4	Product Scope
+##### 1.3	Product Scope
 ~~<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>~~   
 
 A device that determines the freshness of food in a fridge. It can optionally be used to track and show the current fridge content. Since we aim to deliver a proof of concept prototype, the examined fruits and vegetables will be bananas and tomatoes initially.
 
-##### 1.5	References
+##### 1.4	References
 <List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>   
 
 <div style="page-break-after: always;"></div>
+
 ## 2.	Overall Description
 ##### 2.1	Product Perspective
 ~~<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>~~
