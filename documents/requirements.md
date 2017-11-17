@@ -200,9 +200,9 @@ Priority: high
 *   User activates the smartfridge-software by accessing the user interface via web browser.
 
 ###### 4.1.3	Functional Requirements
-<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
+~~<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>~~
 
-<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
+~~<Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>~~
 
 - REQ-1.1: Take picture within fixed environment
 - REQ-1.2: Store images durably
@@ -229,13 +229,10 @@ Priority: high
 *   The images, taken in 4.1, trigger this process.
 
 ###### 4.2.3	Functional Requirements
-*   The pictures get analysed by the software. Therefore the software must be able to analyse and store images. 
-*   Each food item whose status is meant to be tracked must remain in the shelf that is monitored by the camera.
-
 - REQ 2.1: Extract features from ROIs of timeseries of images
 - REQ 2.2: Build aging models for different type of fruits
 - REQ 2.3: Compute state of age for individual fruit stored
-- REQ 2.4: Update model with use input (e.g. "still fresh", "not fresh
+- REQ 2.4: Update model with user input (e.g. "still fresh", "not fresh
   anymore", ...)
 - REQ 2.5: Update notification database
 
