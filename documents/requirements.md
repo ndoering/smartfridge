@@ -6,9 +6,9 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 1. [Introduction](#1introduction)
 
 	1.1 [Purpose](#11purpose)
-	
+
 	1.2 [Intended Audience and Reading Suggestions](#12intended-audience-and-reading-suggestions)
-	
+
 	1.3 [Product scope](#13product-scope)
 
 2. [Overall Description](#2overall-description)
@@ -97,6 +97,8 @@ Please take note of the following graphic for the concept.
 
 ![High Level Flow Chart](flowdiagram_highlevel.png)
 
+<div style="page-break-after: always;"></div>
+
 ##### 2.3	User Classes and Characteristics
 ~~<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>~~
 
@@ -161,7 +163,9 @@ The web-based user interface enables the user to view the content of his refridg
 ![User Interface](GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
-<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
+~~<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>~~
+
+The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The powerbank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over wifi on user devices with a browser.
 
 ##### 3.3	Software Interfaces
 ~~<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>~~
@@ -197,16 +201,15 @@ Priority: high
 - REQ-1.1: Take picture within fixed environment
 - REQ-1.2: Store images durably
 - REQ-1.3: Define Region-of-interest (ROI) for each image
-- REQ-1.4: Provide access to images and metadata (e.g. timestamps, ID,
-  type of fruit, ROI,...) to other processes
-- REQ 1.5: Create timeseries of images for unique fruits 
+- REQ-1.4: Provide access to images and metadata (e.g. timestamps, ID, type of fruit, ROI,...) to other processes
+- REQ 1.5: Create timeseries of images for unique fruits
 
 #### 4.2 Detection and tracking of food aging process
 
 ###### 4.2.1	Description and Priority
 The pictures of the food are categorized by their state of freshness. If there are not enough current pictures, it updates this information to the website.
 *   The analytics software must consist of components that can provide the following tasks.
-	* Taking pictures with the 
+	* Taking pictures with the
 	* Recognize the food items to be tracked.
 	* Recognize the aging process with picture analytics techniques (which need to be further elaborated).
 	* Predict the foods edibility.
@@ -222,8 +225,7 @@ Priority: high
 - REQ 2.1: Extract features from ROIs of timeseries of images
 - REQ 2.2: Build aging models for different type of fruits
 - REQ 2.3: Compute state of age for individual fruit stored
-- REQ 2.4: Update model with user input (e.g. "still fresh", "not fresh
-  anymore", ...)
+- REQ 2.4: Update model with user input (e.g. "still fresh", "not fresh anymore", ...)
 - REQ 2.5: Update notification database
 
 #### 4.3	Notification of critical food status
@@ -259,8 +261,7 @@ The notification system (or the website) must be implemented.
 ##### 5.2	Safety Requirements
 ~~<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>~~
 
-- REQ N2.1: Prevent shortlinks within electronics in the fridge
-  environment
+- REQ N2.1: Prevent shortlinks within electronics in the fridge environment
 - REQ N2.2: Prevent condensation within power supply
 
 ##### 5.3	Security Requirements
