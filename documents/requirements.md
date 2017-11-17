@@ -98,7 +98,7 @@ The described product is a university class project. It can serve as an add-on t
 
 The system's basic functionalities will be:
 + Tracking of freshness and edibility of fruits and vegetables within refridgerators via optical recognition of the food items' changing colour and shape.
-+ Reporting regarding food the current status of these food items via a web-based user interface.
++ Reporting regarding the current status of these food items via a web-based user interface.
 	+ Prediction of a 'best before date'
 	+ Statistical overview via one basic chart visualization.
 
@@ -130,6 +130,7 @@ We strive for user-centric systems. Hence we elaborated several user groups that
 
 ##### 2.4	Operating Environment
 ~~<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>~~
+
 The software will run on a Raspberry Pi 3 Model B with a 1.2GHz Quad Core ARM Cortex-A53, 1 GB LPDDR2 RAM and a WLAN module. Its operating system is Raspbian Stretch (Kernel version 4.9) currently accessible [here](https://www.raspberrypi.org/downloads/raspbian/) and installed on a 16GB SD card.
 Attached to it is a camera module with a 5MP sensor that is able to take pictures with a resolution of 2592 x 1944 (4:3).
 A power bank is used for energy supply.
@@ -145,7 +146,7 @@ A power bank is used for energy supply.
 ##### 2.6	User Documentation
 ~~<List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.>~~
 
-Currently no user documentation is planned.
+Currently no user documentation is planned. We aim to build a user interface that is user friendly enough to be self-explanatory.
 
 ##### 2.7	Assumptions and Dependencies
 <List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
@@ -166,12 +167,12 @@ The web-based user interface enables the user to view the content of his refridg
 ##### 3.3	Software Interfaces
 <Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
 
-The picture recognition and freshness prediction software is accessible via a a web based user interface. Hence it is feasible to host this website on a local web server on the device.
+The backbone of our system will be a picture recognition and freshness prediction software. The output regarding status and predictions will be accessible via a web-based user interface. Hence, for the sake of efficiency it is feasible to host this website on a local web service within the Rasperry Pi along with our analytics software.
 
 ##### 3.4	Communications Interfaces
 <Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
 
-The Raspberry Pi is equipped with a WLAN interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi network. In order to provide a high radio range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone, or a laptop.
+The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi connection. In order to provide a high radio accessibility range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone or laptop computer.
 
 <div style="page-break-after: always;"></div>
 ## 4.	System Features
@@ -181,22 +182,22 @@ The Raspberry Pi is equipped with a WLAN interface. Thus it is able to offer the
 
 ###### 4.1.1	Description and Priority
 ~~<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>~~
-The camera module placed inside the fridge takes a picture of a single shelf and everything on it.   
+The camera module placed inside the fridge takes a picture of food items on one shelf.   
 Priority: high
 
 ###### 4.1.2	Stimulus/Response Sequences
 ~~<List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.>~~
+	
 *   User puts fruits in the fridge
-*   User activates the smartfridge-software
+*   User activates the smartfridge-software by accessing the user interface via web browser.
 
 ###### 4.1.3	Functional Requirements
 <Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
 
 <Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
 
-REQ-1:
-REQ-2:
-
+REQ-1: 
+REQ-2: 
 
 #### 4.2	Detection of food aging process
 
@@ -208,7 +209,8 @@ Priority: high
 *   The images, taken in 4.1, trigger this process.
 
 ###### 4.2.3	Functional Requirements
-The pictures get analysed by the software. Therefore the software must be able to analyse and store images.   
+*   The pictures get analysed by the software. Therefore the software must be able to analyse and store images. 
+*   Each food item whose status is meant to be tracked must remain in the shelf that is monitored by the camera.
 
 #### 4.3	Notification of critical food status
 
@@ -222,7 +224,7 @@ Priority: medium
 ###### 4.3.3	Functional Requirements
 The notification system (or the website) must be implemented.
 
-#### 4.4	Tracking of entry and healthiness
+#### 4.4	Tracking of food entry and its edibility
 
 ###### 4.4.1	Description and Priority
 The residence time of the food on the shelf will be tracked and its healthiness will be determined.
@@ -232,7 +234,13 @@ Priority: medium
 *   Event triggered by the analysis in 4.2, if the pictures show the food has reached a tipping point the healthiness-state will be updated
 
 ###### 4.4.3	Functional Requirements
-A Database about different states of freshness must be accessible.
+*   The analytics software must consist of components that can provide the following tasks.
+	* Taking pictures with the 
+	* Recognize the food items to be tracked.
+	* Recognize the aging process with picture analytics techniques (which need to be further elaborated).
+	* Predict the foods edibility.
+	* Constantly improving the prediction process. The user must be able to give a simple feedback, if the predicted edibility deviates from its actual state of freshness.
+*   A Database about different states of freshness must be accessible.
 
 <div style="page-break-after: always;"></div>
 ## 5.	Other Nonfunctional Requirements
@@ -240,10 +248,9 @@ A Database about different states of freshness must be accessible.
 ##### 5.1	Performance Requirements
 <If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
 
-
-
 ##### 5.2	Safety Requirements
 ~~<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>~~
+
 One requirement would be to guarantee the safety of the hardware that needs to be put in the fridge, it must not get to hot, to minimize the energy consumpution of the fridge.
 
 ##### 5.3	Security Requirements
@@ -266,5 +273,6 @@ The data regarding the fridgecontent must be only accessible by the fridge-owner
 
 ## Appendix B: Analysis Models
 <Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.>
+
 ## Appendix C: To Be Determined List
 <Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.>
