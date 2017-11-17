@@ -3,13 +3,10 @@ by Melanie, Liuba, Nils, Jörn, Chris
 based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploads/2016/11/srs_template-ieee.doc)
 
 
-### 1.	Introduction
-
-	1.1	Purpose
-
-	1.2	Document Conventions
-
-	1.3	Intended Audience and Reading Suggestions
+- 1. [Introduction]
+  - 1.1	[Purpose]
+  - 1.2	[Document Conventions]
+  - 1.3	[Intended Audience and Reading Suggestions]
 
 	1.4	Product Scope
 
@@ -250,7 +247,7 @@ The notification system (or the website) must be implemented.
 - REQ 3.3: Notify frontend (e.g. website, RSS-feed, ...)
 
 <div style="page-break-after: always;"></div>
-## 5.	Other Nonfunctional Requirements
+### 5.	Other Nonfunctional Requirements
 
 ##### 5.1	Performance Requirements
 <If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
