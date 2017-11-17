@@ -43,13 +43,11 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 ### 4.	System Features
 
-	4.1	Taking a picture of the fridge interior
+	4.1	Data aquisition and storage
 
-	4.2	Detection of food aging process
+	4.2	Detection and tracking of food aging process
 
  	4.3	Notification of critical food status
-
- 	4.4	Tracking of entry and healthiness
 
 ### 5.	Other Nonfunctional Requirements
 
@@ -132,8 +130,12 @@ We strive for user-centric systems. Hence we elaborated several user groups that
 ~~<Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.>~~
 
 The software will run on a Raspberry Pi 3 Model B with a 1.2GHz Quad Core ARM Cortex-A53, 1 GB LPDDR2 RAM and a WLAN module. Its operating system is Raspbian Stretch (Kernel version 4.9) currently accessible [here](https://www.raspberrypi.org/downloads/raspbian/) and installed on a 16GB SD card.
-Attached to it is a camera module with a 5MP sensor that is able to take pictures with a resolution of 2592 x 1944 (4:3).
+Attached to it is a camera module with a 5MP sensor that is able to
+take pictures with a resolution of 2592 x 1944 (4:3).
+
 A power bank is used for energy supply.
+
+The hardware will operate within the fridge to reduce the overhead of cabling.
 
 ##### 2.5	Design and Implementation Constraints
 ~~<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>~~   
@@ -178,7 +180,7 @@ The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the
 ## 4.	System Features
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
 
-##### 4.1 Taking a picture of the fridge interior
+##### 4.1 Data aquisition and storage
 
 ###### 4.1.1	Description and Priority
 ~~<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>~~
@@ -196,13 +198,25 @@ Priority: high
 
 <Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
 
-REQ-1: 
-REQ-2: 
+- REQ-1.1: Take picture within fixed environment
+- REQ-1.2: Store images durably
+- REQ-1.3: Define Region-of-interest (ROI) for each image
+- REQ-1.4: Provide access to images and metadata (e.g. timestamps, ID,
+  type of fruit, ROI,...) to other processes
+- REQ 1.5: Create timeseries of images for unique fruits 
 
-#### 4.2	Detection of food aging process
+#### 4.2 Detection and tracking of food aging process
 
 ###### 4.2.1	Description and Priority
 The pictures of the food are categorized by their state of freshness. If there are not enough current pictures, it updates this information to the website.
+*   The analytics software must consist of components that can provide the following tasks.
+	* Taking pictures with the 
+	* Recognize the food items to be tracked.
+	* Recognize the aging process with picture analytics techniques (which need to be further elaborated).
+	* Predict the foods edibility.
+	* Constantly improving the prediction process. The user must be able to give a simple feedback, if the predicted edibility deviates from its actual state of freshness.
+*   A Database about different states of freshness must be accessible.
+
 Priority: high
 
 ###### 4.2.2	Stimulus/Response Sequences
@@ -211,6 +225,13 @@ Priority: high
 ###### 4.2.3	Functional Requirements
 *   The pictures get analysed by the software. Therefore the software must be able to analyse and store images. 
 *   Each food item whose status is meant to be tracked must remain in the shelf that is monitored by the camera.
+
+- REQ 2.1: Extract features from ROIs of timeseries of images
+- REQ 2.2: Build aging models for different type of fruits
+- REQ 2.3: Compute state of age for individual fruit stored
+- REQ 2.4: Update model with use input (e.g. "still fresh", "not fresh
+  anymore", ...)
+- REQ 2.5: Update notification database
 
 #### 4.3	Notification of critical food status
 
@@ -224,23 +245,9 @@ Priority: medium
 ###### 4.3.3	Functional Requirements
 The notification system (or the website) must be implemented.
 
-#### 4.4	Tracking of food entry and its edibility
-
-###### 4.4.1	Description and Priority
-The residence time of the food on the shelf will be tracked and its healthiness will be determined.
-Priority: medium
-
-###### 4.4.2	Stimulus/Response Sequences
-*   Event triggered by the analysis in 4.2, if the pictures show the food has reached a tipping point the healthiness-state will be updated
-
-###### 4.4.3	Functional Requirements
-*   The analytics software must consist of components that can provide the following tasks.
-	* Taking pictures with the 
-	* Recognize the food items to be tracked.
-	* Recognize the aging process with picture analytics techniques (which need to be further elaborated).
-	* Predict the foods edibility.
-	* Constantly improving the prediction process. The user must be able to give a simple feedback, if the predicted edibility deviates from its actual state of freshness.
-*   A Database about different states of freshness must be accessible.
+- REQ 3.1: Create database for fruits in fridge
+- REQ 3.2: Watch database for updates
+- REQ 3.3: Notify frontend (e.g. website, RSS-feed, ...)
 
 <div style="page-break-after: always;"></div>
 ## 5.	Other Nonfunctional Requirements
@@ -248,14 +255,27 @@ Priority: medium
 ##### 5.1	Performance Requirements
 <If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>
 
+- REQ N1.1: Modular setup to facilitate separation of computing and
+  data aquisition
+- REQ N1.2: Reduce energy consumption to less than 25% of the energy
+  consumption of the fridge
+
 ##### 5.2	Safety Requirements
 ~~<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>~~
 
 One requirement would be to guarantee the safety of the hardware that needs to be put in the fridge, it must not get to hot, to minimize the energy consumpution of the fridge.
 
+- REQ N2.1: Prevent shortlinks within electronics in the fridge
+  environment
+- REQ N2.2: Prevent condensation within power supply
+
 ##### 5.3	Security Requirements
 ~~<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>~~
 The data regarding the fridgecontent must be only accessible by the fridge-owner.
+
+- REQ N3.1: Prevent foreign access to stored data
+- REQ N3.2: Prevent foreign access to computing hardware
+- REQ N3.3: Prevent foreign access to connected networks and computers
 
 ##### 5.4	Software Quality Attributes
 <Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
