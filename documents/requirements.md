@@ -29,35 +29,35 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 	2.7	[Assumptions and Dependencies](#27assumptions-and-dependencies)
 
-### 3.	External Interface Requirements
+3.	[External Interface Requirements](#3external-interface-requirements)
 
-	3.1	User Interfaces
+	3.1	[User Interfaces](#31user-interfaces)
 
-	3.2	Hardware Interfaces
+	3.2	[Hardware Interfaces](#32hardware-interfaces)
 
-	3.3	Software Interfaces
+	3.3	[Software Interfaces](#33software-interfaces)
 
-	3.4	Communications Interfaces
+	3.4	[Communications Interfaces](#34communications-interfaces)
 
-### 4.	System Features
+4.	[System Features](#4system-features)
 
-	4.1	Data aquisition and storage
+	4.1	[Data aquisition and storage](#41data-aquisition-and-storage)
 
-	4.2	Detection and tracking of food aging process
+	4.2	[Detection and tracking of food aging process](#42detection-and-tracking-of-food-aging-process)
 
- 	4.3	Notification of critical food status
+ 	4.3	[Notification of critical food status](#43notification-of-critical-food-status)
 
-### 5.	Other Nonfunctional Requirements
+5.	[Other Nonfunctional Requirements](#5other-nonfunctional-requirements)
 
-	5.1	Performance Requirements
+	5.1	[Performance Requirements](#51performance-requirements)
 
-	5.2	Safety Requirements
+	5.2	[Safety Requirements](#52safety-requirements)
 
-	5.3	Security Requirements
+	5.3	[Security Requirements](#53security-requirements)
 
-	5.4	Software Quality Attributes
+	5.4	[Software Quality Attributes](#54software-quality-attributes)
 
-	5.5	Business Rules
+	5.5	[Business Rules](#55business-rules)
 
 <div style="page-break-after: always;"></div>
 
@@ -154,7 +154,8 @@ Currently no user documentation is planned. We aim to build a user interface tha
 <List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
 
 <div style="page-break-after: always;"></div>
-## 3.	External Interface Requirements
+
+### 3.	External Interface Requirements
 
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
@@ -177,7 +178,8 @@ The backbone of our system will be a picture recognition and freshness predictio
 The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi connection. In order to provide a high radio accessibility range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone or laptop computer.
 
 <div style="page-break-after: always;"></div>
-## 4.	System Features
+
+### 4.	System Features
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
 
 ##### 4.1 Data aquisition and storage
@@ -235,7 +237,7 @@ Priority: high
 
 #### 4.3	Notification of critical food status
 
-###### 4.2.1	Description and Priority
+###### 4.3.1	Description and Priority
 If the food has matured significantly the user gets alerted.
 Priority: medium
 
@@ -250,6 +252,7 @@ The notification system (or the website) must be implemented.
 - REQ 3.3: Notify frontend (e.g. website, RSS-feed, ...)
 
 <div style="page-break-after: always;"></div>
+
 ### 5.	Other Nonfunctional Requirements
 
 ##### 5.1	Performance Requirements
