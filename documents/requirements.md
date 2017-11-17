@@ -13,7 +13,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 	1.4	Product Scope
 
-	1.5	References 
+	1.5	References
 
 ### 2.	Overall Description
 
@@ -46,9 +46,9 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 	4.1	Taking a picture of the fridge interior
 
 	4.2	Detection of food aging process
- 
+
  	4.3	Notification of critical food status
- 
+
  	4.4	Tracking of entry and healthiness
 
 ### 5.	Other Nonfunctional Requirements
@@ -63,6 +63,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 	5.5	Business Rules
 
+<div style="page-break-after: always;"></div>
 ## 1.	Introduction
 ##### 1.1	Purpose
 ~~<Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.>~~
@@ -85,6 +86,7 @@ A device that determines the freshness of food in a fridge. It can optionally be
 ##### 1.5	References
 <List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.>   
 
+<div style="page-break-after: always;"></div>
 ## 2.	Overall Description
 ##### 2.1	Product Perspective
 ~~<Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.>~~
@@ -99,10 +101,10 @@ The system's basic functionalities will be:
 + Reporting regarding food the current status of these food items via a web-based user interface.
 	+ Prediction of a 'best before date'
 	+ Statistical overview via one basic chart visualization.
-	
+
 Please take note of the following graphic for the concept.
 
-![High Level Flow Chart](https://github.com/ndoering/smartfridge/blob/master/documents/flowdiagram_highlevel.png)
+![High Level Flow Chart](flowdiagram_highlevel.png)
 
 ##### 2.3	User Classes and Characteristics
 ~~<Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.>~~  
@@ -148,6 +150,7 @@ Currently no user documentation is planned.
 ##### 2.7	Assumptions and Dependencies
 <List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>
 
+<div style="page-break-after: always;"></div>
 ## 3.	External Interface Requirements
 
 ##### 3.1	User Interfaces
@@ -155,7 +158,7 @@ Currently no user documentation is planned.
 
 The web-based user interface enables the user to view the content of his refridgerator shelf via a browser. Moreover text notifications and one chart visualize the fruit's edibility at first sight.
 
-![User Interface](https://github.com/ndoering/smartfridge/blob/master/documents/GUI.PNG)
+![User Interface](GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
 <Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>
@@ -163,24 +166,22 @@ The web-based user interface enables the user to view the content of his refridg
 ##### 3.3	Software Interfaces
 <Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>
 
-The picture recognition and freshness prediction software shall be accessible via a a web based user interface. Hence it is feasible to hst this website on a local web server on the device. 
+The picture recognition and freshness prediction software is accessible via a a web based user interface. Hence it is feasible to host this website on a local web server on the device.
 
 ##### 3.4	Communications Interfaces
 <Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>
 
-The Raspberry Pi is equipped with a WLAN interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi network. In order to provide a high radio range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone, or  a loptop.
+The Raspberry Pi is equipped with a WLAN interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi network. In order to provide a high radio range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone, or a laptop.
 
+<div style="page-break-after: always;"></div>
 ## 4.	System Features
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
-
-~~##### 4.1	System Feature 1
-<Don’t really say “System Feature 1.” State the feature name in just a few words.>~~
 
 ##### 4.1 Taking a picture of the fridge interior
 
 ###### 4.1.1	Description and Priority
 ~~<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>~~
-The camera module placed inside the fridge takes a picture of a single shelf and everything on it.
+The camera module placed inside the fridge takes a picture of a single shelf and everything on it.   
 Priority: high
 
 ###### 4.1.2	Stimulus/Response Sequences
@@ -190,17 +191,17 @@ Priority: high
 
 ###### 4.1.3	Functional Requirements
 <Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>
-	
+
 <Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.>
-	
-REQ-1:	
+
+REQ-1:
 REQ-2:
 
 
 #### 4.2	Detection of food aging process
 
 ###### 4.2.1	Description and Priority
-The pictures of the food are categorized by their state of freshness. If there are not enough current pictures, it updates this information to the website. 
+The pictures of the food are categorized by their state of freshness. If there are not enough current pictures, it updates this information to the website.
 Priority: high
 
 ###### 4.2.2	Stimulus/Response Sequences
@@ -219,7 +220,7 @@ Priority: medium
 *   The outcomes of 4.2 trigger this event.
 
 ###### 4.3.3	Functional Requirements
-The notification system (or the website) must be implemented. 
+The notification system (or the website) must be implemented.
 
 #### 4.4	Tracking of entry and healthiness
 
@@ -231,8 +232,9 @@ Priority: medium
 *   Event triggered by the analysis in 4.2, if the pictures show the food has reached a tipping point the healthiness-state will be updated
 
 ###### 4.4.3	Functional Requirements
-A Database about different states of freshness must be accessible. 
+A Database about different states of freshness must be accessible.
 
+<div style="page-break-after: always;"></div>
 ## 5.	Other Nonfunctional Requirements
 
 ##### 5.1	Performance Requirements
@@ -242,22 +244,23 @@ A Database about different states of freshness must be accessible.
 
 ##### 5.2	Safety Requirements
 ~~<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>~~
-One requirement would be to guarantee the safety of the hardware that needs to be put in the fridge, it must not get to hot, to minimize the energy consumpution of the fridge. 
+One requirement would be to guarantee the safety of the hardware that needs to be put in the fridge, it must not get to hot, to minimize the energy consumpution of the fridge.
 
 ##### 5.3	Security Requirements
 ~~<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>~~
-The data regarding the fridgecontent must be only accessible by the fridge-owner. 
-	
+The data regarding the fridgecontent must be only accessible by the fridge-owner.
+
 ##### 5.4	Software Quality Attributes
 <Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
 
 ##### 5.5	Business Rules
 <List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.>
 
+<div style="page-break-after: always;"></div>
 ## 6.	Other Requirements
 <Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.>
 
-
+<div style="page-break-after: always;"></div>
 ## Appendix A: Glossary
 <Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.>
 
@@ -265,7 +268,3 @@ The data regarding the fridgecontent must be only accessible by the fridge-owner
 <Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.>
 ## Appendix C: To Be Determined List
 <Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.>
-
-
-
-
