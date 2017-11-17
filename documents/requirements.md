@@ -260,11 +260,10 @@ The notification system (or the website) must be implemented.
   data aquisition
 - REQ N1.2: Reduce energy consumption to less than 25% of the energy
   consumption of the fridge
+- REQ N1.3: Minimize exhaust heat that would increase the fridge cooling
 
 ##### 5.2	Safety Requirements
 ~~<Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.>~~
-
-One requirement would be to guarantee the safety of the hardware that needs to be put in the fridge, it must not get to hot, to minimize the energy consumpution of the fridge.
 
 - REQ N2.1: Prevent shortlinks within electronics in the fridge
   environment
@@ -274,9 +273,9 @@ One requirement would be to guarantee the safety of the hardware that needs to b
 ~~<Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.>~~
 The data regarding the fridgecontent must be only accessible by the fridge-owner.
 
-- REQ N3.1: Prevent foreign access to stored data
-- REQ N3.2: Prevent foreign access to computing hardware
-- REQ N3.3: Prevent foreign access to connected networks and computers
+- REQ N3.1: Prevent unauthorized access to stored data
+- REQ N3.2: Prevent unauthorized access to computing hardware
+- REQ N3.3: Prevent unauthorized access to connected networks and computers
 
 ##### 5.4	Software Quality Attributes
 <Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.>
