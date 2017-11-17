@@ -41,9 +41,9 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 4.	[System Features](#4system-features)
 
-	4.1	[Data aquisition and storage](#41data-aquisition-and-storage)
+	4.1	[Data aquisition and storage](#41-data-aquisition-and-storage)
 
-	4.2	[Detection and tracking of food aging process](#42detection-and-tracking-of-food-aging-process)
+	4.2	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
 
  	4.3	[Notification of critical food status](#43notification-of-critical-food-status)
 
