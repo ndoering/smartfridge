@@ -58,6 +58,8 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 	5.4	[Software Quality Attributes](#54software-quality-attributes)
 
 	5.5	[Business Rules](#55business-rules)
+6.	[Other Requirements](#6other-requirements)
+7.	[Appendix](#7appendix)
 
 <div style="page-break-after: always;"></div>
 
@@ -287,15 +289,19 @@ The data regarding the fridgecontent must be only accessible by the fridge-owner
 <List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.>
 
 <div style="page-break-after: always;"></div>
-## 6.	Other Requirements
+
+### 6.	Other Requirements
 <Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.>
 
 <div style="page-break-after: always;"></div>
-## Appendix A: Glossary
+
+### 7. Appendix 
+
+##### A: Glossary
 <Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.>
 
-## Appendix B: Analysis Models
+##### B: Analysis Models
 <Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.>
 
-## Appendix C: To Be Determined List
+##### C: To Be Determined List
 <Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.>
