@@ -290,6 +290,8 @@ The data regarding the fridgecontent must be only accessible by the fridge-owner
 ##### 5.5	Business Rules
 <List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.>
 
+- REQ N5.1: User controls data storage and usage
+
 <div style="page-break-after: always;"></div>
 
 ### 6.	Other Requirements
