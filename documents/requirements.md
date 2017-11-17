@@ -58,8 +58,10 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 	5.4	[Software Quality Attributes](#54software-quality-attributes)
 
 	5.5	[Business Rules](#55business-rules)
+	
 6.	[Other Requirements](#6other-requirements)
-7.	[Appendix](#7appendix)
+
+7.	[Appendix](#7-appendix)
 
 <div style="page-break-after: always;"></div>
 
