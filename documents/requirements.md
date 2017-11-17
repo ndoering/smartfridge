@@ -3,10 +3,13 @@ by Melanie, Liuba, Nils, Jörn, Chris
 based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploads/2016/11/srs_template-ieee.doc)
 
 
-- 1. [Introduction]
-  - 1.1	[Purpose]
-  - 1.2	[Document Conventions]
-  - 1.3	[Intended Audience and Reading Suggestions]
+### 1.	Introduction
+
+	1.1	Purpose
+
+	1.2	Document Conventions
+
+	1.3	Intended Audience and Reading Suggestions
 
 	1.4	Product Scope
 
