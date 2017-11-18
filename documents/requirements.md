@@ -175,14 +175,14 @@ The backbone of our system will be a picture recognition and freshness predictio
 ##### 3.4	Communications Interfaces
 ~~<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>~~
 
-The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi connection. In order to provide a high radio accessibility range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one to one connection with the end user device, such as a smartphone or laptop computer.
+The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi connection. In order to provide a high radio accessibility range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one-to-one connection with the end user device, such as a smartphone or laptop computer.
 
 <div style="page-break-after: always;"></div>
 
 ### 4.	System Features
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
 
-##### 4.1 Data aquisition and storage
+#### 4.1 Data aquisition and storage
 
 ###### 4.1.1	Description and Priority
 ~~<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>~~
@@ -200,7 +200,7 @@ Priority: high
 
 - REQ-1.1: Take picture within fixed environment
 - REQ-1.2: Store images durably
-- REQ-1.3: Define Region-of-interest (ROI) for each image
+- REQ-1.3: Define region-of-interest (ROI) for each image
 - REQ-1.4: Provide access to images and metadata (e.g. timestamps, ID, type of fruit, ROI,...) to other processes
 - REQ 1.5: Create timeseries of images for unique fruits
 
@@ -208,12 +208,12 @@ Priority: high
 
 ###### 4.2.1	Description and Priority
 The pictures of the food are categorized by their state of freshness. If there are not enough current pictures, it updates this information to the website.
-*   The analytics software must consist of components that can provide the following tasks.
-	* Taking pictures with the
-	* Recognize the food items to be tracked.
-	* Recognize the aging process with picture analytics techniques (which need to be further elaborated).
-	* Predict the foods edibility.
-	* Constantly improving the prediction process. The user must be able to give a simple feedback, if the predicted edibility deviates from its actual state of freshness.
+*   The analytics software must consist of components that can provide the following tasks:
+	* Taking pictures with the camera
+	* Recognize the food items to be tracked
+	* Recognize the aging process with picture analytics techniques (which need to be further elaborated)
+	* Predict the food's edibility
+	* Constantly improving the prediction process: The user must be able to give simple feedback, if the predicted freshness deviates from its actual state of freshness.
 *   A Database about different states of freshness must be accessible.   
 
 Priority: high
@@ -265,7 +265,7 @@ The notification system (or the website) must be implemented.
 - REQ N2.2: Prevent condensation within power supply
 
 ##### 5.3	Security Requirements
-The data regarding the fridgecontent must be only accessible by the fridge-owner.
+The data regarding the fridge content must be only accessible by the fridge-owner.
 
 - REQ N3.1: Prevent unauthorized access to stored data
 - REQ N3.2: Prevent unauthorized access to computing hardware
