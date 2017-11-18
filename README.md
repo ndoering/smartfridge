@@ -4,11 +4,6 @@
 
 ### Prepared by Melanie, Liuba, Nils, Jörn, Chris
 
-### Cheat-Sheet for a quick Markdown-introduction
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-https://guides.github.com/features/mastering-markdown/
-
 Hi everyone!  Please feel free to contribute.   
 I moved the requirements specs to the [requirements.md](https://github.com/ndoering/smartfridge/blob/master/documents/requirements.md) as the README is more an overall document on the whole project.
 
