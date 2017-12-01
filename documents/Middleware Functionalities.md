@@ -1,16 +1,40 @@
-# Middleware Functionalities Pseudo Code
+# Functionalities
 The document shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
 
-### Program Part Name.
+### Middleware
+
++ Taking and accessing pictures
++ Image processing pipeline
+  + Reducing the image resolution
+  + Segmenting fruits to provide more valid input data
++ Upload of the data to the cloud service and receive response data concerning edibility estimation
++ Data Management and Database access
+  + Picture storage
+  + Logging
+    + Timestamp
+    + Received edibility estimation
+    + Number of bananas
+    + Number of potatoes
+    + Date of appearance / disappearance
++ Web frontend
++ Automatic push notification for 'Slack' messenger platform
+
+### Backend
++ SQLite Database as source for our website
+  + Storage of metadata
+  + Storage of binary image files
++ Apache Webserver  
+
 
 ###### function_name
-Purpose:
 
-Argument:
++ Purpose:
 
-Return Value:
++ Argument:
 
-Algorithm:
++ Return Value:
+
++ Algorithm:
 
 ----------------------------------
 
