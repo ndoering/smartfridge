@@ -1,4 +1,6 @@
-# Core Functionalities
+# Smart Fridge application functionalities
+
+We aim to develop our application as a  middleware which is implemented in Python code and executes the core functionalities (described underneath). Apart from that, our backend consists of a SQLite database, along with an apache instance that runs alongside our core application. In order to estimate the fruits edibility, we use cloud service classification. The user interface will be a simple, mobile optimized website that provides all information at a glance.
 
 ### Middleware
 
@@ -31,9 +33,10 @@
 + Apache Webserver  
 
 ----------------------------------
+
 # Pseudo Code
 
-The document shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
+The pseudo code shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
 
 ###### function_name
 
