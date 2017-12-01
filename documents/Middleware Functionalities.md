@@ -34,7 +34,7 @@ We aim to develop our application as a  middleware which is implemented in Pytho
 
 ----------------------------------
 
-~# Pseudo Code
+# Pseudo Code
 
 The pseudo code shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
 
@@ -79,4 +79,4 @@ Return Value: void
 
 Algorithm:
 + Create database connection
-+ Log edibility result, timestamp, picture name~
++ Log edibility result, timestamp, picture name
