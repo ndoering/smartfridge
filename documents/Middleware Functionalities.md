@@ -1,5 +1,4 @@
 # Core Functionalities
-The document shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
 
 ### Middleware
 
@@ -25,6 +24,12 @@ The document shall serve as a basis for later discussions. I suggest the followi
   + Storage of binary image files
 + Apache Webserver  
 
+----------------------------------
+
+### Creation of a model with a Machine Learning Cloud Service
+
+The document shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
+
 ###### function_name
 
 + Purpose:
@@ -34,10 +39,6 @@ The document shall serve as a basis for later discussions. I suggest the followi
 + Return Value:
 
 + Algorithm:
-
-----------------------------------
-
-### Creation of a model with a Machine Learning Cloud Service
 
 ### Support script within the operating system
 
