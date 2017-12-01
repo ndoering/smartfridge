@@ -1,4 +1,4 @@
-# Functionalities
+# Core Functionalities
 The document shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
 
 ### Middleware
@@ -6,9 +6,9 @@ The document shall serve as a basis for later discussions. I suggest the followi
 + Taking and accessing pictures
 + Image processing pipeline
   + Reducing the image resolution
-  + Segmenting fruits to provide more valid input data
+  + Segmentation of fruits to provide more valid input data
 + Upload of the data to the cloud service and receive response data concerning edibility estimation
-+ Data Management and Database access
++ Data Management and database access
   + Picture storage
   + Logging
     + Timestamp
@@ -24,7 +24,6 @@ The document shall serve as a basis for later discussions. I suggest the followi
   + Storage of metadata
   + Storage of binary image files
 + Apache Webserver  
-
 
 ###### function_name
 
