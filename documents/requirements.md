@@ -1,4 +1,4 @@
-# Requirements Specification for Project 'Smartfridge'
+# Requirements Specification for Project 'SmartFridge'
 by Melanie, Liuba, Nils, Jörn, Chris   
 based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploads/2016/11/srs_template-ieee.doc)
 
@@ -39,7 +39,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 4.	[System Features](#4system-features)
 
-	4.1	[Data aquisition and storage](#41-data-aquisition-and-storage)
+	4.1	[Data acquisition and storage](#41-data-aquisition-and-storage)
 
 	4.2	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
 
@@ -96,7 +96,7 @@ The described product is a university class project. It can serve as an add-on t
 ~~<Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.>~~
 
 The system's basic functionalities will be:
-+ Tracking of freshness and edibility of fruits and vegetables within refridgerators via optical recognition of the food items' changing colour and shape.
++ Tracking of freshness and edibility of fruits and vegetables within refrigerators via optical recognition of the food items' changing color and shape.
 + Reporting regarding the current status of these food items via a web-based user interface.
 	+ Prediction of a 'best before date'
 	+ Statistical overview via one basic chart visualization.
@@ -118,12 +118,12 @@ We strive for user-centric systems. Hence we elaborated several user groups that
 	+ appreciate the new product experience as individual benefit
 	+ User group importance: high
 + Consciousness about food consumption. Users...
-	+ want to have an detailled and exact overview of their food consumption.
+	+ want to have an detailed and exact overview of their food consumption
 	+ care about food not being wasted
 	+ are most likely to be a long-time user if they are satisfied
 	+ benefit the product provides: logs of food consumption
 	+ User group importance: high
-+ Housewifes / homemakers
++ Housewives / Homemakers
 	+ are in charge of grocery shopping
 	+ like to show off new kitchen equipment to peers (marketing)
 	+ benefit the product provides: notifies/reminds on what food needs to be bought
@@ -143,7 +143,7 @@ The hardware will operate within the fridge to reduce the overhead of cabling.
 ##### 2.5	Design and Implementation Constraints
 ~~<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>~~
 
-+ the RaspberryPi's limited RAM and CPU power might hamper the image processing
++ the Raspberry Pi's limited RAM and CPU power might hamper the image processing
 + the knowledge of used programming language(s) might be insufficient
 + the camera module has no auto focus
 + the inside of the fridge is usually not illuminated while the fridge is closed
@@ -157,7 +157,7 @@ Currently no user documentation is planned. We aim to build a user interface tha
 ##### 2.7	Assumptions and Dependencies
 ~~<List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).>~~
 
-It is assumed that some open-source machine learing libraries and packages are available to facilitate the development and coding process.
+It is assumed that some open-source machine learning libraries and packages are available to facilitate the development and coding process.
 
 <div style="page-break-after: always;"></div>
 
@@ -166,24 +166,24 @@ It is assumed that some open-source machine learing libraries and packages are a
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
 
-The web-based user interface enables the user to view the content of his refridgerator shelf via a browser. Moreover text notifications and one chart visualize the fruit's edibility at first sight.
+The web-based user interface enables the user to view the content of his refrigerator shelf via a browser. Moreover text notifications and one chart visualize the fruit's edibility at first sight.
 
 ![User Interface](GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
 ~~<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>~~
 
-The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The powerbank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over wifi on user devices with a browser.
+The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The power bank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over Wi-Fi on user devices with a browser.
 
 ##### 3.3	Software Interfaces
 ~~<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>~~
 
-The backbone of our system will be a picture recognition and freshness prediction software. The output regarding status and predictions will be accessible via a web-based user interface. Hence, for the sake of efficiency it is feasible to host this website on a local web service within the Rasperry Pi along with our analytics software.
+The backbone of our system will be a picture recognition and freshness prediction software. The output regarding status and predictions will be accessible via a web-based user interface. Hence, for the sake of efficiency it is feasible to host this website on a local web service within the Raspberry Pi along with our analytics software.
 
 ##### 3.4	Communications Interfaces
 ~~<Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.>~~
 
-The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the web interface provided by a local web server service via a local wifi connection. In order to provide a high radio accessibility range, the Raspberry Pi might be connected to a local access point. Alternatively it could also be configured as access point itself and deliver a one-to-one connection with the end user device, such as a smartphone or laptop computer.
+The Raspberry Pi is equipped with a Wi-Fi interface. Thus it is able to offer the web interface provided by a local web server service via a local Wi-Fi connection. In order to provide a high radio accessibility range, the Raspberry Pi might be connected to a local access point. Alternatively, it could also be configured as access point itself and deliver a one-to-one connection with the end user device, such as a smartphone or laptop computer.
 
 <div style="page-break-after: always;"></div>
 
@@ -191,7 +191,7 @@ The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
 This section describes the functionalities the system provides. It features the use-cases in the following diagram:
 ![Use Cases](UseCasesSmartFridge.PNG)
-#### 4.1 Data aquisition and storage
+#### 4.1 Data acquisition and storage
 
 ###### 4.1.1	Description and Priority
 ~~<Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).>~~
@@ -202,7 +202,7 @@ Priority: high
 
 ###### 4.1.2	Stimulus/Response Sequences
 *   User puts fruits in the fridge
-*   User activates the smartfridge-software by accessing the user interface via web browser.
+*   User activates the SmartFridge software by accessing the user interface via web browser.
 
 ###### 4.1.3	Functional Requirements
 ~~<Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.>~~
@@ -262,7 +262,7 @@ The notification system (or the website) must be implemented.
 ~~<If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.>~~
 
 - REQ N1.1: Modular setup to facilitate separation of computing and
-  data aquisition
+  data acquisition
 - REQ N1.2: Reduce energy consumption to less than 25% of the energy
   consumption of the fridge
 - REQ N1.3: Minimize exhaust heat that would increase the fridge cooling
