@@ -2,11 +2,13 @@
 
 ### Middleware
 
-+ Taking and accessing pictures
++ Capturing of images on a regular basis
 + Image processing pipeline
   + Reducing the image resolution
   + Segmentation of fruits to provide more valid input data
-+ Upload of the data to the cloud service and receive response data concerning edibility estimation
++ Uploading the captured images to a classification cloud service
+  + Cloud API call
+  + Saving the returned edibility information into the database
 + Data Management and database access
   + Picture storage
   + Logging
@@ -16,7 +18,11 @@
     + Number of potatoes
     + Date of appearance / disappearance
 + Web frontend
+  + Mobile optimized
+  + Simple and clear to use
 + Automatic push notification for 'Slack' messenger platform
+  + Database access
+  + Slack API Call
 
 ### Backend
 + SQLite Database as source for our website
@@ -25,8 +31,7 @@
 + Apache Webserver  
 
 ----------------------------------
-
-### Creation of a model with a Machine Learning Cloud Service
+# Pseudo Code
 
 The document shall serve as a basis for later discussions. I suggest the following template to describe our code functions.
 
