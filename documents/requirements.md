@@ -64,7 +64,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 | Version 	| Date		| Commentary									|
 |---------------|---------------|-------------------------------------------------------------------------------|
 | 1.0		| 2017-11-18	| Initial Draft									|
-| 		| 		| 										|
+| 2.0		| 2017-11-29	| Updated with Use Cases							|
 
 <div style="page-break-after: always;"></div>
 
@@ -82,7 +82,7 @@ This document is intended for the class of Systems and Software Engineering (WS 
 ##### 1.3	Product Scope
 ~~<Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.>~~
 
-A device that determines the freshness of food in a fridge. It can optionally be used to track and show the current fridge content. Since we aim to deliver a proof of concept prototype, the examined fruits and vegetables will be bananas and tomatoes initially.
+A device that determines the freshness of food in a fridge. It can optionally be used to track and show the current fridge content. Since we aim to deliver a proof of concept prototype, the examined fruits and vegetables will initially be bananas and tomatoes.
 
 <div style="page-break-after: always;"></div>
 
@@ -189,7 +189,8 @@ The Raspberry Pi is equipped with a wifi interface. Thus it is able to offer the
 
 ### 4.	System Features
 ~~<This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.>~~
-
+This section describes the functionalities the system provides. It features the use-cases in the following diagram:
+![Use Cases](UseCasesSmartFridge.PNG)
 #### 4.1 Data aquisition and storage
 
 ###### 4.1.1	Description and Priority
