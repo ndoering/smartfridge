@@ -14,3 +14,5 @@ def write_config():
 if __name__ == "__main__":
     read_config()
     print(config['SLACK']['BotName'])
+    print(config['SLACK']['SlackChannel'])
+    print(config['SLACK']['SlackToken'])
