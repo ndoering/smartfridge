@@ -1,0 +1,5 @@
+# Ignore files for IntelliJ IDEA/PyCharm
+src/.idea/
+
+# Ignore Emacs backup save files
+*~
