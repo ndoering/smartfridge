@@ -1,5 +1,5 @@
 # Ignore files for IntelliJ IDEA/PyCharm
-src/.idea/
+smartfridge/.idea/
 
 # Ignore Emacs backup save files
 *~
