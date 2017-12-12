@@ -5,32 +5,35 @@ BOT_CHANNEL='C8650A1C1'
 BOT_NAME='FridgeBot'
 
 
-slack_client = SlackClient(TOKEN)
+#slack_client = SlackClient(TOKEN)
 
-def list_channels():
-    '''Returns a list of all channels within the team'''
-    channels_call = slack_client.api_call("channels.list")
+
+def list_channels(client):
+    """Returns a list of all channels within the team"""
+    channels_call = client.api_call("channels.list")
     if channels_call['ok']:
         return channels_call['channels']
     return None
 
 
-def channel_info(channel_id):
-    '''Get the info for a given channel'''
-    channel_info = slack_client.api_call("channels.info", channel=channel_id)
+def channel_info(client, channel_id):
+    """Get the info for a given channel"""
+    channel_info = client.api_call("channels.info", channel=channel_id)
     if channel_info:
         return channel_info['channel']
     return None
 
-def send_message(channel_id, message):
-    '''Sends a message to a given channel.'''
-    slack_client.api_call(
+
+def send_message(client, bot_name, channel_id, message):
+    """Sends a message to a given channel."""
+    client.api_call(
         "chat.postMessage",
         channel=channel_id,
         text=message,
-        username=BOT_NAME,
+        username=bot_name,
         icon_emoji=':robot_face:'
     )
+
 
 if __name__ == '__main__':
     send_message(BOT_CHANNEL, "This is the fridge speaking: Hello, dear world")
