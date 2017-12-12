@@ -1,13 +1,3 @@
-from slackclient import SlackClient
-
-TOKEN = 'xoxp-267167456709-268110163879-280860661282-a4fd156159fbab0ba6d2b7e3b24b3e1d'
-BOT_CHANNEL='C8650A1C1'
-BOT_NAME='FridgeBot'
-
-
-#slack_client = SlackClient(TOKEN)
-
-
 def list_channels(client):
     """Returns a list of all channels within the team"""
     channels_call = client.api_call("channels.list")
@@ -33,7 +23,3 @@ def send_message(client, bot_name, channel_id, message):
         username=bot_name,
         icon_emoji=':robot_face:'
     )
-
-
-if __name__ == '__main__':
-    send_message(BOT_CHANNEL, "This is the fridge speaking: Hello, dear world")
