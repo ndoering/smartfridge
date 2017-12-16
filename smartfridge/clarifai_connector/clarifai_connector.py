@@ -1,7 +1,4 @@
-import configparser
-
 from clarifai.rest import ClarifaiApp
-from clarifai.rest import Image as ClImage
 
 if __name__ == "__main__":
     print("Start classification.")
