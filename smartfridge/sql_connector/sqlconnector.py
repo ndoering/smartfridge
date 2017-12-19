@@ -16,18 +16,18 @@ class SQLConnector():
 
 
 class MySQLConnector(SQLConnector):
-    def __init__(self, host, user, port, password):
+    def __init__(self, host, user, password, database):
         super().__init__()
         self.host = host
         self.user = user
-        self.port = port
         self.password = password
+        self.database = database
         self.connection = None
         self.cursor = None
 
     def connect(self):
         #TODO: Interface überprüfen
-        self.connection = MySQLdb.connect(self.host, self.user, self.port, self.password)
+        self.connection = MySQLdb.connect(self.host, self.user, self.password, self.database)
         self.cursor = db.cursor()
         self.connected = True
 
