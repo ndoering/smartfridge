@@ -3,3 +3,6 @@ smartfridge/.idea/
 
 # Ignore Emacs backup save files
 *~
+
+# Ignore complete pycache files
+__pycache__/
