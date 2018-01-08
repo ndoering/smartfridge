@@ -6,3 +6,6 @@ smartfridge/.idea/
 
 # Ignore complete pycache files
 __pycache__/
+
+# Ignore folder with images for training
+train_images/
