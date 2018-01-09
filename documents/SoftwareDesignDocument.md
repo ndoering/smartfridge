@@ -58,25 +58,46 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 
 ## 1. INTRODUCTION
 ##### 1.1 Purpose
-Identify the purpose of this SDD and its intended audience. (e.g. “This software design document describes the architecture and system design of XX. ….”).
+~~Identify the purpose of this SDD and its intended audience. (e.g. “This software design document describes the architecture and system design of XX. ….”).~~
+
+This software design document describes the architecture and system design of the SmartFridge project  that accompanies the Systems and Software Engineering class.
+
 ##### 1.2 Scope
-Provide a description and scope of the software and explain the goals, objectives and benefits of your project. This will provide the basis for the brief description of your product.
+~~Provide a description and scope of the software and explain the goals, objectives and benefits of your project. This will provide the basis for the brief description of your product.~~
+
+The software serves as a prototype or MVP (minimum viable product) to the overarching idea of a system that tracks content inside a consumer fridge. As such its scope is reduced to identify two distinct fruits (bananas and tomatoes) and evaluate their ripeness. This is embedded in a notifaction system for a hypothetical enduser.
+
 ##### 1.3 Overview
-Provide an overview of this document and its organization.
+~~Provide an overview of this document and its organization.~~
+
+This document is subdivided into 6 parts: system overview, system architecture, data design, component design, human interface design and a requirements matrix.
+
 ##### 1.4 Reference Material
-This section is optional.
-List any documents, if any, which were used as sources of information for the test plan.
+~~This section is optional.
+List any documents, if any, which were used as sources of information for the test plan.~~
+
 ##### 1.5 Definitions and Acronyms
-This section is optional.
-Provide definitions of all terms, acronyms, and abbreviations that might exist to properly interpret the SDD. These definitions should be items used in the SDD that are most likely not known to the audience.
+~~This section is optional.
+Provide definitions of all terms, acronyms, and abbreviations that might exist to properly interpret the SDD. These definitions should be items used in the SDD that are most likely not known to the audience.~~
 
 ## 2. SYSTEM OVERVIEW
-Give a general description of the functionality, context and design of your project. Provide any background information if necessary.
+~~Give a general description of the functionality, context and design of your project. Provide any background information if necessary.~~
+
+Accomplishments from user perspective:
+- provide a web interface for the user to interact:
+  - show a recent picture of the inside of the fridge
+  - show a message about the state of the fridge content
+- take a picture and send it to a cloud machine learning application; can be done periodically and on user demand
+  - based on the response:
+    - bad food: send a notification to a designated slack channel
+    - everything ok: stay idle
 
 ## 3. SYSTEM ARCHITECTURE
 ##### 3.1 Architectural Design
 Develop a modular program structure and explain the relationships between the modules to achieve the complete functionality of the system. This is a high level overview of how responsibilities of the system were partitioned and then assigned to subsystems. Identify each high level subsystem and the roles or responsibilities assigned to it. Describe how these subsystems collaborate with each other in order to achieve the desired functionality. Don’t go
 into too much detail about the individual subsystems. The main purpose is to gain a general understanding of how and why the system was decomposed, and how the individual parts work together. Provide a diagram showing the major subsystems and data repositories and their interconnections. Describe the diagram if required.
+
+
 ##### 3.2 Decomposition Description
 Provide a decomposition of the subsystems in the architectural design. Supplement with text as needed. You may choose to give a functional description or an object­oriented description.
 For a functional description, put top­level data flow diagram (DFD) and structural decomposition diagrams. For an OO description, put subsystem model, object diagrams, generalization hierarchy diagram(s) (if any), aggregation hierarchy diagram(s) (if any), interface specifications, and sequence diagrams here.
