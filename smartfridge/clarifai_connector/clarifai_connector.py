@@ -1,15 +1,19 @@
 from clarifai.rest import ClarifaiApp
 
+class ClarifaiCall():
+    def __init__(self, key, model):
+        # initialize clarifai app
+        self.clarifaiApp = ClarifaiApp(api_key=key)
+        # initialize trained model
+        self.model = self.clarifaiApp.models.get(model)
+
+
+    def call(self):
+        print("Classification response incoming:")
+        # ask for JSON and display only label and prediction results
+        print(self.model.predict_by_filename('2017-12-06-1000.jpg')['outputs'][0]['data']['concepts'])
+
+
+
 if __name__ == "__main__":
-    print("Start classification.")
-
-    # TODO: call APIKey over ini file
-    app = ClarifaiApp(api_key='b9a2de7676aa4fadb74a5c59ea15ecba')
-
-    # initialize the trained clarifai model
-    model = app.models.get('smartfridge')
-    # pass filename of image to be predicted
-    response = model.predict_by_filename('2017-12-06-1000.jpg')
-
-    # prints the data for the defined concepts of the model
-    print(response['outputs'][0]['data']['concepts'])
+    pass
