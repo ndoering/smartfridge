@@ -3,3 +3,16 @@ smartfridge/.idea/
 
 # Ignore Emacs backup save files
 *~
+
+# Ignore complete pycache files
+__pycache__/
+
+# Ignore folder with images for training
+train_images/
+
+# Ignore python virtual environment
+smartfridge/bin
+smartfridge/include
+smartfridge/lib
+smartfridge/lib64
+smartfridge/pip-selfcheck.json
