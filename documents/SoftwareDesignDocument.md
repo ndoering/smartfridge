@@ -107,6 +107,9 @@ into too much detail about the individual subsystems. The main purpose is to gai
 Provide a decomposition of the subsystems in the architectural design. Supplement with text as needed. You may choose to give a functional description or an object­oriented description.
 For a functional description, put top­level data flow diagram (DFD) and structural decomposition diagrams. For an OO description, put subsystem model, object diagrams, generalization hierarchy diagram(s) (if any), aggregation hierarchy diagram(s) (if any), interface specifications, and sequence diagrams here.
 
+![Processing within the middleware](middleware.png)
+
+![Overview of the image processing pipeline](image-pipeline.png)
 
 ##### 3.3 Design Rationale
 Discuss the rationale for selecting the architecture described in 3.1 including critical issues and trade/offs that were considered. You may discuss other architectures that were considered, provided that you explain why you didn’t choose them.
