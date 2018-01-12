@@ -12,17 +12,17 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 <div style="page-break-after: always;"></div>
 
 ## TABLE OF CONTENTS
-1. INTRODUCTION
+1. [INTRODUCTION](#1introduction)
 
-  1.1 Purpose
+  1.1 [Purpose](#11purpose)
 
-  1.2 Scope
+  1.2 [Scope](#12scope)
 
-  1.3 Overview
+  1.3 [Overview](#13overview)
 
-  1.4 Reference Material
+  1.4 [Reference Material](#14reference-material)
 
-  1.5 Definitions and Acronyms
+  1.5 [Definitions and Acronyms](#15definitions-and-acronyms)
 
 2. SYSTEM OVERVIEW
 
