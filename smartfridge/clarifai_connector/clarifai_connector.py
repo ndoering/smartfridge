@@ -11,7 +11,7 @@ class ClarifaiCall():
     def call(self):
         print("Classification response incoming:")
         # ask for JSON and display only label and prediction results
-        print(self.model.predict_by_filename('2017-12-06-1000.jpg')['outputs'][0]['data']['concepts'])
+        print(self.model.predict_by_filename('test.jpg')['outputs'][0]['data']['concepts'])
 
 
 

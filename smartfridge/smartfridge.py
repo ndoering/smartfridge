@@ -8,7 +8,7 @@ import slack_connector as sc
 if __name__ == "__main__":
     c = conf.Configuration()
     bot = sc.Slackbot(c)
-    bot.speak()
+    #bot.speak()
 
     # call clarifai API
     print("Start classification.")
