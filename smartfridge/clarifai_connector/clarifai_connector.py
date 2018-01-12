@@ -1,17 +1,18 @@
 from clarifai.rest import ClarifaiApp
 
 class ClarifaiCall():
-    def __init__(self, key, model):
+    def __init__(self, key, model, imagebytes):
         # initialize clarifai app
         self.clarifaiApp = ClarifaiApp(api_key=key)
         # initialize trained model
         self.model = self.clarifaiApp.models.get(model)
+        self.imagebytes = imagebytes
 
 
     def call(self):
         print("Classification response incoming:")
         # ask for JSON and display only label and prediction results
-        print(self.model.predict_by_filename('test.jpg')['outputs'][0]['data']['concepts'])
+        return self.model.predict_by_bytes(self.imagebytes)['outputs'][0]['data']['concepts']
 
 
 
