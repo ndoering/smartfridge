@@ -101,6 +101,7 @@ Develop a modular program structure and explain the relationships between the mo
 into too much detail about the individual subsystems. The main purpose is to gain a general understanding of how and why the system was decomposed, and how the individual parts work together. Provide a diagram showing the major subsystems and data repositories and their interconnections. Describe the diagram if required.
 
 ###### System architecture overview
+![Interactions within the system](Components.png)
 ![Overview of the system architecture](system-architecture.png)
 
 ##### 3.2 Decomposition Description
