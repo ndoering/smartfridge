@@ -102,7 +102,6 @@ into too much detail about the individual subsystems. The main purpose is to gai
 
 ###### System architecture overview
 ![Interactions within the system](Components.png)
-![Overview of the system architecture](system-architecture.png)
 
 ##### 3.2 Decomposition Description
 Provide a decomposition of the subsystems in the architectural design. Supplement with text as needed. You may choose to give a functional description or an object­oriented description.
