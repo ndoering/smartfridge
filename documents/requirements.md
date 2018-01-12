@@ -65,6 +65,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 |---------------|---------------|-------------------------------------------------------------------------------|
 | 1.0		| 2017-11-18	| Initial Draft									|
 | 2.0		| 2017-11-29	| Updated with Use Cases							|
+| 3.0		| 2018-01-02	| Updated with higher goals							|
 
 <div style="page-break-after: always;"></div>
 
@@ -166,14 +167,15 @@ It is assumed that some open-source machine learning libraries and packages are 
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
 
-The web-based user interface enables the user to view the content of his refrigerator shelf via a browser. Moreover text notifications and one chart visualize the fruit's edibility at first sight.
+The web-based user interface enables the user to view the content of his refrigerator shelf via a browser. The user may enter additional data about the food manually or by scanning the barcode, if there is additional data available the program analyse this data. The user can view an up-to-date picture of his fridge content. Additionaly there will be charts visualizing the average time a food category stays edible in this fridge comparing it to mean values. This information is also presented in the form of tipps like a recommendation to turn up or down the temperature. The system also includes a social feature, which enables the user to challenge himself with connected users (disciplines could be maximium days before something goes bad or health challenges like 3 fruits eaten a day) and also to function as a foodsharing platform. For the foodsharing the user can select one item which is then visible to users in the area.
 
 ![User Interface](GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
 ~~<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>~~
 
-The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The power bank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over Wi-Fi on user devices with a browser.
+The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The power bank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over Wi-Fi on user devices with a browser. 
+TBD - A Barcode Scanner will be necessary.
 
 ##### 3.3	Software Interfaces
 ~~<Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.>~~
