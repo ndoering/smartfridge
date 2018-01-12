@@ -12,47 +12,47 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 <div style="page-break-after: always;"></div>
 
 ## TABLE OF CONTENTS
-1. [INTRODUCTION](#1introduction)
+1. [INTRODUCTION](#1-introduction)
         
-	1.1 [Purpose](#11purpose)
+	1.1 [Purpose](#11-purpose)
         
-	1.2 [Scope](#12scope)
+	1.2 [Scope](#12-scope)
         
-	1.3 [Overview](#13overview)
+	1.3 [Overview](#13-overview)
         
-	1.4 [Reference Material](#14reference-material)
+	1.4 [Reference Material](#14-reference-material)
         
-	1.5 [Definitions and Acronyms](#15definitions-and-acronyms)
+	1.5 [Definitions and Acronyms](#15-definitions-and-acronyms)
 
-2. [SYSTEM OVERVIEW](#2system-overview)
+2. [SYSTEM OVERVIEW](#2-system-overview)
 
-3. [SYSTEM ARCHITECTURE](#3system-architecture)
+3. [SYSTEM ARCHITECTURE](#3-system-architecture)
 
-	3.1 [Architectural Design](#31architectural-design)
+	3.1 [Architectural Design](#31-architectural-design)
 
-	3.2 [Decomposition Description](#32decomposition-description)
+	3.2 [Decomposition Description](#32-decomposition-description)
 
-	3.3 [Design Rationale](#33design-rationale)
+	3.3 [Design Rationale](#33-design-rationale)
 
-4. [DATA DESIGN](#4data-design)
+4. [DATA DESIGN](#4-data-design)
 
-	4.1 [Data Description](#41data-description)
+	4.1 [Data Description](#41-data-description)
 		
-	4.2 [Data Dictionary](#42data-dictionary)
+	4.2 [Data Dictionary](#42-data-dictionary)
 
-5. [COMPONENT DESIGN](#5component-design)
+5. [COMPONENT DESIGN](#5-component-design)
 
-6. [HUMAN INTERFACE DESIGN](#6human-interface-design)
+6. [HUMAN INTERFACE DESIGN](#6-human-interface-design)
 
-	6.1 [Overview of User Interface](#61overview-of-user-interface)
+	6.1 [Overview of User Interface](#61-overview-of-user-interface)
 
-    6.2 [Screen Images](#62screen-images)
+    6.2 [Screen Images](#62-screen-images)
 
-	6.3 [Screen Objects and Actions](#63screen-objects-and-actions)
+	6.3 [Screen Objects and Actions](#63-screen-objects-and-actions)
 
-7. [REQUIREMENTS MATRIX](#7requirements-matrix)
+7. [REQUIREMENTS MATRIX](#7-requirements-matrix)
 
-8. [APPENDICES](#8appendices)
+8. [APPENDICES](#8-appendices)
 
 <div style="page-break-after: always;"></div>
 
