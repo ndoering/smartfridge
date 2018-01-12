@@ -13,70 +13,70 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 
 ## TABLE OF CONTENTS
 1. [INTRODUCTION](#1introduction)
+        
+        1.1 [Purpose](#11purpose)
+        
+        1.2 [Scope](#12scope)
+        
+        1.3 [Overview](#13overview)
+        
+        1.4 [Reference Material](#14reference-material)
+        
+        1.5 [Definitions and Acronyms](#15definitions-and-acronyms)
 
-  1.1 [Purpose](#11purpose)
+2. [SYSTEM OVERVIEW](#2system-overview)
 
-  1.2 [Scope](#12scope)
+3. [SYSTEM ARCHITECTURE](#3system-architecture)
 
-  1.3 [Overview](#13overview)
+        3.1 [Architectural Design](#31architectural-design)
 
-  1.4 [Reference Material](#14reference-material)
+        3.2 [Decomposition Description](#32decomposition-description)
 
-  1.5 [Definitions and Acronyms](#15definitions-and-acronyms)
+        3.3 [Design Rationale](#33design-rationale)
 
-2. SYSTEM OVERVIEW
+4. [DATA DESIGN](#4data-design)
 
-3. SYSTEM ARCHITECTURE
+        4.1 [Data Description](#41data-description)
 
-  3.1 Architectural Design
+        4.2 [Data Dictionary](#42data-dictionary)
 
-  3.2 Decomposition Description
+5. [COMPONENT DESIGN](#5component-design)
 
-  3.3 Design Rationale
+6. [HUMAN INTERFACE DESIGN](#6human-interface-design)
 
-4. DATA DESIGN
+        6.1 [Overview of User Interface](#61overview-of-user-interface)
 
-  4.1 Data Description
+        6.2 [Screen Images](#62screen-images)
 
-  4.2 Data Dictionary
+        6.3 [Screen Objects and Actions](#63screen-objects-and-actions)
 
-5. COMPONENT DESIGN
+7. [REQUIREMENTS MATRIX](#7requirements-matrix)
 
-6. HUMAN INTERFACE DESIGN
-
-  6.1 Overview of User Interface
-
-  6.2 Screen Images
-
-  6.3 Screen Objects and Actions
-
-7. REQUIREMENTS MATRIX
-
-8. APPENDICES
+8. [APPENDICES](#8appendices)
 
 <div style="page-break-after: always;"></div>
 
 ## 1. INTRODUCTION
-##### 1.1 Purpose
+### 1.1 Purpose
 ~~Identify the purpose of this SDD and its intended audience. (e.g. “This software design document describes the architecture and system design of XX. ….”).~~
 
 This software design document describes the architecture and system design of the SmartFridge project  that accompanies the Systems and Software Engineering class.
 
-##### 1.2 Scope
+### 1.2 Scope
 ~~Provide a description and scope of the software and explain the goals, objectives and benefits of your project. This will provide the basis for the brief description of your product.~~
 
 The software serves as a prototype or MVP (minimum viable product) to the overarching idea of a system that tracks content inside a consumer fridge. As such its scope is reduced to identify two distinct fruits (bananas and tomatoes) and evaluate their ripeness. This is embedded in a notifaction system for a hypothetical enduser.
 
-##### 1.3 Overview
+### 1.3 Overview
 ~~Provide an overview of this document and its organization.~~
 
 This document is subdivided into 6 parts: system overview, system architecture, data design, component design, human interface design and a requirements matrix.
 
-##### 1.4 Reference Material
+### 1.4 Reference Material
 ~~This section is optional.
 List any documents, if any, which were used as sources of information for the test plan.~~
 
-##### 1.5 Definitions and Acronyms
+### 1.5 Definitions and Acronyms
 ~~This section is optional.
 Provide definitions of all terms, acronyms, and abbreviations that might exist to properly interpret the SDD. These definitions should be items used in the SDD that are most likely not known to the audience.~~
 
@@ -93,22 +93,24 @@ Accomplishments from user perspective:
     - everything ok: stay idle
 
 ## 3. SYSTEM ARCHITECTURE
-##### 3.1 Architectural Design
+### 3.1 Architectural Design
 Develop a modular program structure and explain the relationships between the modules to achieve the complete functionality of the system. This is a high level overview of how responsibilities of the system were partitioned and then assigned to subsystems. Identify each high level subsystem and the roles or responsibilities assigned to it. Describe how these subsystems collaborate with each other in order to achieve the desired functionality. Don’t go
 into too much detail about the individual subsystems. The main purpose is to gain a general understanding of how and why the system was decomposed, and how the individual parts work together. Provide a diagram showing the major subsystems and data repositories and their interconnections. Describe the diagram if required.
 
 
-##### 3.2 Decomposition Description
+### 3.2 Decomposition Description
 Provide a decomposition of the subsystems in the architectural design. Supplement with text as needed. You may choose to give a functional description or an object­oriented description.
 For a functional description, put top­level data flow diagram (DFD) and structural decomposition diagrams. For an OO description, put subsystem model, object diagrams, generalization hierarchy diagram(s) (if any), aggregation hierarchy diagram(s) (if any), interface specifications, and sequence diagrams here.
-##### 3.3 Design Rationale
+
+### 3.3 Design Rationale
 Discuss the rationale for selecting the architecture described in 3.1 including critical issues and trade/offs that were considered. You may discuss other architectures that were considered, provided that you explain why you didn’t choose them.
 
 ## 4. DATA DESIGN
-##### 4.1 Data Description
+### 4.1 Data Description
 Explain how the information domain of your system is transformed into data structures.
 Describe how the major data or system entities are stored, processed and organized. List any databases or data storage items.
-##### 4.2 Data Dictionary
+
+### 4.2 Data Dictionary
 Alphabetically list the system entities or major data along with their types and descriptions. If you provided a functional description in Section 3.2, list all the functions and function parameters. If you provided an OO description, list the objects and its attributes, methods and
 method parameters.
 
@@ -117,12 +119,14 @@ In this section, we take a closer look at what each component does in a more sys
 or pseudocode. Describe any local data when necessary.
 
 ## 6. HUMAN INTERFACE DESIGN
-##### 6.1 Overview of User Interface
+### 6.1 Overview of User Interface
 Describe the functionality of the system from the user’s perspective. Explain how the user will be able to use your system to complete all the expected features and the feedback information that will be displayed for the user.
-##### 6.2 Screen Images
+
+### 6.2 Screen Images
 Display screenshots showing the interface from the user’s perspective. These can be handdrawn or you can use an automated drawing tool. Just make them as accurate as possible.
 (Graph paper works well.)
-##### 6.3 Screen Objects and Actions
+
+### 6.3 Screen Objects and Actions
 A discussion of screen objects and actions associated with those objects.
 
 ## 7. REQUIREMENTS MATRIX
