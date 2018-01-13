@@ -69,3 +69,4 @@ if __name__ == "__main__":
 
     # create entry in all_fruits for each detected fruit status
     dbhdl.insert_all_fruits(ccall.json)
+
