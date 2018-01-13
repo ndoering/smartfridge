@@ -13,6 +13,7 @@ if __name__ == "__main__":
 
     ### SLACK ##################################################################
     c = conf.Configuration(cliparser.args.config)
+
     bot = sc.Slackbot(c)
 	print("Slackbot initialized.")
     #bot.speak()

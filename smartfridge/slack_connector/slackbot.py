@@ -52,7 +52,6 @@ class Slackbot():
         counter = 0
         for concept in json:
             if concept['value'] >= HIGH_CONF:
-<<<<<<< f27a58fdc70965849ea2e943b8544c7564e1ac4d
                 self.speak(concept['name'])
                 counter += 1
             elif concept['value'] >= MEDIUM_CONF:
@@ -64,21 +63,3 @@ class Slackbot():
 
     def speak(self, message_type):
         message = get_message(message_type)
-=======
-                print("Looks like " + concept['name'])
-                counter += 1
-            elif concept['value'] >= MEDIUM_CONF:
-                print("Might be " + concept['name'])
-                counter += 1
-
-        if counter == 0:
-            print("I am unsure about the fridge's content.")
-
-    def speak(self):
-        message = get_message("neutral")
->>>>>>> rudimentary message generation based on clarifai response
-
-        sc.send_message(self.slackClient,
-                        self.configuration["SLACK"]["BotName"],
-                        self.configuration["SLACK"]["SlackChannel"],
-                        message)
