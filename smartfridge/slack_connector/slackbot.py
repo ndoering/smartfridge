@@ -12,6 +12,24 @@ messages = {
     "lonely": [
         "Is anybody there? Its so cold and dark.",
         "Is there nobody looking for food... or me?"
+    ],
+    "banana_fresh": [
+        "There is a fresh banana."
+    ],
+    "banana_fresh-neutral": [
+        "There is a fresh to neutral banana."
+    ],
+    "banana_neutral": [
+        "There is a neutral banana."
+    ],
+    "banana_neutral-bad": [
+        "There is a neutral to bad banana."
+    ],
+    "banana_bad": [
+        "There is a bad banana."
+    ],
+    "no_detection": [
+        "I am unsure about the fridge's content."
     ]
 }
 
@@ -34,17 +52,17 @@ class Slackbot():
         counter = 0
         for concept in json:
             if concept['value'] >= HIGH_CONF:
-                print("Looks like " + concept['name'])
+                self.speak(concept['name'])
                 counter += 1
             elif concept['value'] >= MEDIUM_CONF:
-                print("Might be " + concept['name'])
+                self.speak(concept['name'])
                 counter += 1
 
         if counter == 0:
-            print("I am unsure about the fridge's content.")
+            self.speak("no_detection")
 
-    def speak(self):
-        message = get_message("neutral")
+    def speak(self, message_type):
+        message = get_message(message_type)
 
         sc.send_message(self.slackClient,
                         self.configuration["SLACK"]["BotName"],

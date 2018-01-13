@@ -1,7 +1,7 @@
-# from camera import camera_handler as ch
+# from camera import camera_handler as ch # TO DO: use this line in production
 from clarifai_connector import clarifai_connector as cc
 import configuration_management as conf
-import io
+import io # TO DO: delete this import in production if not needed
 import slack_connector as sc
 
 
@@ -32,6 +32,6 @@ if __name__ == "__main__":
     print("App and Model loaded.")
     ccall = cc.ClarifaiCall(clarifaiApp, model, streambuffer)
     clarifai_response = ccall.call() # JSON response
-
+    print(clarifai_response)
 
     bot.compute_message(clarifai_response)
