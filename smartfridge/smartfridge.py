@@ -1,7 +1,8 @@
-from camera import camera_handler as ch
+# from camera import camera_handler as ch # TO DO: use this line in production
 from clarifai_connector import clarifai_connector as cc
 import sql_connector as dbcon
 import configuration_management as conf
+import io # TO DO: delete this import in production if not needed 
 import slack_connector as sc
 import cli_parser as cp
 from datetime import datetime
@@ -13,6 +14,7 @@ if __name__ == "__main__":
     ### SLACK ##################################################################
     c = conf.Configuration(cliparser.args.config)
     bot = sc.Slackbot(c)
+	print("Slackbot initialized.")
     #bot.speak()
 
 
