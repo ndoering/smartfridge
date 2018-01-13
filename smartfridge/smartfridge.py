@@ -18,7 +18,15 @@ if __name__ == "__main__":
 
     ### CAMERA #################################################################
     # take picture (returns bytes)
-    streamvalue = ch.take_picture()
+    # streamvalue = ch.take_picture() TO DO: use this line in production
+    #############################################
+    # the following generates a dummy bytefile for testing
+    # as the above only works on a RaspberryPi with camera
+    with open("test.jpg", "rb") as imagefile:
+        f = imagefile.read()
+        streambuffer = io.BytesIO(f).getbuffer()
+    #############################################
+    print("Photo shot.")
 
 
     ### PIPELINE ###############################################################
@@ -35,6 +43,7 @@ if __name__ == "__main__":
     # call clarifai API
     ccall.call()
     print(ccall.json) # JSON response
+	bot.compute_message(ccall.json)
 
 
     ### DATABASE ###############################################################

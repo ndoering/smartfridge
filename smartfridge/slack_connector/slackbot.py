@@ -28,6 +28,21 @@ class Slackbot():
         self.configuration = configuration.config
         self.slackClient = SlackClient(self.configuration["SLACK"]["SlackToken"])
 
+    def compute_message(self, json):
+        HIGH_CONF = 0.9
+        MEDIUM_CONF = 0.6
+        counter = 0
+        for concept in json:
+            if concept['value'] >= HIGH_CONF:
+                print("Looks like " + concept['name'])
+                counter += 1
+            elif concept['value'] >= MEDIUM_CONF:
+                print("Might be " + concept['name'])
+                counter += 1
+
+        if counter == 0:
+            print("I am unsure about the fridge's content.")
+
     def speak(self):
         message = get_message("neutral")
 
