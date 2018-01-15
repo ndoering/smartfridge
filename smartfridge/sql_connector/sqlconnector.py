@@ -137,14 +137,14 @@ class MySQLConnector(SQLConnector):
 
     # Central 'image'-table containing mainly images with mixed fruit, timestamps, a manual flag and notes
     def insert_fridgelog(self, capturetime, full_image, manual_labeled, note):
-        self.cursor.execute("INSERT INTO fridgelog (capturetime, full_image, manual_labeled, note) VALUES (%s, %s, %s, %s)", \
+        self.cursor.execute("INSERT INTO fridgelog (capturetime, full_image, manual_labeled, note) VALUES(%s, %s, %s, %s)", \
                        (capturetime, full_image, manual_labeled, note))
         self.db.commit()
 
     # Supplementary table containing a seperate image with highlighted specific fruits, along with the classification data
     def insert_all_fruits(self, fid, half_image, fruit_class, confidence, prediction, note):
         self.cursor.execute(
-            "INSERT INTO all_fruits (fid, half_image, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s, %s)", \
+            "INSERT INTO all_fruits (fid, half_image, class, confidence, prediction, note) VALUES(%s, %s, %s, %s, %s, %s)", \
             (fid, half_image, fruit_class, confidence, prediction, note))
         self.db.commit()
 
