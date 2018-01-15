@@ -4,26 +4,19 @@ import configparser
 CONFIG_FILE = "config.ini"
 
 
-configreader = configparser.ConfigParser()
-
-
-def read_config():
-    configreader.read(CONFIG_FILE)
-
-
-def write_config():
-    with open(CONFIG_FILE, 'w') as configfile:
-        configreader.write(configfile)
-
-
 class Configuration():
-    def __init__(self):
-        read_config()
-        self.config = configreader
+    def __init__(self, config_file):
+        if config_file is None:
+            config_file = CONFIG_FILE
+
+        self.config_file = config_file
+
+        self.config = configparser.ConfigParser()
+        self.config.read(self.config_file)
 
 
 if __name__ == "__main__":
-    read_config()
-    print(configreader['SLACK']['BotName'])
-    print(configreader['SLACK']['SlackChannel'])
-    print(configreader['SLACK']['SlackToken'])
+    c = Configuration("../config.ini")
+    print(c.config['SLACK']['BotName'])
+    print(c.config['SLACK']['SlackChannel'])
+    print(c.config['SLACK']['SlackToken'])

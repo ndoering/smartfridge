@@ -3,12 +3,15 @@ from clarifai_connector import clarifai_connector as cc
 import sql_connector as dbcon
 import configuration_management as conf
 import slack_connector as sc
+import cli_parser as cp
 from datetime import datetime
 
 
 if __name__ == "__main__":
+    cliparser = cp.CliParser()
+
     # slack stuff
-    c = conf.Configuration()
+    c = conf.Configuration(cliparser.args.config)
     bot = sc.Slackbot(c)
     bot.speak()
 
