@@ -130,7 +130,7 @@ class MySQLConnector:
                 self.cursor.execute (query)
             else:
                 print (query % values)
-                self.cursor.execute (query % values)
+                self.cursor.execute (query, values)
             result = self.cursor.fetchall
             # TODO: Determine the execution tables type and create objects accordingly
             # if query starts with AF create and iterate in one way
@@ -182,13 +182,21 @@ if __name__ == "__main__":
     #dbhdl.execute_stmt (querydict.get ("FL_delete"))
     #dbhdl.execute_stmt (querydict.get ("FL_create"))
     #dbhdl.execute_stmt (querydict.get ("AF_create"))
-    #dbhdl.execute_stmt (querydict.get ("FL_create"))
-    #dbhdl.execute_stmt (querydict.get ("AF_sel_all"))
-    dbhdl.execute_stmt (querydict.get ("FL_insert_nopic"), (datetime.now(), "1", "hey"))
-    #dbhdl.execute_stmt (querydict.get ("AF_insert_nopic"), (1, 5, 0.25, 0.65, "ha"))
-    dbhdl.get_latestQueryResult().printProperties()
 
+    ## Testing cursor.execute() directly, since parsing error still occurs. One central db.commit at eol.
+
+    ## works with comma. dbhdl.cursor.execute(query_string, argument_vector)
+    #dbhdl.cursor.execute("INSERT INTO fridgelog (capturetime, manual_labeled, note) VALUES (%s, %s, %s)", (datetime.now(), "1", "hey"))
+    #dbhdl.cursor.execute(querydict.get ("FL_insert_nopic"), (datetime.now(), "1", "hey"))
+
+    dbhdl.cursor.execute ("INSERT INTO all_fruits (fid, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s)" , (1, 5, 0.25, 0.65, "ha"))
+    dbhdl.execute_stmt (querydict.get ("AF_insert_nopic"), (1, 5, 0.25, 0.65, "ha"))
+
+    # dbhdl.cursor.execute ("INSERT INTO all_fruits (fid, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s)" % (1, 5, 0.25, 0.65, "ha") )
+
+    #dbhdl.get_latestQueryResult().printProperties()
+    #dbhdl.cursor.execute ("SHOW TABLES FROM smartfridge")
+    dbhdl.db.commit()
     # Loading images
     #img = read_file ('/home/shogun/Downloads/test.jpg')
-
     dbhdl.disconnect ()
