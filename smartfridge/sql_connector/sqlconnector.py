@@ -36,9 +36,10 @@ querydict = {
     # Show all_fruits rows with exact given prediction value
     "AF_equ_pred": "SELECT * FROM all_fruits WHERE all_fruits.prediction = %s",
     # Insert values into tables
-    "FL_insert": "INSERT INTO fridgelog (capturetime, full_image, manual_labeled, note) VALUES(%s, %s, %s, %s)",
-    "AF_insert": "INSERT INTO all_fruits (fid, half_image, class, confidence, prediction, note) VALUES(%s, %s, %s, %s, %s, %s)"
-    # TODO: Join Statements
+    "FL_insert": "INSERT INTO fridgelog (capturetime, full_image, manual_labeled, note) VALUES (%s, %s, %s, %s)",
+    "AF_insert": "INSERT INTO all_fruits (fid, half_image, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s, %s)",
+    "FL_insert_nopic": "INSERT INTO fridgelog (capturetime, manual_labeled, note) VALUES (%s, %s, %s)",
+    "AF_insert_nopic": "INSERT INTO all_fruits (fid, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s)"
 }
 
 
@@ -51,20 +52,28 @@ def read_file(filename):
 # Query result objects are created after each statement and encapsulate returned data.
 # For now, we refrain from creating different classes tables,
 # since for all possible queries, a specific object needs to be be determined
-class QueryResult:
-    counter = itertools.count ()
-    newid = next(counter)
+class QueryResult():
+    #counter = itertools.count ()
+    #newid = next(counter)
 
     def __init__(self):
-        self.object_id = QueryResult.newid ()
+        #self.object_id = QueryResult.newid (self)
         self.note = None
         # Contains a query result as one string per row (for debugging purposes)
-        self.stmt_result = None
-        # In case of join with all information need, we should switch back to single class design.
+        self.stmt_result = []
+        self.afid = None
+        self.fid = None
+        self.half_image = None
+        self.fruit_class = None
+        self.confidence = None
+        self.prediction = None
+        self.capturetime = None
+        self.full_image = None
+        self.manual_labeled = None
 
     def printProperties(self):
-        if self.object_id is not None:
-            print (self.object_id)
+        #if self.object_id is not None:
+        #    print (self.object_id)
         if self.afid is not None:
             print (self.afid)
         if self.fid is not None:
@@ -88,27 +97,6 @@ class QueryResult:
         if self.stmt_result is not None:
             print (self.stmt_result)
 
-
-class AF_QueryResult (QueryResult):
-    def __init__(self):
-        super().__init__ ()
-        self.afid = None
-        self.fid = None
-        self.half_image = None
-        self.fruit_class = None
-        self.confidence = None
-        self.prediction = None
-
-
-class FL_QueryResult (QueryResult):
-    def __init__(self):
-        super().__init__ ()
-        self.fid = None
-        self.capturetime = None
-        self.full_image = None
-        self.manual_labeled = None
-
-
 class MySQLConnector:
     def __init__(self, host, user, password, database):
         self.host = host
@@ -124,6 +112,7 @@ class MySQLConnector:
         self.cursor = self.db.cursor (buffered=True)
         self.connected = True
         self.query_result_list = [ ]
+        print("DB connection established.")
 
     def disconnect(self):
         self.db.close ()
@@ -137,18 +126,19 @@ class MySQLConnector:
         assert self.connected is True
         if self.connected:
             if values is None:
+                print(query)
                 self.cursor.execute (query)
             else:
+                print (query % values)
                 self.cursor.execute (query % values)
             result = self.cursor.fetchall
             # TODO: Determine the execution tables type and create objects accordingly
             # if query starts with AF create and iterate in one way
             # if query starts with FL create and iterate in other way
-
+            qr_obj = QueryResult ()
             if query[ :2 ] == "AF":
                 for row in result:
                     # Create one new object for row within the result set
-                    qr_obj = AF_QueryResult (self)
                     qr_obj.afid = row[ 0 ]
                     qr_obj.fid = row[ 1 ]
                     qr_obj.half_image = row[ 2 ]
@@ -158,14 +148,12 @@ class MySQLConnector:
                     qr_obj.note = row[ 6 ]
             elif query[ :2 ] == "FL":
                 for row in result:
-                    # Create one new object for row within the result set
-                    qr_obj = FL_QueryResult (self)
                     qr_obj.fid = row[ 0 ]
                     qr_obj.capturetime = row[ 1 ]
                     qr_obj.full_image = row[ 2 ]
                     qr_obj.manual_labeled = row[ 3 ]
                     qr_obj.note = row[ 4 ]
-            self.qr_obj.stmt_result = result
+            #self.qr_obj.stmt_result = result #ToDo: AttributeError: 'NoneType' object has no attribute 'stmt_result'
             self.query_result_list.append (qr_obj)
             self.db.commit
 
@@ -188,15 +176,19 @@ if __name__ == "__main__":
     ## Open database connection with Database Handle
     dbhdl = MySQLConnector (host, user, pw, dbc)
     dbhdl.connect ()
+    img = read_file ('c:\\fatcat.jpg')
 
     #dbhdl.execute_stmt(querydict.get("AF_delete"))
     #dbhdl.execute_stmt (querydict.get ("FL_delete"))
     #dbhdl.execute_stmt (querydict.get ("FL_create"))
-    dbhdl.execute_stmt (querydict.get ("AF_create"))
-
+    #dbhdl.execute_stmt (querydict.get ("AF_create"))
+    #dbhdl.execute_stmt (querydict.get ("FL_create"))
+    #dbhdl.execute_stmt (querydict.get ("AF_sel_all"))
+    dbhdl.execute_stmt (querydict.get ("FL_insert_nopic"), (datetime.now(), "1", "hey"))
+    #dbhdl.execute_stmt (querydict.get ("AF_insert_nopic"), (1, 5, 0.25, 0.65, "ha"))
+    dbhdl.get_latestQueryResult().printProperties()
 
     # Loading images
     #img = read_file ('/home/shogun/Downloads/test.jpg')
-    #img = read_file ('c:\\fatcat.jpg')
 
     dbhdl.disconnect ()
