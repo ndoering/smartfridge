@@ -122,7 +122,36 @@ class MySQLConnector:
         self.connected = False
         print ("DB successfully disconnected.")
 
+<<<<<<< HEAD
     def exec_stmt(self, stmt=None, values=None):
+=======
+<<<<<<< Updated upstream
+    def execute_stmt(self, query, values=None):
+=======
+    def db_create_tables(self):
+        # Table 'fridgelog' contains image with all fruit
+        self.cursor.execute("CREATE TABLE fridgelog (fid INT AUTO_INCREMENT PRIMARY KEY, capturetime TIMESTAMP, full_image LONGBLOB, manual_labeled BOOLEAN, note CHAR(20))")
+
+        # Table 'fridgelog' contains image with single fruit
+        # afid - AllFruitsID, fid - FridgelogID, half_image - Seperated Fruit Image, class - class of fruit, confidence - how sure is the classifier?, prediction - between 0 and 1, note - for later usage
+        self.cursor.execute("CREATE TABLE all_fruits \
+                            (afid INT NOT NULL AUTO_INCREMENT PRIMARY KEY, fid INT, half_image LONGBLOB, class CHAR(1), confidence FLOAT, prediction FLOAT, note CHAR(20), FOREIGN KEY (fid) REFERENCES fridgelog(fid))")
+
+    def reset_tables(self):
+        self.cursor.execute("TRUNCATE TABLE all_fruits")
+        self.cursor.execute("TRUNCATE TABLE fridgelog")
+
+    def drop_tables(self):
+        self.cursor.execute("DROP TABLE IF EXISTS all_fruits")
+        self.cursor.execute("DROP TABLE IF EXISTS fridgelog")
+
+
+    # Executing an sql statement consisting of query and filtered values. If no values are available, please call function with an empty string.
+    def execute_stmt(self, query, values):
+>>>>>>> Stashed changes
+        # TODO: Proper error handling for disconnected objects
+
+>>>>>>> origin/development-mysql
         assert self.connected is True
         # In order to find the correct return type, its recommend
         # to call the exec_stmt method with the direct dictionary key.
@@ -138,6 +167,7 @@ class MySQLConnector:
                 print(query)
                 self.cursor.execute (query)
             else:
+<<<<<<< Updated upstream
                 print (query % values)
                 self.cursor.execute (query, values)
             self.result = self.cursor.fetchall()
@@ -145,6 +175,7 @@ class MySQLConnector:
             #print(self.result)
             self.db.commit
 
+<<<<<<< HEAD
             # Create an object for each query that saves properties and stack objects in a list.
             self.qrow = QueryRow ()
             # If query starts with AF create and iterate in one way, with FL in the other.
@@ -175,6 +206,79 @@ class MySQLConnector:
         for qr in self.qresult:
             qr.printProperties()
             print()
+=======
+    def get_latestQueryResult(self):
+        return self.query_result_list.pop ()
+
+    # Todo: Discussing, wheter we need a function that searches the results for characteristics, such as IDs.
+=======
+                self.cursor.execute(query % values)
+            #self.stmt_result = self.cursor.fetchall()
+            qr.stmt_result = self.cursor.fetchall()
+
+    # Queries for 'fridgelog'-table, depending on ID
+    def print_fridgelog(self, mode, arg):
+        #The method uses several mode parameters for several queries
+        query1 = "SELECT * FROM fridgelog"
+        query2 = "SELECT * FROM fridgelog WHERE fridgelog.fid = %s"
+        query3 = "SELECT * FROM fridgelog WHERE fridgelog.capturetime = %s"
+        if mode == 1:
+            dbhdl.execute_stmt(query1,"")
+        elif mode == 2:
+            dbhdl.execute_stmt(query2, arg)
+        elif mode == 3:
+            dbhdl.execute_stmt(query3, arg)
+        for row in qr.stmt_result:
+            qr.fid = row[0]
+            qr.capturetime = row[1]
+            qr.full_image = row[2]
+            qr.manual_labeled = row[3]
+            qr.note = row[4]
+            print("fid = %s,capturetime = %s,manual_labeled = %s,note=%s" % \
+                  (qr.fid, qr.capturetime, qr.manual_labeled, qr.note))
+            self.qrl.append(qr)
+
+    # Queries for 'all_fruits'-table, depending on ID
+    def print_all_fruits(self, mode, arg):
+        # The method uses several mode parameters for several queries
+        query1 = "SELECT * FROM all_fruits"
+        query2 = "SELECT * FROM all_fruits WHERE all_fruits.afid = %s"
+        query3 = "SELECT * FROM all_fruits WHERE all_fruits.prediction >= %s"
+
+        #TODO: Implementing the confidence filter for query 3.
+        if mode == 1:
+            dbhdl.execute_stmt(query1,"")
+        elif mode == 2:
+            dbhdl.execute_stmt(query2, arg)
+        elif mode == 3:
+            dbhdl.execute_stmt(query3, arg)
+        for row in qr.stmt_result:
+            qr.afid = row[0]
+            qr.fid = row[1]
+            qr.half_image = row[2]
+            qr.fruitclass = row[3]
+            qr.confidence = row[4]
+            qr.prediction = row[5]
+            qr.note = row[6]
+
+            print("afid = %s, fid = %s, fruitclass = %s, confidence = %s, prediction=%s, note = %s" % \
+                  (qr.afid, qr.fid, qr.fruitclass, qr.confidence, qr.prediction, qr.note))
+            self.qrl.append(qr)
+
+    # Central 'image'-table containing mainly images with mixed fruit, timestamps, a manual flag and notes
+    def insert_fridgelog(self, capturetime, full_image, manual_labeled, note):
+        self.cursor.execute("INSERT INTO fridgelog VALUES(1);")
+        self.db.commit()
+
+    # Supplementary table containing a seperate image with highlighted specific fruits, along with the classification data
+    def insert_all_fruits(self, fid, half_image, fruit_class, confidence, prediction, note):
+        self.cursor.execute(
+            "INSERT INTO all_fruits (fid, half_image, class, confidence, prediction, note) VALUES(%s, %s, %s, %s, %s, %s)" % \
+            (fid, half_image, fruit_class, confidence, prediction, note))
+        self.db.commit()
+>>>>>>> Stashed changes
+
+>>>>>>> origin/development-mysql
 
 if __name__ == "__main__":
     ## Load DB configuration from config.ini within module package
@@ -187,6 +291,7 @@ if __name__ == "__main__":
     dbc = c.config[ "MYSQL" ][ "Database" ]
 
     ## Open database connection with Database Handle
+<<<<<<< Updated upstream
     dbhdl = MySQLConnector (host, user, pw, dbc)
     dbhdl.connect ()
 
@@ -224,4 +329,36 @@ if __name__ == "__main__":
     dbhdl.db.commit()
     dbhdl.disconnect()
 
+<<<<<<< HEAD
     
+=======
+    dbhdl.disconnect ()
+=======
+    dbhdl = MySQLConnector(host, user, pw, dbc)
+    dbhdl.connect()
+    qr = QueryResult() #Single query result object. List of results is qrl
+
+    # Should be a list of objects, right now it's only one single object for one row
+
+    #Loading images
+    img = read_file('test.jpg')
+    dbhdl.insert_fridgelog(datetime.now(), img, 1, "hey")
+    dbhdl.insert_all_fruits(1, img, "T", 0.25, 0.65, "ha")
+
+    #Works
+    #dbhdl.print_fridgelog(1,"")
+    #dbhdl.print_fridgelog(2, "1")
+    #dbhdl.print_fridgelog(3, "0.85")
+
+    dbhdl.print_all_fruits(1,"")
+    dbhdl.print_all_fruits(2,"1")
+    dbhdl.print_all_fruits(3,"0.75")
+
+    #Works
+    #dbhdl.cursor.execute("SELECT * FROM fridgelog WHERE fridgelog.fid = %s" % "1")
+    #print(dbhdl.cursor.fetchall())
+
+    dbhdl.db.commit()
+    dbhdl.disconnect()
+>>>>>>> Stashed changes
+>>>>>>> origin/development-mysql
