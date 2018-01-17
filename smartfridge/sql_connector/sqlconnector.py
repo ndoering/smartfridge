@@ -191,7 +191,9 @@ if __name__ == "__main__":
 
     #dbhdl.execute_stmt(querydict.get("AF_delete"))
     #dbhdl.execute_stmt (querydict.get ("FL_delete"))
-    dbhdl.execute_stmt (querydict.get ("FL_create"))
+    #dbhdl.execute_stmt (querydict.get ("FL_create"))
+    dbhdl.execute_stmt (querydict.get ("AF_create"))
+
 
     # Loading images
     #img = read_file ('/home/shogun/Downloads/test.jpg')
