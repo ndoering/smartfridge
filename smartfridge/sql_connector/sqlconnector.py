@@ -7,8 +7,8 @@ import itertools
 ## Query Dictionary for SQL Statements without argument values. "Description" : "Query"
 querydict = {
     # Create tables
-    "FL_create": "CREATE TABLE fridgelog (fid INT AUTO_INCREMENT PRIMARY KEY, capturetime TIMESTAMP, full_image LONGBLOB, manual_labeled BOOLEAN, note CHAR(20))",
-    "AF_create": "CREATE TABLE all_fruits (afid INT NOT NULL AUTO_INCREMENT PRIMARY KEY, fid INT, half_image LONGBLOB, class INT, confidence FLOAT, prediction FLOAT, note CHAR(20), FOREIGN KEY (fid) REFERENCES fridgelog(fid))",
+    "FL_create": "CREATE TABLE IF NOT EXISTS fridgelog (fid INT AUTO_INCREMENT PRIMARY KEY, capturetime TIMESTAMP, full_image LONGBLOB, manual_labeled BOOLEAN, note CHAR(20))",
+    "AF_create": "CREATE TABLE IF NOT EXISTS all_fruits (afid INT NOT NULL AUTO_INCREMENT PRIMARY KEY, fid INT, half_image LONGBLOB, class INT, confidence FLOAT, prediction FLOAT, note CHAR(20), FOREIGN KEY (fid) REFERENCES fridgelog(fid))",
     # Clear tables
     "AF_empty": "TRUNCATE TABLE all_fruits",
     "FL_empty": "TRUNCATE TABLE all_fridgelog",
@@ -51,7 +51,7 @@ def read_file(filename):
 # Query result objects are created after each statement and encapsulate returned data.
 # For now, we refrain from creating different classes tables,
 # since for all possible queries, a specific object needs to be be determined
-class QueryResult ():
+class QueryResult:
     counter = itertools.count ()
     newid = next(counter)
 
@@ -89,9 +89,9 @@ class QueryResult ():
             print (self.stmt_result)
 
 
-class AF_QueryResult ():
+class AF_QueryResult (QueryResult):
     def __init__(self):
-        super ().__init__ ()
+        super().__init__ ()
         self.afid = None
         self.fid = None
         self.half_image = None
@@ -100,16 +100,16 @@ class AF_QueryResult ():
         self.prediction = None
 
 
-class FL_QueryResult ():
+class FL_QueryResult (QueryResult):
     def __init__(self):
-        super ().__init__ ()
+        super().__init__ ()
         self.fid = None
         self.capturetime = None
         self.full_image = None
         self.manual_labeled = None
 
 
-class MySQLConnector ():
+class MySQLConnector:
     def __init__(self, host, user, password, database):
         self.host = host
         self.user = user
@@ -133,7 +133,7 @@ class MySQLConnector ():
 
     def execute_stmt(self, query, values=None):
         # TODO: Proper error handling for disconnected objects
-        global qr_obj
+
         assert self.connected is True
         if self.connected:
             if values is None:
@@ -144,10 +144,11 @@ class MySQLConnector ():
             # TODO: Determine the execution tables type and create objects accordingly
             # if query starts with AF create and iterate in one way
             # if query starts with FL create and iterate in other way
+
             if query[ :2 ] == "AF":
                 for row in result:
                     # Create one new object for row within the result set
-                    qr_obj = AF_QueryResult ()
+                    qr_obj = AF_QueryResult (self)
                     qr_obj.afid = row[ 0 ]
                     qr_obj.fid = row[ 1 ]
                     qr_obj.half_image = row[ 2 ]
@@ -158,7 +159,7 @@ class MySQLConnector ():
             elif query[ :2 ] == "FL":
                 for row in result:
                     # Create one new object for row within the result set
-                    qr_obj = FL_QueryResult ()
+                    qr_obj = FL_QueryResult (self)
                     qr_obj.fid = row[ 0 ]
                     qr_obj.capturetime = row[ 1 ]
                     qr_obj.full_image = row[ 2 ]
@@ -189,7 +190,8 @@ if __name__ == "__main__":
     dbhdl.connect ()
 
     #dbhdl.execute_stmt(querydict.get("AF_delete"))
-    dbhdl.execute_stmt (querydict.get ("FL_delete"))
+    #dbhdl.execute_stmt (querydict.get ("FL_delete"))
+    dbhdl.execute_stmt (querydict.get ("FL_create"))
 
     # Loading images
     #img = read_file ('/home/shogun/Downloads/test.jpg')
