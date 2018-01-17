@@ -52,12 +52,10 @@ def read_file(filename):
 # Query result objects are created after each statement and encapsulate returned data.
 # For now, we refrain from creating different classes tables,
 # since for all possible queries, a specific object needs to be be determined
-class QueryResult():
-    #counter = itertools.count ()
-    #newid = next(counter)
+
+class QueryRow():
 
     def __init__(self):
-        #self.object_id = QueryResult.newid (self)
         self.note = None
         # Contains a query result as one string per row (for debugging purposes)
         self.stmt_result = []
@@ -72,30 +70,31 @@ class QueryResult():
         self.manual_labeled = None
 
     def printProperties(self):
-        #if self.object_id is not None:
-        #    print (self.object_id)
+        print("Properties for current QueryRow:")
+        # if self.object_id is not None:
+        #   print ("object_id = %s",self.object_id)
         if self.afid is not None:
-            print (self.afid)
+            print ("afid = %s",self.afid)
         if self.fid is not None:
-            print (self.fid)
+            print ("fid = %s",self.fid)
         if self.half_image is not None:
-            print (self.half_image)
+            print ("half_image = %s",self.half_image)
         if self.fruit_class is not None:
-            print (self.fruit_class)
+            print ("fruit_class = %s",self.fruit_class)
         if self.confidence is not None:
-            print (self.confidence)
+            print ("confidence = %s",self.confidence)
         if self.prediction is not None:
-            print (self.prediction)
+            print ("prediction = %s",self.prediction)
         if self.capturetime is not None:
-            print (self.capturetime)
+            print ("capturetime = %s",self.capturetime)
         if self.full_image is not None:
-            print (self.full_image)
+            print ("full_image = %s",self.full_image)
         if self.manual_labeled is not None:
-            print (self.manual_labeled)
+            print ("manual_labeled = %s",self.manual_labeled)
         if self.note is not None:
-            print (self.note)
+            print ("afid = %s",self.note)
         if self.stmt_result is not None:
-            print (self.stmt_result)
+            print ("stmt_result = %s",self.stmt_result)
 
 class MySQLConnector:
     def __init__(self, host, user, password, database):
@@ -105,63 +104,77 @@ class MySQLConnector:
         self.database = database
         self.cursor = None
         self.db = None
-        self.qr_obj = None
+        self.result = None
+        self.qrow = None       #Single row within a query
+        self.qresult = []      #query can contain several rows
+        self.qresult_list = [] #all query results
 
     def connect(self):
         self.db = msqlc.connect (host=self.host, user=self.user, password=self.password, database=self.database)
         self.cursor = self.db.cursor (buffered=True)
         self.connected = True
-        self.query_result_list = [ ]
-        print("DB connection established.")
+        print("DB connection established successfully.")
 
     def disconnect(self):
         self.db.close ()
         self.db = None
         self.cursor = None
         self.connected = False
+        print ("DB successfully disconnected.")
 
-    def execute_stmt(self, query, values=None):
-        # TODO: Proper error handling for disconnected objects
-
+    def exec_stmt(self, stmt=None, values=None):
         assert self.connected is True
+        # In order to find the correct return type, its recommend
+        # to call the exec_stmt method with the direct dictionary key.
+        # Hence, exec_knows which form of return statement to parse for the qr-object.
+        stmtcode = (stmt[ :2 ])
+        if stmtcode == "AF" or stmtcode == "FL":
+            query = querydict.get(stmt)
+        else:
+            query = stmt
         if self.connected:
+            print ("SQL query:")
             if values is None:
                 print(query)
                 self.cursor.execute (query)
             else:
                 print (query % values)
                 self.cursor.execute (query, values)
-            result = self.cursor.fetchall
-            # TODO: Determine the execution tables type and create objects accordingly
-            # if query starts with AF create and iterate in one way
-            # if query starts with FL create and iterate in other way
-            qr_obj = QueryResult ()
-            if query[ :2 ] == "AF":
-                for row in result:
-                    # Create one new object for row within the result set
-                    qr_obj.afid = row[ 0 ]
-                    qr_obj.fid = row[ 1 ]
-                    qr_obj.half_image = row[ 2 ]
-                    qr_obj.fruitclass = row[ 3 ]
-                    qr_obj.confidence = row[ 4 ]
-                    qr_obj.prediction = row[ 5 ]
-                    qr_obj.note = row[ 6 ]
-            elif query[ :2 ] == "FL":
-                for row in result:
-                    qr_obj.fid = row[ 0 ]
-                    qr_obj.capturetime = row[ 1 ]
-                    qr_obj.full_image = row[ 2 ]
-                    qr_obj.manual_labeled = row[ 3 ]
-                    qr_obj.note = row[ 4 ]
-            #self.qr_obj.stmt_result = result #ToDo: AttributeError: 'NoneType' object has no attribute 'stmt_result'
-            self.query_result_list.append (qr_obj)
+            self.result = self.cursor.fetchall()
+            #print ("Raw query result:")
+            #print(self.result)
             self.db.commit
 
-    def get_latestQueryResult(self):
-        return self.query_result_list.pop ()
+            # Create an object for each query that saves properties and stack objects in a list.
+            self.qrow = QueryRow ()
+            # If query starts with AF create and iterate in one way, with FL in the other.
+            if stmtcode == "AF":
+                for row in self.result:
+                    # Create one new object for each row
+                    self.qrow.afid = row[ 0 ]
+                    self.qrow.fid = row[ 1 ]
+                    self.qrow.half_image = row[ 2 ]
+                    self.qrow.fruitclass = row[ 3 ]
+                    self.qrow.confidence = row[ 4 ]
+                    self.qrow.prediction = row[ 5 ]
+                    self.qrow.note = row[ 6 ]
+                    # Append object to the qresult class property
+                    self.qresult.append (self.qrow)
+            elif stmtcode == "FL":
+                for row in self.result:
+                    self.qrow.fid = row[ 0 ]
+                    self.qrow.capturetime = row[ 1 ]
+                    self.qrow.full_image = row[ 2 ]
+                    self.qrow.manual_labeled = row[ 3 ]
+                    self.qrow.note = row[ 4 ]
+                    self.qresult.append(self.qrow)
+            self.qresult_list.append(self.qresult)
 
-    # Todo: Discussing, wheter we need a function that searches the results for characteristics, such as IDs.
-
+    def print_latest_qresult(self):
+        print(len(self.qresult))
+        for qr in self.qresult:
+            qr.printProperties()
+            print()
 
 if __name__ == "__main__":
     ## Load DB configuration from config.ini within module package
@@ -176,27 +189,37 @@ if __name__ == "__main__":
     ## Open database connection with Database Handle
     dbhdl = MySQLConnector (host, user, pw, dbc)
     dbhdl.connect ()
+
+    ## Loading images
+    # img = read_file ('/home/shogun/Downloads/test.jpg')
     img = read_file ('c:\\fatcat.jpg')
 
-    #dbhdl.execute_stmt(querydict.get("AF_delete"))
-    #dbhdl.execute_stmt (querydict.get ("FL_delete"))
-    #dbhdl.execute_stmt (querydict.get ("FL_create"))
-    #dbhdl.execute_stmt (querydict.get ("AF_create"))
+    ## When using the exec_stmt function:
+    ## 1st parameter, please use the dictionary key, so the correct query object will be returned.
+    ## Alternatively, a direct sql statement without values, but then no return object is available.
 
-    ## Testing cursor.execute() directly, since parsing error still occurs. One central db.commit at eol.
+    ## Initialising DBs
+    #dbhdl.exec_stmt ("FL_empty")
+    #dbhdl.exec_stmt ("AF_empty")
+    #dbhdl.exec_stmt ("AF_delete")
+    #dbhdl.exec_stmt ("FL_delete")
+    #dbhdl.exec_stmt ("FL_create")
+    #dbhdl.exec_stmt ("AF_create")
 
-    ## works with comma. dbhdl.cursor.execute(query_string, argument_vector)
+    ## Testing statements. Comparing plain execute and exec_stmt methods
     #dbhdl.cursor.execute("INSERT INTO fridgelog (capturetime, manual_labeled, note) VALUES (%s, %s, %s)", (datetime.now(), "1", "hey"))
-    #dbhdl.cursor.execute(querydict.get ("FL_insert_nopic"), (datetime.now(), "1", "hey"))
+    #dbhdl.cursor.execute("FL_insert_nopic", (datetime.now(), "1", "hey"))
 
-    dbhdl.cursor.execute ("INSERT INTO all_fruits (fid, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s)" , (1, 5, 0.25, 0.65, "ha"))
-    dbhdl.execute_stmt (querydict.get ("AF_insert_nopic"), (1, 5, 0.25, 0.65, "ha"))
+    #dbhdl.cursor.execute ("INSERT INTO all_fruits (fid, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s)" , (1, 5, 0.25, 0.65, "ha"))
+    #dbhdl.exec_stmt ("AF_insert_nopic", (1, 5, 0.25, 0.65, "ha"))
 
-    # dbhdl.cursor.execute ("INSERT INTO all_fruits (fid, class, confidence, prediction, note) VALUES (%s, %s, %s, %s, %s)" % (1, 5, 0.25, 0.65, "ha") )
+    dbhdl.exec_stmt("FL_sel_all")
+    dbhdl.print_latest_qresult()
 
-    #dbhdl.get_latestQueryResult().printProperties()
-    #dbhdl.cursor.execute ("SHOW TABLES FROM smartfridge")
+    # TODO: One parameter does not work, allthoug a param vector works. Why?
+    #dbhdl.exec_stmt("AF_sel_afid", 1) #Not working
+    #dbhdl.exec_stmt ("SELECT * FROM all_fruits WHERE all_fruits.afid = %s", 1) #Not working
+    #dbhdl.cursor.execute("SELECT * FROM all_fruits WHERE all_fruits.afid = 1") #works with plain cursor.execute
+
     dbhdl.db.commit()
-    # Loading images
-    #img = read_file ('/home/shogun/Downloads/test.jpg')
-    dbhdl.disconnect ()
+    dbhdl.disconnect()
