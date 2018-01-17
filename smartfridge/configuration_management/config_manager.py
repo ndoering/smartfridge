@@ -5,7 +5,7 @@ CONFIG_FILE = "config.ini"
 
 
 class Configuration():
-    def __init__(self, config_file):
+    def __init__(self, config_file=None):
         if config_file is None:
             config_file = CONFIG_FILE
 
