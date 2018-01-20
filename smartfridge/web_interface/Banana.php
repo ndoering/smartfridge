@@ -3,19 +3,12 @@ require_once 'dbconfig.php';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    
-    // Fridgelog Sandard Select
-    $sql_std = 'SELECT fid,
-                    capturetime,
-                    manual_labeled
-               FROM fridgelog';
-    $qs = $pdo->query($sql_std);
-    $qs->setFetchMode(PDO::FETCH_ASSOC);
        
     // Selecting latest entry from joined tables.
-    $sql_last_entry = 'SELECT af.afid, fl.fid, class, confidence, prediction, MAX(capturetime) 
+    $sql_last_entry = 'SELECT af.afid, fl.fid, class, confidence, prediction, MAX(capturetime), full_image 
                     FROM fridgelog fl, all_fruits af 
                     WHERE af.fid = fl.fid';
+    
     $q_le = $pdo->query($sql_last_entry);
     $q_le->setFetchMode(PDO::FETCH_ASSOC);
     
@@ -24,6 +17,7 @@ try {
         $prediction = $row['prediction'];
         $confidence = $row['confidence'];
         $capturetime = $row['MAX(capturetime)'];
+        $full_image = $row['full_image'];
      endwhile;
 
 
@@ -53,15 +47,14 @@ try {
 
 		<div class="col_12" align="center">
 			<h3>Smart Fridge</h3>
-
+			<!-- Displaying the fruit's latest picture. -->
 			<div class="col_6" style="border: 1px solid red;" align="center">
-				<p>
-					<img class="align-center"
-						src="https://img.purch.com/h/1000/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA2NS8xNDkvb3JpZ2luYWwvYmFuYW5hcy5qcGc="
-						width="550" height="350" />
+			<?php
+			echo '<img src="data:image/jpeg;base64,'.base64_encode( $full_image).'" width="550" height="350"/>';
+            ?>
 			</div>
 			
-			<!-- Displaying the fruit's edibility class. -->
+			<!-- Displaying the fruit's edibility information. -->
 			<div class="col_6">
 			<?php
 			if ($class == 1)
@@ -125,7 +118,6 @@ try {
 		<button class="large">Take foto</button>
 		<button class="large">Reset</button>
 	</div>
-
 
 </body>
 </html>
