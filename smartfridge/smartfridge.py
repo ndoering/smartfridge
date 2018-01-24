@@ -10,25 +10,34 @@ from datetime import datetime
 if __name__ == "__main__":
     cliparser = cp.CliParser()
 
-    # slack stuff
+    ### SLACK ##################################################################
     c = conf.Configuration(cliparser.args.config)
     bot = sc.Slackbot(c)
     #bot.speak()
 
+
+    ### CAMERA #################################################################
     # take picture (returns bytes)
     streamvalue = ch.take_picture()
 
-    '''
-    # call clarifai API
+
+    ### PIPELINE ###############################################################
+    # TO DO
+
+
+    ### CLARIFAI ###############################################################
     print("Start classification.")
     clarifaiApp = c.config["CLARIFAI"]["APIKey"]
     model = c.config["CLARIFAI"]["Model"]
     print("App and Model loaded.")
-    ccall = cc.ClarifaiCall(clarifaiApp, model, streambuffer)
-    print(ccall.call()) # JSON response
-    '''
+    # instantiate Clarifai object
+    ccall = cc.ClarifaiCall(clarifaiApp, model, streamvalue)
+    # call clarifai API
+    ccall.call()
+    print(ccall.json) # JSON response
 
-    # Database connection
+
+    ### DATABASE ###############################################################
     ## Load DB configuration from config.ini within module package
     c = conf.Configuration()
     host = c.config["MYSQL"]["Host"]
@@ -42,10 +51,10 @@ if __name__ == "__main__":
     #dbhdl.drop_tables()
     #dbhdl.db_create_tables()
 
-    # data = (streamvalue, 4, 'streamed')
-    data = ('NULL', 4, 'streamed')
+    # create entry in fridgelog for whole image
+    data = (streamvalue, 'note')
+    #data = ('NULL', 'note')
     dbhdl.insert_fridgelog(data)
 
-    foreign_key = dbhdl.retrieve("MAX(fid)", "fridgelog")[0][0]
-    data = (foreign_key, 'NULL', 1, 0.6, 0.5, 'this is a note')
-    dbhdl.insert_all_fruits(data)
+    # create entry in all_fruits for each detected fruit status
+    dbhdl.insert_all_fruits(ccall.json)

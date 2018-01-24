@@ -48,6 +48,13 @@ class MySQLConnector(SQLConnector):
         self.cursor = None
         self.db = None
         self.qrl = [] #QueryResultList
+        self.dict_label = {
+            'banana_fresh':             1,
+            'banana_fresh-neutral':     2,
+            'banana_neutral':           3,
+            'banana_neutral-bad':       4,
+            'banana_bad':               5
+            }
 
     def connect(self):
         self.db = mysqlc.connect(host=self.host,
@@ -69,7 +76,6 @@ class MySQLConnector(SQLConnector):
                             "(fid INT AUTO_INCREMENT PRIMARY KEY, "
                             "capturetime TIMESTAMP, "
                             "full_image LONGBLOB, "
-                            "manual_labeled BOOLEAN, "
                             "note CHAR(20))")
 
         # Table 'all_fruits' contains image with one fruit each
@@ -78,7 +84,6 @@ class MySQLConnector(SQLConnector):
         # half_image - Seperated Fruit Image,
         # class - class of fruit,
         # confidence - how sure is the classifier?,
-        # prediction - between 0 and 1,
         # note - for later usage
         self.cursor.execute("CREATE TABLE all_fruits "
                             "(afid INT NOT NULL AUTO_INCREMENT PRIMARY KEY, "
@@ -86,29 +91,42 @@ class MySQLConnector(SQLConnector):
                             "half_image LONGBLOB, "
                             "class INT, "
                             "confidence FLOAT, "
-                            "prediction FLOAT, "
                             "note CHAR(20), "
                             "FOREIGN KEY (fid) REFERENCES fridgelog(fid))")
 
     def drop_tables(self):
-        self.cursor.execute("DROP TABLE IF EXISTS all_fruits")
-        self.cursor.execute("DROP TABLE IF EXISTS fridgelog")
+        self.cursor.execute("DROP TABLES IF EXISTS all_fruits, fridgelog")
 
-    def insert_fridgelog(self, data):
+    def insert_fridgelog(self, data):      
         statement = ("INSERT INTO fridgelog "
-                     "(full_image, manual_labeled, note) "
-                     "VALUES (%s, %s, %s)")
+                     "(full_image, note) "
+                     "VALUES (%s, %s)")
 
         self.cursor.execute(statement, data)
         self.db.commit()
 
-    def insert_all_fruits(self, data):
+    def insert_all_fruits(self, json):
         statement = ("INSERT INTO all_fruits "
-                     "(fid, half_image, class, confidence, prediction, note) "
-                     "VALUES(%s, %s, %s, %s, %s, %s)")
+                     "(fid, half_image, class, confidence, note) "
+                     "VALUES(%s, %s, %s, %s, %s)")
 
-        self.cursor.execute(statement, data)
-        self.db.commit()
+        # get fid of latest entry in fridgelog
+        foreign_key = self.retrieve("MAX(fid)", "fridgelog")[0][0]
+
+        # parse json
+        for label in json:
+            if label['value'] > 0.7:
+                data = (foreign_key,
+                        'NULL',
+                        self.dict_label[label['id']],
+                        label['value'],
+                        'this is a note')
+                self.cursor.execute(statement, data)
+                self.db.commit()
+            else:
+                break # legit because json response is ordered by value
+        
+        
 
     def retrieve(self, what, where, condition=''):
         ''' returns list of tuples that are rows of the statement result '''
@@ -136,7 +154,6 @@ querydict = {
                     half_image LONGBLOB, \
                     class INT, \
                     confidence FLOAT, \
-                    prediction FLOAT, \
                     note CHAR(20), \
                     FOREIGN KEY (fid) REFERENCES fridgelog(fid))",
 
