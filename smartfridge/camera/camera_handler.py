@@ -18,11 +18,16 @@ def take_picture():
     # create stream using in-memory byte buffer
     stream = io.BytesIO()
     camera.capture(stream, 'jpeg')
-    stream = stream.getbuffer()
+    stream = stream.getvalue()
 
     # only for testing: take bytes and save as jpg
     # fobj = open("byte_to_jpg.jpg", "wb")
     # fobj.write(stream)
     # fobj.close()
+
+    camera.close()
     
     return stream
+
+if __name__ == "__main__":
+    take_picture()

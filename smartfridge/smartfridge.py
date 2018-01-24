@@ -1,24 +1,60 @@
 from camera import camera_handler as ch
 from clarifai_connector import clarifai_connector as cc
+import sql_connector as dbcon
 import configuration_management as conf
 import slack_connector as sc
+import cli_parser as cp
+from datetime import datetime
 
 
 if __name__ == "__main__":
-    # slack stuff
-    c = conf.Configuration()
+    cliparser = cp.CliParser()
+
+    ### SLACK ##################################################################
+    c = conf.Configuration(cliparser.args.config)
     bot = sc.Slackbot(c)
     #bot.speak()
 
 
+    ### CAMERA #################################################################
     # take picture (returns bytes)
-    streambuffer = ch.take_picture()
-    
+    streamvalue = ch.take_picture()
 
-    # call clarifai API
+
+    ### PIPELINE ###############################################################
+    # TO DO
+
+
+    ### CLARIFAI ###############################################################
     print("Start classification.")
     clarifaiApp = c.config["CLARIFAI"]["APIKey"]
     model = c.config["CLARIFAI"]["Model"]
     print("App and Model loaded.")
-    ccall = cc.ClarifaiCall(clarifaiApp, model, streambuffer)
-    print(ccall.call()) # JSON response
+    # instantiate Clarifai object
+    ccall = cc.ClarifaiCall(clarifaiApp, model, streamvalue)
+    # call clarifai API
+    ccall.call()
+    print(ccall.json) # JSON response
+
+
+    ### DATABASE ###############################################################
+    ## Load DB configuration from config.ini within module package
+    c = conf.Configuration()
+    host = c.config["MYSQL"]["Host"]
+    user = c.config["MYSQL"]["User"]
+    pw = c.config["MYSQL"]["Password"]
+    dbc = c.config["MYSQL"]["Database"]
+    ## Open database connection with Database Handle
+    dbhdl = dbcon.MySQLConnector(host, user, pw, dbc)
+    dbhdl.connect()
+
+    #dbhdl.drop_tables()
+    #dbhdl.db_create_tables()
+
+    # create entry in fridgelog for whole image
+    data = (streamvalue, 'note')
+    #data = ('NULL', 'note')
+    dbhdl.insert_fridgelog(data)
+
+    # create entry in all_fruits for each detected fruit status
+    dbhdl.insert_all_fruits(ccall.json)
