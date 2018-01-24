@@ -14,7 +14,7 @@ if __name__ == "__main__":
     ### SLACK ##################################################################
     c = conf.Configuration(cliparser.args.config)
     bot = sc.Slackbot(c)
-	print("Slackbot initialized.")
+    print("Slackbot initialized.")
     #bot.speak()
 
 
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     # as the above only works on a RaspberryPi with camera
     with open("test.jpg", "rb") as imagefile:
         f = imagefile.read()
-        streambuffer = io.BytesIO(f).getbuffer()
+        streamvalue = io.BytesIO(f).getvalue()
     #############################################
     print("Photo shot.")
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     # call clarifai API
     ccall.call()
     print(ccall.json) # JSON response
-	bot.compute_message(ccall.json)
+    bot.compute_message(ccall.json)
 
 
     ### DATABASE ###############################################################

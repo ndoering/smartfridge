@@ -64,3 +64,7 @@ class Slackbot():
 
     def speak(self, message_type):
         message = get_message(message_type)
+        sc.send_message(self.slackClient,
+                        self.configuration["SLACK"]["BotName"],
+                        self.configuration["SLACK"]["SlackChannel"],
+                        message)
