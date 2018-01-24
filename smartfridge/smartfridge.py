@@ -9,13 +9,9 @@ from datetime import datetime
 
 
 if __name__ == "__main__":
+    ### CONFIGURATION ##########################################################
     cliparser = cp.CliParser()
-
-    ### SLACK ##################################################################
     c = conf.Configuration(cliparser.args.config)
-    bot = sc.Slackbot(c)
-    print("Slackbot initialized.")
-    #bot.speak()
 
 
     ### CAMERA #################################################################
@@ -44,7 +40,11 @@ if __name__ == "__main__":
     ccall = cc.ClarifaiCall(clarifaiApp, model, streamvalue)
     # call clarifai API
     ccall.call()
-    print(ccall.json) # JSON response
+
+
+    ### SLACK ##################################################################
+    bot = sc.Slackbot(c)
+    print("Slackbot initialized.")
     bot.compute_message(ccall.json)
 
 
