@@ -61,5 +61,6 @@ class Slackbot():
         if counter == 0:
             self.speak("no_detection")
 
+
     def speak(self, message_type):
         message = get_message(message_type)

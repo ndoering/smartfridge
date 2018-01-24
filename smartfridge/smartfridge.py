@@ -13,7 +13,6 @@ if __name__ == "__main__":
 
     ### SLACK ##################################################################
     c = conf.Configuration(cliparser.args.config)
-
     bot = sc.Slackbot(c)
 	print("Slackbot initialized.")
     #bot.speak()
@@ -70,4 +69,3 @@ if __name__ == "__main__":
 
     # create entry in all_fruits for each detected fruit status
     dbhdl.insert_all_fruits(ccall.json)
-
