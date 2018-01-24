@@ -21,7 +21,7 @@ if __name__ == "__main__":
     ### CAMERA #################################################################
     # take picture (returns bytes)
     # streamvalue = ch.take_picture() TO DO: use this line in production
-   #############################################
+    #############################################
     # the following generates a dummy bytefile for testing
     # as the above only works on a RaspberryPi with camera
     with open("test.jpg", "rb") as imagefile:
