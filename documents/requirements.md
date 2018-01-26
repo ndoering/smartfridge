@@ -4,58 +4,32 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 ### Table of contents
 1. [Introduction](#1introduction)
-
-	1.1 [Purpose](#11purpose)
-
-	1.2 [Intended Audience and Reading Suggestions](#12intended-audience-and-reading-suggestions)
-
-	1.3 [Product scope](#13product-scope)
-
-2. [Overall Description](#2overall-description)
-
-	2.1	[Product Perspective](#21product-perspective)
-
-	2.2	[Product Functions](#22product-functions)
-
-	2.3	[User Classes and Characteristics](#23user-classes-and-characteristics)
-
-	2.4	[Operating Environment](#24operating-environment)
-
-	2.5	[Design and Implementation Constraints](#25design-and-implementation-constraints)
-
-	2.6	[User Documentation](#26user-documentation)
-
-	2.7	[Assumptions and Dependencies](#27assumptions-and-dependencies)
-
-3.	[External Interface Requirements](#3external-interface-requirements)
-
-	3.1	[User Interfaces](#31user-interfaces)
-
-	3.2	[Hardware Interfaces](#32hardware-interfaces)
-
-	3.3	[Software Interfaces](#33software-interfaces)
-
-	3.4	[Communications Interfaces](#34communications-interfaces)
-
-4.	[System Features](#4system-features)
-
-	4.1	[Data acquisition and storage](#41-data-aquisition-and-storage)
-
-	4.2	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
-
- 	4.3	[Notification of critical food status](#43notification-of-critical-food-status)
-
-5.	[Other Nonfunctional Requirements](#5other-nonfunctional-requirements)
-
-	5.1	[Performance Requirements](#51performance-requirements)
-
-	5.2	[Safety Requirements](#52safety-requirements)
-
-	5.3	[Security Requirements](#53security-requirements)
-
-	5.4	[Software Quality Attributes](#54software-quality-attributes)
-
-	5.5	[Business Rules](#55business-rules)
+    1. [Purpose](#11purpose)
+    1. [Intended Audience and Reading Suggestions](#12intended-audience-and-reading-suggestions)
+    1. [Product scope](#13product-scope)
+1. [Overall Description](#2overall-description)
+    1.	[Product Perspective](#21product-perspective)
+    1.	[Product Functions](#22product-functions)
+    1.	[User Classes and Characteristics](#23user-classes-and-characteristics)
+    1.	[Operating Environment](#24operating-environment)
+    1.	[Design and Implementation Constraints](#25design-and-implementation-constraints)
+    1.	[User Documentation](#26user-documentation)
+    1. [Assumptions and Dependencies](#27assumptions-and-dependencies)
+1.	[External Interface Requirements](#3external-interface-requirements)
+    1.	[User Interfaces](#31user-interfaces)
+    1.	[Hardware Interfaces](#32hardware-interfaces)
+    1.	[Software Interfaces](#33software-interfaces)
+    1.	[Communications Interfaces](#34communications-interfaces)
+1.	[System Features](#4system-features)
+    1.	[Data acquisition and storage](#41-data-aquisition-and-storage)
+    1. 	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
+    1.	[Notification of critical food status](#43notification-of-critical-food-status)
+1.	[Other Nonfunctional Requirements](#5other-nonfunctional-requirements)
+    1.	[Performance Requirements](#51performance-requirements)
+    1. 	[Safety Requirements](#52safety-requirements)
+    1.	[Security Requirements](#53security-requirements)
+    1.	[Software Quality Attributes](#54software-quality-attributes)
+    1.	[Business Rules](#55business-rules)
 
 
 <div style="page-break-after: always;"></div>
