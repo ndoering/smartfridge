@@ -81,14 +81,14 @@ class.
 objectives and benefits of your project. This will provide the basis for the
 brief description of your product.~~
 
-The software serves as a prototype or MVP (minimum viable product) to the
-overarching idea of a system that tracks content inside a consumer fridge. As
-such its scope is reduced to identify two distinct fruits (bananas and tomatoes)
-and evaluate their ripeness. This is embedded in a notifaction system for a
+The software serves as a prototype or MVP (minimum viable product) to
+the overarching idea of a system that tracks content inside a consumer
+fridge. As such its scope is reduced to identify bananas and evaluate
+their ripeness. This is embedded in a notifaction system for a
 hypothetical enduser.
 
 This prototype is built to be easily adapted to more fruits and other
-products.
+products. 
 
 
 ### 1.3 Overview
