@@ -115,23 +115,32 @@ audience.~~
 project. Provide any background information if necessary.~~
 
 
-Accomplishments from user perspective:
-- provide a web interface for the user to interact:
-  - show a recent picture of the inside of the fridge
-  - show a message about the state of the fridge content
-- take a picture and send it to a cloud machine learning application; can be
-  done periodically and on user demand
-  - based on the response:
-    - bad food: send a notification to a designated slack channel
-    - everything ok: stay idle
-
 ### Web interface
+
+The website provides the main interaction for the SmartFridge. The
+user can take new photos from here to inspect the current state of the
+contents of the fridge. The latest image is shown as well as the state
+of the freshness of the fruits within the image.
+
 
 ### Notification via Slack channel
 
+If bad food is recognized  in the fridge this is reported not only on the
+website but also in a predefined Slack channel. The user can therefore
+use the Slack app to get the notifications asynchronously.
+
+
 ### Classification of the freshness of fruits
 
+The fruits are sent to a cloud service to be classified by a machine
+learning application. This is done periodically and on user demand
+
+
 ### Database storage for later use
+
+All taken images and the classification received from the cloud
+service are stored for the use within the website and later logging
+purposes. This is facilitated by an on-site database server.
 
 
 ## 3. System architecture
