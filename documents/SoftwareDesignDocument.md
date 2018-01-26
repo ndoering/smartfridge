@@ -19,46 +19,26 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 
 ## TABLE OF CONTENTS
 1. [Introduction](#1-introduction)
-
-	1.1 [Purpose](#11-purpose)
-
-	1.2 [Scope](#12-scope)
-
-	1.3 [Overview](#13-overview)
-
-	1.4 [Reference Material](#14-reference-material)
-
-	1.5 [Definitions and Acronyms](#15-definitions-and-acronyms)
-
-2. [System overview](#2-system-overview)
-
-3. [System architecture](#3-system-architecture)
-
-	3.1 [Architectural Design](#31-architectural-design)
-
-	3.2 [Decomposition Description](#32-decomposition-description)
-
-	3.3 [Design Rationale](#33-design-rationale)
-
-4. [Data design](#4-data-design)
-
-	4.1 [Data Description](#41-data-description)
-		
-	4.2 [Data Dictionary](#42-data-dictionary)
-
-5. [Component design](#5-component-design)
-
-6. [Human interface design](#6-human-interface-design)
-
-	6.1 [Overview of User Interface](#61-overview-of-user-interface)
-
-    6.2 [Screen Images](#62-screen-images)
-
-	6.3 [Screen Objects and Actions](#63-screen-objects-and-actions)
-
-7. [Requirements matrix](#7-requirements-matrix)
-
-8. [Appendices](#8-appendices)
+    1. [Purpose](#11-purpose)
+    1. [Scope](#12-scope)
+    1. [Overview](#13-overview)
+    1. [Reference Material](#14-reference-material)
+    1. [Definitions and Acronyms](#15-definitions-and-acronyms)
+1. [System overview](#2-system-overview)
+1. [System architecture](#3-system-architecture)
+    1. [Architectural Design](#31-architectural-design)
+    1. [Decomposition Description](#32-decomposition-description)
+    1. [Design Rationale](#33-design-rationale)
+1. [Data design](#4-data-design)
+    1. [Data Description](#41-data-description)
+    1. [Data Dictionary](#42-data-dictionary)
+1. [Component design](#5-component-design)
+1. [Human interface design](#6-human-interface-design)
+    1. [Overview of User Interface](#61-overview-of-user-interface)
+    1. [Screen Images](#62-screen-images)
+    1. [Screen Objects and Actions](#63-screen-objects-and-actions)
+1. [Requirements matrix](#7-requirements-matrix)
+1. [Appendices](#8-appendices)
 
 <div style="page-break-after: always;"></div>
 
