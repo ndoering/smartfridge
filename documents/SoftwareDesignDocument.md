@@ -2,8 +2,8 @@
 
 Names: Melanie, Liuba, Nils, Jörn, Chris
 
+
 <div style="page-break-after: always;"></div>
-\newpage
 
 
 ## Revision History
@@ -13,8 +13,9 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 | 0.0     | 2017-12-19 | Initial Template     |
 | 1.0     | 2018-01-26 | Detailed description |
 
+
 <div style="page-break-after: always;"></div>
-\newpage
+
 
 ## TABLE OF CONTENTS
 1. [Introduction](#1-introduction)
@@ -60,7 +61,7 @@ Names: Melanie, Liuba, Nils, Jörn, Chris
 8. [Appendices](#8-appendices)
 
 <div style="page-break-after: always;"></div>
-\newpage
+
 
 ## 1. Introduction
 
@@ -180,9 +181,34 @@ as a standalone server in background. We connect to the database with
 the *mysql-connector-python* module. This module is provided by the
 MySQL project.
 
+The database is comprised of two tables, *fridgelog* and
+*all_fruits*. The first table contains all the raw images, their
+timestamps and an optional note. The second table is able to store
+parts of the raw camera image, only featuring one fruit within. This
+feature is currently not implemented. For each of these parts the
+classification is stored, along with the confidence and also an
+optional note. These part images are reference via a foreign key to
+the corresponding *fridgelog* entry. Therefore one can retrieve all
+parts of one image take from the camera and get their respective
+classifications.
+
 
 #### View - Webserver
 
+The webserver is a standard *Apache HTTPd* webserver. It is provided
+by the operating systems package manager. It runs as a standalone
+service and provides the website for the SmartFridge. 
+
+The website itself is build in *PHP*, *HTML* and *CSS*. It provides a
+current image and the corresponding classifiation, which are taken
+from the database. The website works autonomously and will not be
+triggerd asynchronously from the controller.
+
+It also provides a button that triggers the controller, currently
+using an operating-system-level signal, which is called via the
+*pkill* command. This signal induces the controller to provide a new
+image and classification, which will be stored in the database. The
+website takes the new image and displays it accompanied by its classification.
 
 
 #### Controller - Python middleware
