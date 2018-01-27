@@ -294,25 +294,25 @@ The software must consume few enough resources to work on a system-on-chip. If t
 
 ### 6. Product Vision and further scenarios
 
-Even though the Smartfridge project is still in a very early stage with limited functional capabilities yet, we share a long term vision of a of a socially connected food management. Our proof-of-concept illustrates that a software project can rely in decisive parts in the usage of external webservices. Hence, we expect further opportunities for more sphisticated scenarios that go significantly beyond our current scope. Following, a list of ideas aims to highlight some of the most likely features we aim to implement next.
+Even though the Smartfridge project is still in a very early stage with limited functional capabilities yet, we share a long term vision of a of a socially connected food management platform. Our proof-of-concept highlights that a software project can rely in decisive parts on the usage of external webservices. Hence, we expect further opportunities for more sophisticated scenarios that go far beyond our current scope. Following, our list of further ideas should illustrate some of the most likely features we aim to implement next.
 
 ##### 6.1	Easier Input for food data
-Bearing in mind the current ease of image recognition services, we see huge potential in better user experience by scanning the actual product barcode. Smartfridge should be able to determine the actual grocery items, along with their price and best before dates. A desirable scenario would be information about the actual value of current groceries inside the fridge and of cource statistics on the amount of food that spoiled.
+Bearing in mind the current ease of image recognition services, we see significant potential in better user experience by scanning the actual product barcode. Smartfridge could be able to determine the actual grocery items, along with their price and best before dates. Hence, it could determine specific patterns concerning the edibility of fruits from specific origins. A desirable scenario would be information about the actual value of current groceries inside the fridge and elaborated course statistics on the amount of food that spoiled.
 
 ##### 6.2   Recommendations for groceries and recipes
-We also believe that data analytics systems should have the main purpose to make users aware of things they would not realize right away. Hence, Smartfridge should extensively deliver recommendations concerning the users' nutrion habits and possible improvements. By granting access to the personal calender, or even fitness wearables, the quality of recommendations could be adjusted even more precise towards the actual health state.
+We also believe that data analytics should have the main purpose to make users aware of things they would not realize on the spot. Hence, Smartfridge should extensively deliver recommendations concerning the users' nutrion habits and suggest possible improvements. By granting access to users' personal calenders, or even fitness wearables, the quality of recommendations could be adjusted even more precise according to the actual health state.
 
 ##### 6.3   Delivery service connection and automatic orders
-With the approach of grocery deliveries, smart fridge could automate the entire grocery shopping process, according to the users habits. Users' would benefit by saving their time from crowded supermakets and stressful queying in lines. Moreover, Smartfridge could forecast precisely the amount of food needed.
+With the advent of grocery delivery services, such as Amazon fresh, Smartfridge could automate the entire grocery shopping process. Users would benefit by saving their time from crowded supermakets and stressful queying. Moreover, Smartfridge could forecast precisely the amount of food needed and reduce the amount of spoiled food.
 
 ##### 6.4   Voice assistant intergration (Siri and Alexa)
-Although, the current advent of voice based assistants show many signs of a classic hype, we believe that in the long term voice assistansts will be central part of many people's lifes. Hence, we aim to integrate Smartfridge soon with the capabilities to allow voice assistants insights in our system. Therefore we will provide the nessessary interfaces.
+Although, voice based assistants currently show many signs of a classic hype, we believe that in the long term voice assistansts will be central part of many people's lifes. Hence, we aim to integrate Smartfridge soon with the capabilities to allow voice assistants insights in our system. Therefore we will also provide the necessary interfaces.
 
 ##### 6.5   Social food sharing platform
-4. Social Komponente (Foodsharing, Konsumvergleich mit Leuten aus der Gegend, Teilen-Button, Gamification)
+Smartfridge could be integrated into food sharing platforms. Users' could allow to share data on current groceries that are unlikely to be eaten and share these information with user Smartfridge users in town. Since cooking is among the most social activities, we believe a related social platform offers high potential to save food and bring people together.  
 
-##### 6.6   Implementation of further sensors
-3. Schnittstellen für weitere Sensoren (Feuchtigkeit, Geruch, Licht,...)
+##### 6.6   Data exchange with other kitchen machines
+Kitchen machines like Thermomix show trend towards cooking automation. Connecting these tools with Smartfridge could bring new opportunities for connected cooking.
 
 ##### 6.7   Rethinking the interior fridge design
-6. Eingriff in Kühlschranktechnik (Temperaturregelung auf Grundlage des Inhalts)
+Once the entire grocery order process chain and the actual cooking becomes more and more automated it might be appropriate to rethink the actual interior design of a refrigerator. There might be ways to improve the cooling efficiency. Moreover, we could think of automating the refilling process as well.
