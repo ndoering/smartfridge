@@ -315,4 +315,4 @@ Smartfridge could be integrated into food sharing platforms. Users' could allow 
 Kitchen machines like Thermomix show trend towards cooking automation. Connecting these tools with Smartfridge could bring new opportunities for connected cooking.
 
 ##### 6.7   Rethinking the interior fridge design
-Once the entire grocery order process chain and the actual cooking becomes more and more automated it might be appropriate to rethink the actual interior design of a refrigerator. There might be ways to improve the cooling efficiency. Moreover, we could think of automating the refilling process as well.
+Once the entire grocery order process chain and the actual cooking becomes more and more automated it might be appropriate to rethink the actual interior design of a refrigerator. There might be ways to improve the cooling efficiency. Moreover, we could think of automating the refilling process as well. 
