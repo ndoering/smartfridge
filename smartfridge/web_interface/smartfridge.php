@@ -4,37 +4,18 @@ require_once 'dbconfig.php';
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     
-    // Selecting latest entry from joined tables.
-    $sql_last_entry = 'SELECT af.afid, fl.fid, class, confidence, MAX(capturetime), full_image, af.note
-                    FROM fridgelog fl, all_fruits af
-                    WHERE af.fid = fl.fid';
-    
-    //To be tested with more data
-    $sql_last_banana = 'SELECT af.afid, fl.fid, class, confidence, MAX(capturetime), full_image, af.note
-                    FROM fridgelog fl, all_fruits af
-                    WHERE af.fid = fl.fid AND af.note = "B"';
+    // Selecting latest entry from joined tables. To Fix latest Image
+    $sql_last_entry = 'SELECT fid, capturetime, full_image FROM fridgelog WHERE fid=(SELECT MAX(fid) FROM FRIDGELOG)';
     
     $q_le = $pdo->query($sql_last_entry);
     $q_le->setFetchMode(PDO::FETCH_ASSOC);
     
-    $q_lb = $pdo->query($sql_last_banana);
-    $q_lb->setFetchMode(PDO::FETCH_ASSOC);
-    
     while ($row = $q_le->fetch()):
-    $class = $row['class'];
-    $note = $row['note'];
-    $confidence = $row['confidence'];
-    $capturetime = $row['MAX(capturetime)'];
+    $class = 1;//$row['class'];
+    $note = 1;//$row['note'];
+    $confidence = 1;//$row['confidence'];
+    $capturetime = $row['capturetime'];
     $full_image = $row['full_image'];
-    endwhile;
-    
-    // ToDo: Implementing in a more elegant way.
-    while ($row = $q_lb->fetch()):
-    $bclass = $row['class'];
-    $bnote = $row['note'];
-    $bconfidence = $row['confidence'];
-    $bcapturetime = $row['MAX(capturetime)'];
-    $bfull_image = $row['full_image'];
     endwhile;
     
 } catch (PDOException $e) {
@@ -125,13 +106,13 @@ try {
                     echo '</i>
                 </div>';
             // Die Notiz je nach Note anzeigen lassen.
-                echo
-                '<div class="notice warning">
-    			    <i class="icon-ok icon-large">';
-                    echo "Banana Content: Class: $bclass, Confidence: $bconfidence, Time: $bcapturetime";
-                    echo '</i>
-                </div>';?>
-			</div>
+//                 echo
+//                 '<div class="notice warning">
+//     			    <i class="icon-ok icon-large">';
+//                     echo "Banana Content: Class: $bclass, Confidence: $bconfidence, Time: $bcapturetime";
+//                     echo '</i>
+//                 </div>';?>
+<!-- 			</div> -->
 			
 			<div id="btn-example" align="center">
                 <form action="smartfridge.php" method="post">
@@ -150,13 +131,13 @@ try {
 	    // Todo:
 	    // Execute the Command line for taking photo.
 	    // Nils could implement a "take snapshot executable."
-	    $cmdoutput = exec('whoami');
+	    $cmdoutput = exec('pkill -USR1 -f smartfridge.py');
 	    //$cmdoutput = exec('pkill -USR1');
 	    echo
 	    '<div class="notice warning">
     			    <i class="icon-ok icon-large">
                         Photo taken. </p>';
-	    echo "Shell Output [whoami]: $cmdoutput";
+	    echo "Shell Output [pkill]: $cmdoutput";
 	    echo
 	    '</i>
               </div>';
