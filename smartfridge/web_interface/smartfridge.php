@@ -1,5 +1,5 @@
 <?php
-require_once 'dbconfig.php';
+require_once './dbconfig.php';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
