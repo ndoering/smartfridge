@@ -5,8 +5,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
  
     $sql = 'SELECT fid,
-                    capturetime,
-                    manual_labeled
+                    capturetime
                FROM fridgelog';
  
     $q = $pdo->query($sql);
@@ -44,7 +43,6 @@ try {
 			<tr>
 				<th>fid</th>
 				<th>capturetime</th>
-				<th>manuallabeled</th>
 			</tr>
 		</thead>
                 <tbody>
@@ -52,7 +50,6 @@ try {
                         <tr>
                             <td><?php echo htmlspecialchars($row['fid']) ?></td>
                             <td><?php echo htmlspecialchars($row['capturetime']); ?></td>
-                            <td><?php echo htmlspecialchars($row['manual_labeled']); ?></td>
                         </tr>
                     <?php endwhile; ?>
 			<!-- <tr>

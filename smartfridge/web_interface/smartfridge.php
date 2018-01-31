@@ -5,7 +5,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     
     // Selecting latest entry from joined tables. To Fix latest Image
-    $sql_last_entry = 'SELECT fid, capturetime, full_image FROM fridgelog WHERE fid=(SELECT MAX(fid) FROM FRIDGELOG)';
+    $sql_last_entry = 'SELECT fid, capturetime, full_image FROM fridgelog WHERE fid=(SELECT MAX(fid) FROM fridgelog)';
     
     $q_le = $pdo->query($sql_last_entry);
     $q_le->setFetchMode(PDO::FETCH_ASSOC);
@@ -117,7 +117,6 @@ try {
 			<div id="btn-example" align="center">
                 <form action="smartfridge.php" method="post">
                     <input type="submit" name="takephoto" value="Take Photo." />
-                    <input type="submit" name="reset" value="Reset." />
                 </form>
     		</div>
 			
@@ -142,16 +141,7 @@ try {
 	    '</i>
               </div>';
 	}
-	else if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['reset']))
-	{
-	    // Todo:
-	    // What should be done on this reset request?
-	    echo '<div class="notice warning">
-    			    <i class="icon-ok icon-large">
-                        Reset successfull.
-                    </i>
-              </div>';
-    }?>
+?>
 
 </body>
 </html>
