@@ -1,72 +1,67 @@
-<?php
-require_once 'dbconfig.php';
- 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
- 
-    $sql = 'SELECT fid,
-                    capturetime
-               FROM fridgelog';
- 
-    $q = $pdo->query($sql);
-    $q->setFetchMode(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Could not connect to the database $dbname :" . $e->getMessage());
-}
-?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="css/kickstart.css" media="all"/>
-	<title>Smart Fridge - Logs</title>
+    <meta charset="UTF-8">
+    <meta name="Smartfridge" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="A University project for food edibility analysis and recommendation." />
+    <meta name="copyright" content="Goethe University, Frankfurt am Main." />
+    
+    <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />    <!-- KICKSTART --> 
+	<link rel="stylesheet" type="text/css" href="style.css" media="all" />            <!-- CUSTOM STYLES -->
+    
+    <title>Smart Fridge Database Log</title>
 </head>
+<!-- ===================================== END HEADER ===================================== -->
+<?php
+// Loading database queries.
+require_once './db_access.php';
+?>
+<!-- =============================== DB Connection & Queries ============================== -->
 
+<!-- =============================== Page content ============================== -->
 <body>
 
-<!-- Menu Horizontal -->
-<ul class="menu">
-	<li ><a href="Banana.php"><span class="icon" data-icon="R"></span>Banana</a></li>
-	<li ><a href="Tomato.php"><span class="icon" data-icon="R"></span>Tomato</a></li>
-	<li class="current" ><a href="db_logs.php"><span class="icon" data-icon="R"></span>Log</a></li>
-</ul>
-
-
-<div class="grid">
-
-<!-- 	<table class="striped" cellspacing="0" cellpadding="0"> -->
-	<table class="striped">
-		<thead>
-			<tr>
-				<th>fid</th>
-				<th>capturetime</th>
-			</tr>
-		</thead>
-                <tbody>
-                    <?php while ($row = $q->fetch()): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($row['fid']) ?></td>
-                            <td><?php echo htmlspecialchars($row['capturetime']); ?></td>
-                        </tr>
-                    <?php endwhile; ?>
-			<!-- <tr>
-				<td>Item4</td>
-				<td>Item5</td>
-				<td>Item6</td>
-			</tr>
-            -->
-		</tbody>
-	</table>
+	<!-- Horizontal Menu -->
+	<ul class="menu" align="center">
+		<li><a href="smartfridge.php"><span class="icon" data-icon="R">Home</span></a></li>
+		<li><a href="statistics.php"><span class="icon" data-icon="R">Statistics</span></a></li>
+		<li class="current"><a href="db_logs.php"><span class="icon" data-icon="R">Log</span></a></li>
+		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:s');'</span></li>'; ?>
+	</ul>
 	
-</div>
+	<div class="grid">
 
-<!-- TODO:
-- Load Image and display image from DB
-- Implementing the statements we had in Python. -->
+		<div class="col_12" align="center">
+
+    <table class="striped">
+        <thead>
+			<tr>
+				<th>a.fid</th>
+				<th>a.afid</th>
+				<th>capturetime</th>
+				<th>class</th>
+				<th>confidence</th>
+			</tr>
+	    </thead>
+            <tbody>
+            <?php
+            $cnt = 0;
+            foreach ($join_resultset as $result){
+        
+                $cnt++;
+                echo "<tr>";
+                        echo'<td>';echo htmlspecialchars($result['fid']);echo "</td>";
+                        echo'<td>';echo htmlspecialchars($result['afid']);echo "</td>";
+                        echo'<td>';echo htmlspecialchars($result['capturetime']);echo "</td>";
+                        echo'<td>';echo htmlspecialchars($result['class']);echo "</td>";
+                        echo'<td>';echo htmlspecialchars($result['confidence']);echo "</td>";
+                echo "</tr>";} 
+            ?>
+        </tbody>
+    </table>
+    
+    </div>
+    </div>
 
 </body>
-
 </html>

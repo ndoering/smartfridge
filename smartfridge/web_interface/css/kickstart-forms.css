@@ -284,6 +284,7 @@ clear:both;
 	.notice.warning{}/*default*/
 	.notice.error{border:1px solid red;background:pink;color:red;}
 	.notice.success{border:1px solid green;background:lightgreen;color:green;}
+	.notice.neutral{border:1px solid black;background:#f4f4f4;color:black;}
 	.notice i[class*='fa-']{position:absolute;top:50%;left:0.8em;margin-top:-0.6em;}
 	.notice a[class*='fa-remove'],
 	.notice a[class*='fa-remove']:active,

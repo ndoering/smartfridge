@@ -6,9 +6,9 @@
     <meta name="description" content="A University project for food edibility analysis and recommendation." />
     <meta name="copyright" content="Goethe University, Frankfurt am Main." />
     
-    <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-    <link rel="stylesheet" type="text/css" href="style.css" media="all" />                          <!-- CUSTOM STYLES -->
-    <script type="text/javascript" src="js/kickstart.js"></script>                                  <!-- KICKSTART -->
+    <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />    <!-- KICKSTART --> 
+	<link rel="stylesheet" type="text/css" href="style.css" media="all" />            <!-- CUSTOM STYLES -->
+	<script type="text/javascript" src="js/kickstart.js"></script>                    <!-- WORKING? KICKSTART -->
    
     <!-- TODO: Setup Locally bxSllider CSS and JQuery CSS. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -27,60 +27,22 @@
 
 <!-- =============================== DB Connection & Queries ============================== -->
 <?php
-require_once './dbconfig.php';
-
-try {
-    // Maximum No of Pictures within the fridge image content slider.
-    $MAX_PICTURES = 10;
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    
-    // LF - Retrieve latest entry from fridgelog table
-    $sql_last_fridgelog = 'SELECT fid, capturetime, full_image FROM fridgelog WHERE fid=(SELECT MAX(fid) FROM fridgelog)';
-    $q_lf = $pdo->query($sql_last_fridgelog);
-    $q_lf->setFetchMode(PDO::FETCH_ASSOC);
-    while ($row = $q_lf->fetch()):
-    $lf_fid = $row['fid'];
-    $lf_capturetime = $row['capturetime'];
-    $lf_full_image = $row['full_image'];
-    endwhile;
-    
-    // LA - Retrieve latest entry from all_fruits
-    $sql_last_all_fruits = 'SELECT fid, afid, class, confidence, note
-                    FROM all_fruits
-                    WHERE afid = (SELECT MAX(afid) FROM all_fruits)
-                    AND note ="B"';
-    $q_la = $pdo->query($sql_last_all_fruits);
-    $q_la->setFetchMode(PDO::FETCH_ASSOC);
-    while ($row = $q_la->fetch()):
-    $la_fid = $row['fid'];
-    $la_afid = $row['afid'];
-    $la_class = $row['class'];
-    $la_confidence = $row['confidence'];
-    endwhile;
-    
-    // AJ - Retrieve all entries from both tables joined
-    $sql_all_join = 'SELECT f.fid, a.afid, capturetime, class, confidence, full_image 
-                    FROM fridgelog f INNER JOIN all_fruits a 
-					ON f.fid = a.fid
-                    WHERE a.note="B"
-                    ORDER BY f.fid DESC';
-    $q_aj = $pdo->query($sql_all_join);
-    $q_aj->setFetchMode(PDO::FETCH_ASSOC);
-    $resultset = array();
-    while ($row = $q_aj->fetch()):
-        $join_resultset[] = $row;
-    endwhile;
-    
-} catch (PDOException $e) {
-    die("Could not connect to the database $dbname :" . $e->getMessage());
-}
+// Loading database queries.
+require_once './db_access.php';
+// Maximum No of Pictures within the fridge image content slider.
+$MAX_PICTURES = 10;
 ?>
+<!-- TODOs: 
+x Inputmöglichkeit für das Einkaufsdatum.
+x Filter
+x Prediction over time. -->
 <!-- =============================== Page content ============================== -->
 <body>
 
 	<!-- Horizontal Menu -->
 	<ul class="menu" align="center">
 		<li class="current"><a href="smartfridge.php"><span class="icon" data-icon="R">Home</span></a></li>
+		<li><a href="statistics.php"><span class="icon" data-icon="R">Statistics</span></a></li>
 		<li><a href="db_logs.php"><span class="icon" data-icon="R">Log</span></a></li>
 		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:s');'</span></li>'; ?>
 	</ul>
@@ -225,7 +187,7 @@ try {
             
             <div id="take_picture" align="center">
                 <form action="smartfridge.php" method="post">
-                    <input type="submit" name="takephoto" value="Take Photo." />
+                    <input type="submit" name="takephoto" value="Get Update." />
                 </form>
     		</div>
 			
