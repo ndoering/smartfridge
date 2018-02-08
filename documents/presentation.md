@@ -42,10 +42,21 @@
 
 ## Quality
 
-- check Joel Test
+### Joel Test
+- source control (Git)
+- bug database (issue tracker)
+- fix bugs before writing new code
+- schedule (Kanban board)
+- spec (requirements; SDD too unspecific)
+- working conditions (quiet, except in meetings)
+- "continuous" testing
+
+
+### misc
 - refactoring
-- (unit) testing
 - code reviews
+- coding standards (PEP8)
+- training opportunities (wiki)
 
 
 ## Live Demo
