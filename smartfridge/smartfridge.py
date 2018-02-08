@@ -1,24 +1,35 @@
-from camera import camera_handler as ch
+# from camera import camera_handler as ch # TO DO: use this line in production
 from clarifai_connector import clarifai_connector as cc
+import signal
+import time
 import sql_connector as dbcon
 import configuration_management as conf
 import slack_connector as sc
 import cli_parser as cp
-from datetime import datetime
+import io
+
+c = None
 
 
-if __name__ == "__main__":
-    cliparser = cp.CliParser()
-
-    ### SLACK ##################################################################
-    c = conf.Configuration(cliparser.args.config)
-    bot = sc.Slackbot(c)
-    #bot.speak()
+def signalHandler(signum, frame):
+    classify()
 
 
-    ### CAMERA #################################################################
+def classify():
+    # Sttop signal handler
+    signal.signal(signal.SIGUSR1, signal.SIG_IGN)
+    
+        ### CAMERA #################################################################
     # take picture (returns bytes)
-    streamvalue = ch.take_picture()
+    # streamvalue = ch.take_picture() TO DO: use this line in production
+    #############################################
+    # the following generates a dummy bytefile for testing
+    # as the above only works on a RaspberryPi with camera
+    with open("test.jpg", "rb") as imagefile:
+        f = imagefile.read()
+        streamvalue = io.BytesIO(f).getvalue()
+    #############################################
+    print("Photo shot.")
 
 
     ### PIPELINE ###############################################################
@@ -34,12 +45,16 @@ if __name__ == "__main__":
     ccall = cc.ClarifaiCall(clarifaiApp, model, streamvalue)
     # call clarifai API
     ccall.call()
-    print(ccall.json) # JSON response
+
+
+    ### SLACK ##################################################################
+    bot = sc.Slackbot(c)
+    print("Slackbot initialized.")
+    bot.compute_message(ccall.json)
 
 
     ### DATABASE ###############################################################
     ## Load DB configuration from config.ini within module package
-    c = conf.Configuration()
     host = c.config["MYSQL"]["Host"]
     user = c.config["MYSQL"]["User"]
     pw = c.config["MYSQL"]["Password"]
@@ -58,3 +73,18 @@ if __name__ == "__main__":
 
     # create entry in all_fruits for each detected fruit status
     dbhdl.insert_all_fruits(ccall.json)
+
+    # reactivate signal handler
+    signal.signal(signal.SIGUSR1, signalHandler)
+
+
+if __name__ == "__main__":
+    ### CONFIGURATION ##########################################################
+    cliparser = cp.CliParser()
+    c = conf.Configuration(cliparser.args.config)
+
+    signal.signal(signal.SIGUSR1, signalHandler)
+
+    while True:
+        classify()
+        time.sleep(7200)

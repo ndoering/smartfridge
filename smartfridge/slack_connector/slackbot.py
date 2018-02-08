@@ -4,20 +4,17 @@ import random
 
 
 messages = {
-    "neutral": [
-        "This is the fridge. Its so cool here.",
-        "I am the fridge, cool as always",
-        "This is the fridge speaking, ice to meet you."
-    ],
-    "lonely": [
-        "Is anybody there? Its so cold and dark.",
-        "Is there nobody looking for food... or me?"
+    "banana_bad": [
+        "Attention! There seems to be a bad banana in your fridge.",
+        "Oh no, take a look at the banana in your fridge!",
+        "The banana in your fridge doesn't look yummy...",
+        "Aren't bananas supposed to be yellow?"
     ]
 }
 
 
-def get_message(type):
-    message_list = messages[type]
+def get_message(message_type):
+    message_list = messages[message_type]
     rnd = random.randrange(len(message_list))
 
     return message_list[rnd]
@@ -28,9 +25,21 @@ class Slackbot():
         self.configuration = configuration.config
         self.slackClient = SlackClient(self.configuration["SLACK"]["SlackToken"])
 
-    def speak(self):
-        message = get_message("neutral")
+    def compute_message(self, json):
+        CONFIDENCE = 0.6
+        for concept in json:
+            try:
+                if messages[concept['name']]:
+                    if concept['value'] >= CONFIDENCE:
+                        self.speak(concept['name'])
+            except:
+                continue
 
+
+
+
+    def speak(self, message_type):
+        message = get_message(message_type)
         sc.send_message(self.slackClient,
                         self.configuration["SLACK"]["BotName"],
                         self.configuration["SLACK"]["SlackChannel"],

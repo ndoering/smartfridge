@@ -275,7 +275,6 @@ The software must consume few enough resources to work on a system-on-chip. If t
 - REQ N5.1: User controls data storage and usage
 
 ### 6. Product Vision and further scenarios
-
 Even though the SmartFridge project is still in a very early stage with limited functional capabilities, we share a long-term vision of a of a socially connected food management platform. Our proof-of-concept highlights that a software project can rely in decisive parts on the usage of external webservices. Hence, we expect further opportunities for more sophisticated scenarios that go far beyond our current scope. Following, our list of further ideas should illustrate some of the most likely features we aim to implement next.
 
 ##### 6.1	Easier Input for food data
