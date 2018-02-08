@@ -4,58 +4,40 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
 
 ### Table of contents
 1. [Introduction](#1introduction)
-
-	1.1 [Purpose](#11purpose)
-
-	1.2 [Intended Audience and Reading Suggestions](#12intended-audience-and-reading-suggestions)
-
-	1.3 [Product scope](#13product-scope)
-
-2. [Overall Description](#2overall-description)
-
-	2.1	[Product Perspective](#21product-perspective)
-
-	2.2	[Product Functions](#22product-functions)
-
-	2.3	[User Classes and Characteristics](#23user-classes-and-characteristics)
-
-	2.4	[Operating Environment](#24operating-environment)
-
-	2.5	[Design and Implementation Constraints](#25design-and-implementation-constraints)
-
-	2.6	[User Documentation](#26user-documentation)
-
-	2.7	[Assumptions and Dependencies](#27assumptions-and-dependencies)
-
-3.	[External Interface Requirements](#3external-interface-requirements)
-
-	3.1	[User Interfaces](#31user-interfaces)
-
-	3.2	[Hardware Interfaces](#32hardware-interfaces)
-
-	3.3	[Software Interfaces](#33software-interfaces)
-
-	3.4	[Communications Interfaces](#34communications-interfaces)
-
-4.	[System Features](#4system-features)
-
-	4.1	[Data acquisition and storage](#41-data-aquisition-and-storage)
-
-	4.2	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
-
- 	4.3	[Notification of critical food status](#43notification-of-critical-food-status)
-
-5.	[Other Nonfunctional Requirements](#5other-nonfunctional-requirements)
-
-	5.1	[Performance Requirements](#51performance-requirements)
-
-	5.2	[Safety Requirements](#52safety-requirements)
-
-	5.3	[Security Requirements](#53security-requirements)
-
-	5.4	[Software Quality Attributes](#54software-quality-attributes)
-
-	5.5	[Business Rules](#55business-rules)
+    1. [Purpose](#11purpose)
+    1. [Intended Audience and Reading Suggestions](#12intended-audience-and-reading-suggestions)
+    1. [Product scope](#13product-scope)
+1. [Overall Description](#2overall-description)
+    1.	[Product Perspective](#21product-perspective)
+    1.	[Product Functions](#22product-functions)
+    1.	[User Classes and Characteristics](#23user-classes-and-characteristics)
+    1.	[Operating Environment](#24operating-environment)
+    1.	[Design and Implementation Constraints](#25design-and-implementation-constraints)
+    1.	[User Documentation](#26user-documentation)
+    1. [Assumptions and Dependencies](#27assumptions-and-dependencies)
+1.	[External Interface Requirements](#3external-interface-requirements)
+    1.	[User Interfaces](#31user-interfaces)
+    1.	[Hardware Interfaces](#32hardware-interfaces)
+    1.	[Software Interfaces](#33software-interfaces)
+    1.	[Communications Interfaces](#34communications-interfaces)
+1.	[System Features](#4system-features)
+    1.	[Data acquisition and storage](#41-data-aquisition-and-storage)
+    1. 	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
+    1.	[Notification of critical food status](#43notification-of-critical-food-status)
+1.	[Other Nonfunctional Requirements](#5other-nonfunctional-requirements)
+    1.	[Performance Requirements](#51performance-requirements)
+    1. 	[Safety Requirements](#52safety-requirements)
+    1.	[Security Requirements](#53security-requirements)
+    1.	[Software Quality Attributes](#54software-quality-attributes)
+    1.	[Business Rules](#55business-rules)
+1. 	[Product Vision and further scenarios](#56product-vision-and-further-scenarios)
+    1.	[Easier Input for food data](#57easier-input-for-food-data)
+    1.	[Recommendations for groceries and recipes](#58recommendations-for-groceries-and-recipes)
+    1.	[Delivery service connection and automatic orders](#59Delivery-service-connection-and-automatic-orders)
+    1.	[Voice assistant intergration (Siri and Alexa)](#60siri-and-alexa)
+    1.	[Social food sharing platform](#61social-food-sharing-platform)
+    1.	[Data exchange with other kitchen machines](#62data-exchange-with-other-kitchen-machines)
+    1.	[Rethinking the interior fridge design](#63rethinking-the-interior-fridge-design)
 
 
 <div style="page-break-after: always;"></div>
@@ -167,14 +149,14 @@ It is assumed that some open-source machine learning libraries and packages are 
 ##### 3.1	User Interfaces
 ~~<Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.>~~
 
-The web-based user interface enables the user to view the content of his refrigerator shelf via a browser. The user may enter additional data about the food manually or by scanning the barcode, if there is additional data available the program analyse this data. The user can view an up-to-date picture of his fridge content. Additionaly there will be charts visualizing the average time a food category stays edible in this fridge comparing it to mean values. This information is also presented in the form of tipps like a recommendation to turn up or down the temperature. The system also includes a social feature, which enables the user to challenge himself with connected users (disciplines could be maximium days before something goes bad or health challenges like 3 fruits eaten a day) and also to function as a foodsharing platform. For the foodsharing the user can select one item which is then visible to users in the area.
+The web-based user interface enables the user to view the content of his refrigerator shelf via a browser. The user may enter additional data about the food manually or by scanning the barcode, if there is additional data available the program analyzes this data. The user can view an up-to-date picture of his fridge content. Additionally in a later release there will be charts visualizing the average time a food category stays edible in this fridge comparing it to mean values. This information is also presented in the form of recommendations like turning the temperature up or down. The system also includes a social feature, which enables the user to challenge himself with connected users (disciplines could be maximum days before something goes bad or health challenges like 3 fruits eaten a day) and to function as a food sharing platform. For the food sharing the user can select items which are then visible to users in the area.
 
 ![User Interface](GUI.PNG)
 
 ##### 3.2	Hardware Interfaces
 ~~<Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.>~~
 
-The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The power bank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over Wi-Fi on user devices with a browser. 
+The camera is attached to the CSI-2 (Camera Serial Interface Type 2) of the Raspberry Pi via cable. The power bank is plugged in to the micro-USB port of the Raspberry Pi. Output will be displayed over Wi-Fi on user devices with a browser.
 TBD - A Barcode Scanner will be necessary.
 
 ##### 3.3	Software Interfaces
@@ -293,26 +275,25 @@ The software must consume few enough resources to work on a system-on-chip. If t
 - REQ N5.1: User controls data storage and usage
 
 ### 6. Product Vision and further scenarios
-
-Even though the Smartfridge project is still in a very early stage with limited functional capabilities yet, we share a long term vision of a of a socially connected food management platform. Our proof-of-concept highlights that a software project can rely in decisive parts on the usage of external webservices. Hence, we expect further opportunities for more sophisticated scenarios that go far beyond our current scope. Following, our list of further ideas should illustrate some of the most likely features we aim to implement next.
+Even though the SmartFridge project is still in a very early stage with limited functional capabilities, we share a long-term vision of a of a socially connected food management platform. Our proof-of-concept highlights that a software project can rely in decisive parts on the usage of external webservices. Hence, we expect further opportunities for more sophisticated scenarios that go far beyond our current scope. Following, our list of further ideas should illustrate some of the most likely features we aim to implement next.
 
 ##### 6.1	Easier Input for food data
-Bearing in mind the current ease of image recognition services, we see significant potential in better user experience by scanning the actual product barcode. Smartfridge could be able to determine the actual grocery items, along with their price and best before dates. Hence, it could determine specific patterns concerning the edibility of fruits from specific origins. A desirable scenario would be information about the actual value of current groceries inside the fridge and elaborated course statistics on the amount of food that spoiled.
+Bearing in mind the current ease of image recognition services, we see significant potential in better user experience by scanning the actual product barcode. SmartFridge could be able to determine the actual grocery items, along with their price and best before dates. Hence, it could determine specific patterns concerning the edibility of fruits from specific origins. A desirable scenario would be information about the actual value of current groceries inside the fridge and elaborated statistical insights on the amount of food that spoiled.
 
 ##### 6.2   Recommendations for groceries and recipes
-We also believe that data analytics should have the main purpose to make users aware of things they would not realize on the spot. Hence, Smartfridge should extensively deliver recommendations concerning the users' nutrion habits and suggest possible improvements. By granting access to users' personal calenders, or even fitness wearables, the quality of recommendations could be adjusted even more precise according to the actual health state.
+We also believe that the main purpose of data analytics is to make users aware of things they would not realize on the spot. Hence, SmartFridge should extensively deliver recommendations concerning the users' nutritional habits and suggest possible improvements. By granting access to users' personal calendars, or even fitness wearables, the quality of recommendations could be adjusted even more precisely according to the actual health state.
 
 ##### 6.3   Delivery service connection and automatic orders
-With the advent of grocery delivery services, such as Amazon fresh, Smartfridge could automate the entire grocery shopping process. Users would benefit by saving their time from crowded supermakets and stressful queying. Moreover, Smartfridge could forecast precisely the amount of food needed and reduce the amount of spoiled food.
+In the advent of grocery delivery services such as Amazon fresh, SmartFridge could automate the entire grocery shopping process. Users would benefit by saving their time from crowded supermarkets and stressful queuing. Moreover, SmartFridge could forecast precisely the amount of food needed and reduce the amount of spoiled food.
 
 ##### 6.4   Voice assistant intergration (Siri and Alexa)
-Although, voice based assistants currently show many signs of a classic hype, we believe that in the long term voice assistansts will be central part of many people's lifes. Hence, we aim to integrate Smartfridge soon with the capabilities to allow voice assistants insights in our system. Therefore we will also provide the necessary interfaces.
+Although voice-based assistants currently show many signs of a classic hype, we believe that in the long term voice assistants will be a central part of many people's lives. Hence, we aim to integrate SmartFridge soon with the capabilities to allow voice assistants insights into our system. Necessary interfaces will be provided.
 
 ##### 6.5   Social food sharing platform
-Smartfridge could be integrated into food sharing platforms. Users' could allow to share data on current groceries that are unlikely to be eaten and share these information with user Smartfridge users in town. Since cooking is among the most social activities, we believe a related social platform offers high potential to save food and bring people together.  
+SmartFridge could be integrated into food sharing platforms. Users could allow to share data on current groceries that are unlikely to be eaten and share these information with nearby SmartFridge users in town. Since cooking is among the most social activities, we believe a related social platform offers high potential to save food and bring people together.  
 
-##### 6.6   Data exchange with other kitchen machines
-Kitchen machines like Thermomix show trend towards cooking automation. Connecting these tools with Smartfridge could bring new opportunities for connected cooking.
+##### 6.6   Data exchange with other kitchen equipment
+Kitchen machines like Thermomix show the trend towards cooking automation. Connecting these tools with SmartFridge could bring new opportunities for connected cooking.
 
 ##### 6.7   Rethinking the interior fridge design
-Once the entire grocery order process chain and the actual cooking becomes more and more automated it might be appropriate to rethink the actual interior design of a refrigerator. There might be ways to improve the cooling efficiency. Moreover, we could think of automating the refilling process as well. 
+Once the entire grocery order process chain and the actual cooking becomes more and more automated it might be appropriate to rethink the actual interior design of a refrigerator. There might be ways to improve the cooling efficiency. Moreover, we could think of automating the refilling process as well.
