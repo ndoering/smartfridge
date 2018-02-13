@@ -6,71 +6,35 @@
 
 ## Agenda
 
-- Project Management (Chris)
-- Requirements (Liuba)
-- System Architecture (Nils)
-- Quality (Jörn)
-- Live Demo (all)
-- Dream (Chris)
+- Project Management
+- Requirements
+- System Architecture
+- Quality
+- Live Demo
 
 # Project Management
 
 ## Our Software Lifecycle Model
 
 ### Evolutionary Prototyping (EP)
-- Initial concept:
-    - Module-based software system.
-- Design and implementation of initial prototype:
-    - Design was within 2nd meeting
-- Refine prototype until acceptable:
-    - Idea driven approach
-- Complete and release prototype	
-
-## Reasons why:
-- EP is a result-driven approach
-- Progress is visible quickly
-- Heterogeneous level of programming experience
-- Gradual functionality extension facilitates orchestration of components is comprehensibly, by choosing early stages with little functionality
-    - (image pipeline, ML approach) 
-
-## Method
-- Requirements were considered for technical implementation
-- Initial architecture concept was elaborated
-- Idea-driven approach
-- Advantage
-    - Challenges were visible soon trough early implementation
-    - Gruduel appearance to closer
-    - Useful when requirements are unknown
-    - Participatory design
+- Backend scaffold and modules
+- Technology required new skills
+- Functionality has grown incrementally
 
 ## Division of tasks
 - Software architecture modules defined task division
-- Nils (Architect & Git advisor):
-    - General python system scaffold
-    - Slack chatbot integration
-- Jörn (Clarifai and banana showcase setup):
-    - Clarifai module integration
-    - Banana edibility dataset
-	- RaspberryPi setup
-- Chris
-    - Database design
-    - User Interface
-- Liuba
-    - Data annotation
+- Nils Döring (System Architect & Git advisory):
+- Jörn Wieber (Clarifai module & Showcase Setup):
+- Liuba Yevtoushenko (Visual Design)
+- Christian Buchta (Database & Web Frontend)
 
 ## Communication:
-- Meeting, every Tuesday, 6pm
-    - Status reports
-    - Peer reviews
-    - Testing
+- Weekly meetings
 - Slack messenger channel
-    - Coordination within team and external members
-    - GitHub integration for automatic commit notifications
-    - Notifications for our Chat-Bot solution
 	
 ## Version control
-- GitHub for version control
-- branches for every module
+- GitHub as DVCS
+- Branches for each module
 - Merging once branches reached final state
 ![branch network](branch_network.PNG "Branch Network")
 
