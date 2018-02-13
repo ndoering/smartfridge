@@ -12,7 +12,9 @@
 - Dream (Chris)
 
 ## Project Management
+
 ### Our Software Lifecyle Model:
+
 #### Evolutionary Prototyping (EP)
 - Initial concept:
     - Module-based software system.
@@ -21,12 +23,14 @@
 - Refine prototype until acceptable:
     - Idea driven approach
 - Complete and release prototype	
+
 #### Reasons why:
 - EP is a result-driven approach
 - Progress is visible quickly
 - Heterogenous level of programming experience before
 - Gradual functionality extension facilitates orchestration of components is comprehensibly, by chosing early stages with little functionality
     - (image pipeline, ML approach) 
+
 #### Method
 - Requirements were considered for technical implementation
 - Initial architecture concept was elaborated
@@ -36,6 +40,7 @@
     - Gruduel appearance to closer
     - Useful when requirements are unknown
     - Participatory design
+
 ### Division of tasks
 - Software architecture modules defined task division
 - Nils (Architect & Git advisor):
@@ -52,6 +57,7 @@
 - Melanie
     - Meeting minutes
     - Architecture drawings
+
 ### Communication:
 - Meeting, every Tuesday, 6pm
     - Status reports
