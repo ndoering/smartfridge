@@ -78,13 +78,24 @@
 
 ## System Architecture
 
-- show dia images
-- Software Design
-- show modularity
-- Design Patterns:
-	- abstraction: MVC & pipeline
-	- client-server
-	- event handler (reactor)
+### Main patterns
+- MVC pattern
+- Client-server pattern
+- Pipeline-and-filters pattern
+- Minor: Reactor pattern
+
+### MVC pattern
+- Model: SQL-Database
+- View: PHP website
+- Controller: Python program
+
+### Client-server pattern
+- Slack
+- Clarifai
+
+### Pipeline-and-filters pattern
+- Image processing pipeline
+- List of processors
 
 
 ## Quality
