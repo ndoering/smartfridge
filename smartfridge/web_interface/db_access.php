@@ -21,8 +21,7 @@ try {
     // LA - Retrieve latest entry from all_fruits
     $sql_last_all_fruits = 'SELECT fid, afid, class, confidence, note
                     FROM all_fruits
-                    WHERE afid = (SELECT MAX(afid) FROM all_fruits)
-                    AND note ="B"';
+                    WHERE afid = (SELECT MAX(afid) FROM all_fruits)';
     $q_la = $pdo->query($sql_last_all_fruits);
     $q_la->setFetchMode(PDO::FETCH_ASSOC);
     while ($row = $q_la->fetch()):
@@ -36,7 +35,6 @@ try {
     $sql_all_join = 'SELECT f.fid, a.afid, capturetime, class, confidence, full_image
                     FROM fridgelog f INNER JOIN all_fruits a
 					ON f.fid = a.fid
-                    WHERE a.note="B"
                     ORDER BY f.fid DESC';
     $q_aj = $pdo->query($sql_all_join);
     $q_aj->setFetchMode(PDO::FETCH_ASSOC);
