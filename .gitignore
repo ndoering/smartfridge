@@ -18,4 +18,4 @@ smartfridge/lib64
 smartfridge/pip-selfcheck.json
 
 # Ignore idea
-./idea/
+.idea/
