@@ -83,9 +83,9 @@
      - Software run: Raspberry Pi 3 Model B with a 1.2GHz Quad Core ARM Cortex-A53, 1 GB LPDDR2 RAM 
     
 - what features exist (use cases)
- ![Use Case1](smartfridge/documents/User_Case1.png)
- ![Use Case2](smartfridge/documents/Use_Case2.png)
- ![Use Case3](smartfridge/documents/Use_Case3.png) 
+ ![Use_Case1](User_Case1.png "User_Case1")
+ ![Use_Case2](Use_Case2.png "User_Case2")
+ ![Use_Case3](Use_Case3.png "User_Case3") 
 
 
 
