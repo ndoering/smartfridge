@@ -2,4 +2,4 @@
     $host = 'localhost';
     $dbname = 'smartfridge';
     $username = 'root';
-    $password = '';
+    $password = 'root';
