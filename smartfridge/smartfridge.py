@@ -1,4 +1,4 @@
-# from camera import camera_handler as ch # TO DO: use this line in production
+from camera import camera_handler as ch # TO DO: use this line in production
 from clarifai_connector import clarifai_connector as cc
 import signal
 import time
@@ -19,21 +19,23 @@ def classify():
     # Sttop signal handler
     signal.signal(signal.SIGUSR1, signal.SIG_IGN)
     
-        ### CAMERA #################################################################
+    ### CAMERA #################################################################
     # take picture (returns bytes)
-    # streamvalue = ch.take_picture() TO DO: use this line in production
+    streamvalue = ch.take_picture()
     #############################################
+    '''
     # the following generates a dummy bytefile for testing
     # as the above only works on a RaspberryPi with camera
     with open("test.jpg", "rb") as imagefile:
         f = imagefile.read()
         streamvalue = io.BytesIO(f).getvalue()
+    '''
     #############################################
     print("Photo shot.")
 
 
     ### PIPELINE ###############################################################
-    # TO DO
+    # Pipeline can be implemented here
 
 
     ### CLARIFAI ###############################################################
