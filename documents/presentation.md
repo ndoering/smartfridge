@@ -76,11 +76,18 @@
 
 # Requirements
 
-## something
+## What has been built
+- a devise that determines the freshness of fruits/vegetables in a frigde:
 
-- what has been built (high level)
+    1) tracking of the edibility of bananas and tomatos via optical recognitize of changes colors/shapes 
+    2) reporting regarding the current status of these food items via a web-based user interface and "Slack"
+    3) Software run: Raspberry Pi 3 Model B with a 1.2GHz Quad Core ARM Cortex-A53, 1 GB LPDDR2 RAM 
+    
 - what features exist (use cases)
-- show possibilities to add features
+![Use Case1](smartfridge/documents/Usercase2.png)
+![Use Case2] (smartfridge/documents/UserCase1.png)
+![Use Case3](smartfridge/documents/Usercase3.png)
+
 
 
 # System Architecture
