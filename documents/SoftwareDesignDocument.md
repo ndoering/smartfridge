@@ -1,6 +1,6 @@
-# Software Design Document - Smartfridge
+# Software Design Document - SmartFridge
 
-Names: Melanie, Liuba, Nils, Jörn, Chris
+Names: Liuba, Nils, Jörn, Chris
 
 
 <div style="page-break-after: always;"></div>
@@ -64,7 +64,7 @@ brief description of your product.~~
 The software serves as a prototype or MVP (minimum viable product) to
 the overarching idea of a system that tracks content inside a consumer
 fridge. As such its scope is reduced to identify bananas and evaluate
-their ripeness. This is embedded in a notificaction system for a
+their ripeness. This is embedded in a notification system for a
 hypothetical end user.
 
 This prototype is built to conveniently adopt more fruits and other products.
@@ -158,8 +158,8 @@ Clarifai for classification and to the database for storage.
 ### 3.2 Decomposition Description
 ~~Provide a decomposition of the subsystems in the architectural
 design. Supplement with text as needed. You may choose to give a functional
-description or an object­oriented description.  For a functional description,
-put top­level data flow diagram (DFD) and structural decomposition diagrams. For
+description or an object-oriented description.  For a functional description,
+put top level data flow diagram (DFD) and structural decomposition diagrams. For
 an OO description, put subsystem model, object diagrams, generalization
 hierarchy diagram(s) (if any), aggregation hierarchy diagram(s) (if any),
 interface specifications, and sequence diagrams here.~~
@@ -196,7 +196,7 @@ drivers during development are ease of use and simplicity.
 It provides a
 current image and the corresponding classifications, which are taken
 from the database. The website works autonomously and will not be
-triggerd asynchronously from the controller.
+triggered asynchronously from the controller.
 
 It also provides a button that triggers the controller, currently
 using an operating-system-level signal, which is called via the
@@ -353,7 +353,7 @@ features and the feedback information that will be displayed for the user.
 
 ### 6.2 Screen Images
 Display screenshots showing the interface from the user’s perspective. These can
-be handdrawn or you can use an automated drawing tool. Just make them as
+be hand drawn or you can use an automated drawing tool. Just make them as
 accurate as possible.  (Graph paper works well.)
 
 

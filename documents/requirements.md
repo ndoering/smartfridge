@@ -21,7 +21,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
     1.	[Software Interfaces](#33software-interfaces)
     1.	[Communications Interfaces](#34communications-interfaces)
 1.	[System Features](#4system-features)
-    1.	[Data acquisition and storage](#41-data-aquisition-and-storage)
+    1.	[Data acquisition and storage](#41-data-acquisition-and-storage)
     1. 	[Detection and tracking of food aging process](#42-detection-and-tracking-of-food-aging-process)
     1.	[Notification of critical food status](#43notification-of-critical-food-status)
 1.	[Other Nonfunctional Requirements](#5other-nonfunctional-requirements)
@@ -34,7 +34,7 @@ based on [IEEE SRS Template](http://www.ccc.cs.uni-frankfurt.de/wp-content/uploa
     1.	[Easier Input for food data](#57easier-input-for-food-data)
     1.	[Recommendations for groceries and recipes](#58recommendations-for-groceries-and-recipes)
     1.	[Delivery service connection and automatic orders](#59Delivery-service-connection-and-automatic-orders)
-    1.	[Voice assistant intergration (Siri and Alexa)](#60siri-and-alexa)
+    1.	[Voice assistant integration (Siri and Alexa)](#60siri-and-alexa)
     1.	[Social food sharing platform](#61social-food-sharing-platform)
     1.	[Data exchange with other kitchen machines](#62data-exchange-with-other-kitchen-machines)
     1.	[Rethinking the interior fridge design](#63rethinking-the-interior-fridge-design)
@@ -95,12 +95,12 @@ Please take note of the following graphic for the concept.
 
 We strive for user-centric systems. Hence we elaborated several user groups that share the following attitudes:
 
-+ Early adaptors. (Technology-savvy and curious users...)
++ Early adopters. (Technology-savvy and curious users...)
 	+ are open-minded and willing to try out unfamiliar products
 	+ are likely to provide valuable feedback on functionalities that might be improved or added
 	+ appreciate the new product experience as individual benefit
 	+ User group importance: high
-+ Consciousness about food consumption. Users...
++ Conscious about food consumption. Users...
 	+ want to have an detailed and exact overview of their food consumption
 	+ care about food not being wasted
 	+ are most likely to be a long-time user if they are satisfied
@@ -126,7 +126,7 @@ The hardware will operate within the fridge to reduce the overhead of cabling.
 ##### 2.5	Design and Implementation Constraints
 ~~<Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).>~~
 
-+ the Raspberry Pi's limited RAM and CPU power might hamper the image processing
++ the RaspberryPi's limited RAM and CPU power might hamper the image processing
 + the knowledge of used programming language(s) might be insufficient
 + the camera module has no auto focus
 + the inside of the fridge is usually not illuminated while the fridge is closed
@@ -286,7 +286,7 @@ We also believe that the main purpose of data analytics is to make users aware o
 ##### 6.3   Delivery service connection and automatic orders
 In the advent of grocery delivery services such as Amazon fresh, SmartFridge could automate the entire grocery shopping process. Users would benefit by saving their time from crowded supermarkets and stressful queuing. Moreover, SmartFridge could forecast precisely the amount of food needed and reduce the amount of spoiled food.
 
-##### 6.4   Voice assistant intergration (Siri and Alexa)
+##### 6.4   Voice assistant integration (Siri and Alexa)
 Although voice-based assistants currently show many signs of a classic hype, we believe that in the long term voice assistants will be a central part of many people's lives. Hence, we aim to integrate SmartFridge soon with the capabilities to allow voice assistants insights into our system. Necessary interfaces will be provided.
 
 ##### 6.5   Social food sharing platform

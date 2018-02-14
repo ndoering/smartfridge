@@ -16,21 +16,23 @@
 
 ## Our Software Lifecycle Model
 
-### Evolutionary Prototyping (EP)
+### Evolutionary Prototyping
 - Backend scaffold and modules
 - Technology required new skills
 - Functionality has grown incrementally
 
 ## Division of tasks
-- Software architecture modules defined task division
-- Nils Döring (System Architect & Git advisory):
-- Jörn Wieber (Clarifai module & Showcase Setup):
-- Liuba Yevtoushenko (Visual Design)
-- Christian Buchta (Database & Web Frontend)
+Determined by software architecture:    
 
-## Communication:
+- *Nils Döring*: System Architect & Git advisory 
+- *Jörn Wieber*: Clarifai module & Showcase Setup 
+- *Liuba Yevtoushenko*: Visual Design 
+- *Christian Buchta*: Database & Web Frontend 
+
+## Communication
 - Weekly meetings
-- Slack messenger channel
+- Slack messenger
+- GitHub
 	
 ## Version control
 - GitHub as DVCS
@@ -41,15 +43,19 @@
 # Requirements
 
 ## What has been built
-- A devise that determines the freshness of fruits/vegetables in a frigde:
-     - tracking of the edibility of bananas and tomatos via optical recognitize of changes colors/shapes 
+- A device that determines the freshness of fruits in a fridge:
+     - tracking of the edibility of bananas and tomatoes via optical recognition 
      - reporting regarding the current status of these food items via a web-based user interface and "Slack"
-     - Software run: Raspberry Pi 3 Model B with a 1.2GHz Quad Core ARM Cortex-A53, 1 GB LPDDR2 RAM 
+     - RaspberryPi 3 Model B
     
-- what features exist (use cases)
- ![Use_Case1](User_Case1.png "User_Case1")
- ![Use_Case2](Use_Case2.png "User_Case2")
- ![Use_Case3](Use_Case3.png "User_Case3") 
+## User Case 1
+![](User_Case1.png "User_Case1")
+
+## User Case 2
+![](Use_Case2.png "User_Case2")
+
+## User Case 3
+![](Use_Case3.png "User_Case3") 
 
 
 
@@ -77,19 +83,22 @@
 
 # Quality
 
-## Joel Test
-- source control (Git)
-![example issue](example_issue.PNG "bug database")
-- fix bugs before writing new code
-![example Kanban](example_kanban.PNG "schedule")
-- specs (requirements; SDD too unspecific)
-- working conditions (quiet, except in meetings)
-- "continuous" testing
+## Joel Test (1/2)
+- Source control
+- Fix bugs before writing new code
+- Specs (requirements)
+- Quiet working conditions
+- "Continuous" testing
+- PyCharm
 
-## misc
-- refactoring
-- code reviews
-- coding standards (PEP8)
+## Joel Test (2/2)
+![example issue](example_issue.PNG "bug database")
+![example Kanban](example_kanban.PNG "schedule")
+
+## Further measures
+- Refactoring
+- Code reviews
+- Coding standards (PEP8)
 ![training opportunities](example_wiki.PNG "Wiki")
 
 
@@ -347,11 +356,13 @@ class MySQLConnector(SQLConnector):
         return rows
 ```
 
-## User Interface
-
-- add screenshots or show live
 
 
-# dream big...
+# future functionalities?
 
-## future functionalities
+## scenarios
+- Include more food items
+- Barcode input
+- Recommendations for recipes
+- Voice assistant integration
+- Food sharing
