@@ -67,6 +67,7 @@ Determined by software architecture:
 ├── camera
 ├── clarifai_connector
 ├── cli_parser
+├── config.ini
 ├── configuration_management
 ├── image_pipeline
 ├── slack_connector
