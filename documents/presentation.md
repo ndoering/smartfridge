@@ -64,18 +64,16 @@ Determined by software architecture:
 ## Folder structure
 ```sh
 .
-├── bin
 ├── camera
 ├── clarifai_connector
 ├── cli_parser
 ├── configuration_management
 ├── image_pipeline
-├── include
-├── lib
-├── lib64 -> lib
 ├── slack_connector
 ├── sql_connector
-└── web_interface
+├── web_interface
+├── ...
+└── smartfridge.py
 ```
 
 ## Main patterns
