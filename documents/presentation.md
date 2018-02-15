@@ -55,6 +55,23 @@
 
 # System Architecture
 
+## Folder structure
+```sh
+.
+├── bin
+├── camera
+├── clarifai_connector
+├── cli_parser
+├── configuration_management
+├── image_pipeline
+├── include
+├── lib
+├── lib64 -> lib
+├── slack_connector
+├── sql_connector
+└── web_interface
+```
+
 ## Main patterns
 - MVC pattern
 - Client-server pattern
