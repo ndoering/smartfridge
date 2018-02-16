@@ -15,7 +15,7 @@
 <!-- CUSTOM STYLES -->
 
 <!-- JS / CSS local library for Chart visualization.-->
-<link rel="stylesheet" href="dist/chartist.min.css">
+<link rel="stylesheet" href="dist/chartist.css">
 <script src="dist/chartist.min.js" type="text/javascript"></script>
 
 <title>Smart Fridge Statistics</title>
@@ -34,7 +34,7 @@ require_once './db_access.php';
 		<li class="current"><a href="statistics.php"><span class="icon"
 				data-icon="R">Statistics</span></a></li>
 		<li><a href="db_logs.php"><span class="icon" data-icon="R">Log</span></a></li>
-		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:s');'</span></li>'; ?>
+		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:sa');'</span></li>'; ?>
 	</ul>
 
 	<div class="grid">
@@ -48,13 +48,11 @@ require_once './db_access.php';
 					// Initializing JS-Arrays
     				var class_ar = [];
     				var time_ar = [];
-    				//var test_ar = [1,2,3,4,5];
-    				//console.log(test_ar);
 					
     			    // Loading content from joined table query results via php loop.
                     <?php 
                     $i = 0;
-    				foreach ($join_resultset as $result){
+    				foreach (array_reverse($join_resultset) as $result){
     				    // Copy content from SQL results into JS-Arrays. 
     				    echo "class_ar[$i] = parseInt($result[class]);"; // js within php
     				    echo "time_ar[$i] = '$result[capturetime]';"; // js within php
@@ -71,7 +69,6 @@ require_once './db_access.php';
                 		  time_ar,
                 		  series: [
                     		class_ar,
-                		    //[1, 3, 4, 4, 5],
                 		  ]
                 		}, {
                 		  fullWidth: true,

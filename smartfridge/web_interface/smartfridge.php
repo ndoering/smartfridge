@@ -25,17 +25,14 @@
 </head>
 <!-- ===================================== END HEADER ===================================== -->
 
-<!-- =============================== DB Connection & Queries ============================== -->
+<!-- =============================== DB Connection & Helper ============================== -->
 <?php
-// Loading database queries.
+// Including database queries and helper functions.
 require_once './db_access.php';
 // Maximum No of Pictures within the fridge image content slider.
-$MAX_PICTURES = 10;
+$MAX_PICTURES = 20;
 ?>
-<!-- TODOs: 
-x Inputmöglichkeit für das Einkaufsdatum.
-x Filter
-x Prediction over time. -->
+
 <!-- =============================== Page content ============================== -->
 <body>
 
@@ -44,7 +41,7 @@ x Prediction over time. -->
 		<li class="current"><a href="smartfridge.php"><span class="icon" data-icon="R">Home</span></a></li>
 		<li><a href="statistics.php"><span class="icon" data-icon="R">Statistics</span></a></li>
 		<li><a href="db_logs.php"><span class="icon" data-icon="R">Log</span></a></li>
-		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:s');'</span></li>'; ?>
+		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:sa');'</span></li>'; ?>
 	</ul>
 
 	<div class="grid">
@@ -54,61 +51,15 @@ x Prediction over time. -->
 			
 			<div id="current_status" align="center">
 			<!-- Displaying the current fruit's edibility information permanently. -->
-			<h6>Current Edibility Status</h6>
+			<h4>Current Status</h4>
 			<?php
-			// TODO: Check, wheter a seperate function makes sense.
-			if ($la_class == 1)
-			{
-			    echo
-			    '<div class="notice error">
-    			    <i class="icon-ok icon-large">
-                        Content is bad.
-                    </i>
-                </div>';
-			}
-			else if ($la_class == 2)
-			{
-			    echo
-			    '<div class="notice error">
-    			    <i class="icon-ok icon-large">
-                        Content is neutral-bad.
-                    </i>
-                </div>';
-			}
-			else if ($la_class == 3)
-			{
-			    echo
-			    '<div class="notice warning">
-    			    <i class="icon-ok icon-large">
-                        Content is neutral.
-                    </i>
-                </div>';
-			}
-			else if ($la_class == 4)
-			{
-			    echo
-			    '<div class="notice success">
-    			    <i class="icon-ok icon-large">
-                        Content is fresh-neutral.
-                    </i>
-                </div>';
-			} 
-			else if ($la_class == 5)
-			{
-			    echo 
-			    '<div class="notice success">
-    			    <i class="icon-ok icon-large">
-                        Content is fresh.
-                    </i>
-                </div>';
-			}
+			    //displayEdibilityBox($la_class);
 			    // For the permanent notice box under the slider, we use only the latest query data.
-			    // TODO: Could be done by using the 3rd query.
-    			echo
-    			'<div class="notice warning">
-    			    <i class="icon-ok icon-large">';
-                        echo "Entire Content: Class: $la_class, Confidence: $la_confidence, Time: $lf_capturetime";
-                    echo '</i>
+			    displayNoticeWithStyle($la_class);
+    			echo "Edibility: ".displayEdibility($la_class)."";
+    			echo "<br/>Confidence: ".FLOOR($la_confidence*100)."%";
+    			echo "<br/>Timestamp: $lf_capturetime";
+                echo '</i>
                 </div>';
 				?>
         		
@@ -122,63 +73,13 @@ x Prediction over time. -->
     			foreach ($join_resultset as $result){
     			    $cnt++;
                     echo '<div>
-                            <img src="data:image/jpeg;base64,'.base64_encode( $result['full_image']).'" width="450" height="250"/>';
-                            
+                            <img src="data:image/jpeg;base64,'.base64_encode( $result['full_image']).'" width=100% height=100%/>
+                            <h6>Please swipe left or right for older data.</h6>';
                             //For each result row's information the edibility class is checked and the appropriate boxes and contents are displayed.
-                            if ($result['class'] == 1)
-                            {
-                                echo
-                                '<div class="notice error">
-            			    <i class="icon-ok icon-large">
-                                Content is bad.
-                            </i>
-                            </div>';
-                            } else if ($result['class'] == 2)
-                            {
-                                echo
-                                '<div class="notice error">
-            			    <i class="icon-ok icon-large">
-                                Content is neutral-bad.
-                            </i>
-                        </div>';
-                            }
-                            else if ($result['class'] == 3)
-                            {
-                                echo
-                                '<div class="notice warning">
-            			    <i class="icon-ok icon-large">
-                                Content is neutral.
-                            </i>
-                        </div>';
-                            }
-                            else if ($result['class'] == 4)
-                            {
-                                echo
-                                '<div class="notice success">
-            			    <i class="icon-ok icon-large">
-                                Content is fresh-neutral.
-                            </i>
-                        </div>';
-                            }
-                            else if ($result['class'] == 5)
-                            {
-                                echo
-                                '<div class="notice success">
-            			    <i class="icon-ok icon-large">
-                                Content is fresh.
-                            </i>
-                            </div>';
-                            }
+                            displayEdibilityBox($result['class']);
                             // Under each edibility box, further information are displayed, not seperatedly formated.
-                            echo
-                            '<div class="notice warning">
-    			             <i class="icon-ok icon-large">';
-                            echo 'Entire Content:';
-                            echo '<br/>Class: ';echo  $result['class'];
-                            echo '<br/>Confidence: ';echo  $result['confidence'];
-                            echo '<br/>Capturetime: ';echo  $result['capturetime'];
-                            echo '</i>
-                            </div>';
+                            displayAllInfo($result, "Logged Food Status:");
+                            echo '</div>';
                             
                        echo '</div>';
     			  }
@@ -196,14 +97,14 @@ x Prediction over time. -->
 	</div>
 
 	<?php
-	// Via old fashioned php function a button calls the system's terminal execution.
+	// Via exec-php function a button calls the system's terminal execution.
 	// Using pkill a user signal is envoked on the server side, that triggers our smartfridge process to capture a picture and evaluate it immediately.
 	// TODO: Solve via javascript to reduce ugly reload artefacts.
 	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['takephoto']))
 	{
 	    $cmdoutput = exec('pkill -USR1 -f smartfridge.py');
-	    // Wait 5 sec to receive answer and reload freshest data to page.
-	    sleep(5);
+	    // Wait 14 sec to receive answer and reload freshest data to page.
+	    sleep(14);
 	    echo
 	    '<div class="notice warning">
     			    <i class="icon-ok icon-large">

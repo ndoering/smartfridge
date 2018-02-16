@@ -26,7 +26,7 @@ require_once './db_access.php';
 		<li><a href="smartfridge.php"><span class="icon" data-icon="R">Home</span></a></li>
 		<li><a href="statistics.php"><span class="icon" data-icon="R">Statistics</span></a></li>
 		<li class="current"><a href="db_logs.php"><span class="icon" data-icon="R">Log</span></a></li>
-		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:s');'</span></li>'; ?>
+		<?php echo '<li><span class="icon" data-icon="R">Time: '.date('h:i:sa');'</span></li>'; ?>
 	</ul>
 	
 	<div class="grid">
@@ -36,11 +36,11 @@ require_once './db_access.php';
     <table class="striped">
         <thead>
 			<tr>
-				<th>a.fid</th>
-				<th>a.afid</th>
-				<th>capturetime</th>
-				<th>class</th>
-				<th>confidence</th>
+				<th>Fridgelog-ID</th>
+				<!-- <th>a.afid</th> -->
+				<th>Timestamp</th>
+				<th>Edibility</th>
+				<th>Prediction-Confidence</th>
 			</tr>
 	    </thead>
             <tbody>
@@ -50,11 +50,11 @@ require_once './db_access.php';
         
                 $cnt++;
                 echo "<tr>";
-                        echo'<td>';echo htmlspecialchars($result['fid']);echo "</td>";
-                        echo'<td>';echo htmlspecialchars($result['afid']);echo "</td>";
-                        echo'<td>';echo htmlspecialchars($result['capturetime']);echo "</td>";
-                        echo'<td>';echo htmlspecialchars($result['class']);echo "</td>";
-                        echo'<td>';echo htmlspecialchars($result['confidence']);echo "</td>";
+                        echo'<td>';echo $result['fid'];echo "</td>";
+                        //echo'<td>';echo $result['afid'];echo "</td>";
+                        echo'<td>';echo $result['capturetime'];echo "</td>";
+                        echo'<td>';echo displayEdibility($result['class']);echo "</td>";
+                        echo'<td>';echo FLOOR($result['confidence']*100)."%";echo "</td>";
                 echo "</tr>";} 
             ?>
         </tbody>

@@ -1,4 +1,7 @@
 <?php
+// This class centrally provides all database queries and helper functions.
+
+// =============================== Database Connection & Queries ==================================
 // Loading login data for the SQL DataBase Management System
 require_once './dbconfig.php';
 
@@ -6,7 +9,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     
     // 3 Queries. 1 & 2 only for the latest dataset of seperate tables (for the current information)
-    // TODO: Unify queies.
+    // TODO: Unify queries.
     
     // LF - Retrieve latest entry from fridgelog table
     $sql_last_fridgelog = 'SELECT fid, capturetime, full_image FROM fridgelog WHERE fid=(SELECT MAX(fid) FROM fridgelog)';
@@ -19,7 +22,7 @@ try {
     endwhile;
     
     // LA - Retrieve latest entry from all_fruits
-    $sql_last_all_fruits = 'SELECT fid, afid, class, confidence, note
+    $sql_last_all_fruits = 'SELECT fid, afid, class, confidence
                     FROM all_fruits
                     WHERE afid = (SELECT MAX(afid) FROM all_fruits)';
     $q_la = $pdo->query($sql_last_all_fruits);
@@ -46,4 +49,99 @@ try {
 } catch (PDOException $e) {
     die("Could not connect to the database $dbname :" . $e->getMessage());
 }
+
+// =============================== Helper Functions ==================================
+
+// Edibility-Helper function. It converts numbers to edibility terms.
+function displayEdibility($arg) {
+    if ($arg == 1) {
+        $edibility = 'Fresh';
+    }
+    else if ($arg == 2) {
+        $edibility = 'Fresh-neutral';
+    }
+    else if ($arg == 3) {
+        $edibility = 'Neutral';
+    }
+    else if ($arg == 4) {
+        $edibility = 'Neutral-bad';
+    }
+    else if ($arg == 5) {
+        $edibility = 'bad';
+    }
+    return $edibility;
+}
+
+// Notice box style helper function. It changes color according to class
+function displayNoticeWithStyle($arg) {
+    if ($arg < 3) {
+        echo '<div class="notice success">';
+    } else if ($arg == 3) {
+        echo '<div class="notice warning">';
+    } else if ($arg > 3) {
+        echo '<div class="notice error">';
+    }
+    echo '<i class="icon-ok icon-large">';
+}
+
+// Entire information box
+function displayAllInfo($result, $txt) {
+    if ($result['class'] < 3) {
+        echo '<div class="notice success">';
+    } else if ($result['class'] == 3) {
+        echo '<div class="notice warning">';
+    } else if ($result['class'] > 3) {
+        echo '<div class="notice error">';
+    }
+    echo '<i class="icon-ok icon-large">';
+    echo "$txt";
+    echo '<br/>Edibility: ';echo  displayEdibility($result['class']);
+    echo '<br/>Confidence: ';echo FLOOR($result['confidence']*100)."%";
+    echo '<br/>Capturetime: ';echo  $result['capturetime'];
+    echo '</i>';
+}
+
+// Notice box for displaying the ENTIRE edibility box according to edibility class.
+function displayEdibilityBox($arg) {
+    if ($arg == 5) {
+        echo
+        '<div class="notice error">
+            			    <i class="icon-ok icon-large">
+                                <strong>Content is bad.</strong>
+                            </i>
+                            </div>';
+    } else if ($arg == 4) {
+        echo
+        '<div class="notice error">
+            			    <i class="icon-ok icon-large">
+                                <strong>Content is neutral-bad.</strong>
+                            </i>
+                        </div>';
+    }
+    else if ($arg == 3) {
+        echo
+        '<div class="notice warning">
+            			    <i class="icon-ok icon-large">
+                                <strong>Content is neutral.</strong>
+                            </i>
+                        </div>';
+    }
+    else if ($arg == 2) {
+        echo
+        '<div class="notice success">
+            			    <i class="icon-ok icon-large">
+                                <strong>Content is fresh-neutral.</strong>
+                            </i>
+                        </div>';
+    }
+    else if ($arg == 1) {
+        echo
+        '<div class="notice success">
+            			    <i class="icon-ok icon-large">
+                                <strong>Content is fresh.</strong>
+                            </i>
+                            </div>';
+    }
+}
+
 ?>
