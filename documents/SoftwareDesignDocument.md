@@ -327,12 +327,29 @@ image. The website reloads to show the newest classified image.
 
 ## 6. Human interface design
 
+At the current stage the User Interface enables the users to check the groceries'
+state conveniently via smartphone or desktop computer. The edibility is 
+visualized in three awys: The actual images of the fridge's shelf, a time-series 
+chart displaying the edibility classes from 1 (fresh) to 5 (spoiled), as well as
+a logging-table which cronologicaly displays the Database entries.
 
 ### 6.1 Overview of User Interface
-Describe the functionality of the system from the user’s perspective. Explain
-how the user will be able to use your system to complete all the expected
-features and the feedback information that will be displayed for the user.
 
+### Home
+
+![Home-Page](ui_home.png)
+
+The Home page displays both, the latest picture and corresponding data, as
+well as elapsed pictures. By clicking the arrow on the right, the user can swipe 
+trough past-images.
+
+### Statistics
+
+![Statistics](ui_statistics.png)
+
+### Log
+
+![Log](ui_log.png)
 
 ### 6.2 Screen Images
 Display screenshots showing the interface from the user’s perspective. These can
