@@ -61,6 +61,9 @@ Determined by software architecture:
 
 # System Architecture
 
+## General overview
+![General systems overview](Components2.png "System")
+
 ## Folder structure
 ```sh
 .
@@ -80,21 +83,23 @@ Determined by software architecture:
 ## Main patterns
 - MVC pattern
 - Client-server pattern
-- Pipeline-and-filters pattern
+- Pipe&filters pattern
 - Minor: Reactor pattern
 
 ## MVC pattern
 - Model: SQL-Database
 - View: PHP website
-- Controller: Python program
+- Controller: Python middleware
 
 ## Client-server pattern
+- Webinterface
 - Slack
 - Clarifai
 
-## Pipeline-and-filters pattern
+## Pipe&filters pattern
 - Image processing pipeline
 - List of processors
+![Image pipeline](image-pipeline.png "Image pipeline")
 
 
 # Quality
@@ -373,6 +378,14 @@ class MySQLConnector(SQLConnector):
 ```
 
 
+# Lessons learned
+
+## Software lifecycle
+- Fixed requirements upfront
+
+## Automated testing and deployment
+- provides more confidence in code written
+- time-consuming to setup
 
 # future functionalities?
 
