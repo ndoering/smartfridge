@@ -74,7 +74,6 @@ Determined by software architecture:
 - MVC pattern
 - Client-server pattern
 - Pipe&filters pattern
-- Minor: Reactor pattern
 
 ## MVC pattern
 - Model: SQL-Database
