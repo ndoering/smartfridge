@@ -286,12 +286,6 @@ free-of-cost plan for testing purposes.
 Due to the dynamic nature of *Python*, data types are not fixed.
 
 ## 5. Component design
-~~In this section, we take a closer look at what each component does in a more
-systematic way. If you gave a functional description in section 3.2, provide a
-summary of your algorithm for each function listed in 3.2 in procedural
-description language (PDL) or pseudocode. If you gave an OO description,
-summarize each object member function for all the objects listed in 3.2 in PDL
-or pseudocode. Describe any local data when necessary.~~
 
 ### cli_parser
 This module takes the input of the commandline and parses it. It stores the path
