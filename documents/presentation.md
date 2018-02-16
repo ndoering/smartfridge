@@ -39,13 +39,13 @@ Determined by software architecture:
      - reporting regarding the current status of these food items via a web-based user interface and "Slack"
      - RaspberryPi 3 Model B
     
-## User Case 1
+## Connecting&Activating Camera
 ![](Usercase1.png "Connecting&Activating Camera")
 
-## User Case 2
+## Saving&Prosessing Date
 ![](Usercase2.png "Saving&Prosessing Date")
 
-## User Case 3
+## Categorizing&Sending a Notification
 ![](Usercase3.png "Categorizing&Sending a Notification") 
 
 
