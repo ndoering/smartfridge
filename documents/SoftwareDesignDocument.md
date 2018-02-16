@@ -35,9 +35,6 @@ Names: Liuba, Nils, Jörn, Chris
     1. [Data Dictionary](#42-data-dictionary)
 1. [Component Design](#5-component-design)
 1. [Human Interface Design](#6-human-interface-design)
-    1. [Overview of User Interface](#61-overview-of-user-interface)
-    1. [Screen Images](#62-screen-images)
-    1. [Screen Objects and Actions](#63-screen-objects-and-actions)
 1. [Requirements Matrix](#7-requirements-matrix)
 1. [Appendices](#8-appendices)
 
@@ -259,9 +256,27 @@ easily distinguish and compute the resulting class. Finally, Clarifai provides a
 free-of-cost plan for testing purposes.
 
 
-## 4. Data design
+## 4. Data Design
 
 ### 4.1 Data Description
+
+Currently Smart Fridge classifies exclusively bananas, due to the project's time and 
+ressource contraints. Nevertheless, the data design allows to specify further fruit 
+to be added lateron. Hence, two tables are provided:
+
+Table 'fridgelog' stores within each entry one image containing (soon) several sorts 
+of fruit, along with the corresponding timestamp 'capturetime' and the primary key 
+'fid'.
+
+Table 'allfruits' refers the 'fridgelog' table by using fid as foreign key additionaly
+to its primary key 'afid'. The actual edibility is kept by the integer value 'class'
+which currently ranges from one (fresh) to five (spoiled). Moreover, the prediction
+confidence is stored within the float value 'confidence'. Additionally, 'note' serves 
+as 'string'-datatype that is soon intended to store the fruits' types.
+
+Consequently, from one picture, several fruits will be extracted and preprocessed (via
+picture pipeline) and classified. The results will be spllit to n entries in 'allfruits'
+which refer to one single entry in 'fridgelog'. 
 
 #### Fridgelog
 
@@ -279,7 +294,11 @@ free-of-cost plan for testing purposes.
 | afid       | associated image from fridgelog |
 | class      | classification from ML          |
 | confidence | confidence for class            |
-| note       | optional note for the image     |
+| note       | optional note (fruit type)     |
+
+#### ER Diagram
+
+![ER](ER.png)
 
 ### 4.2 Data Dictionary
 Due to the dynamic nature of *Python*, data types are not fixed.
@@ -323,30 +342,31 @@ displays it. It also provides a button to signal the middleware to take a new
 image. The website reloads to show the newest classified image.
 
 
-## 6. Human interface design
+## 6. Human Interface Design
 
-At the current stage our User Interface enables the users to check the groceries'
+At the current stage the User Interface enables users to check their groceries'
 state conveniently via smartphone or desktop computer. The content's edibility is 
 visualized in three ways: Actual images of the fridge's shelf, a time-series chart
-displaying the edibility classes from 1 (fresh) to 5 (spoiled), as well as a 
-page showing a plain logging-table which cronologicaly displays the Database entries.
+displaying the edibility classes continuously from 1 (fresh) to 5 (spoiled), as well 
+as a page showing a plain logging-table which cronologicaly displays the Database 
+entries.
 
 These are the basic attributes:
 
-- Edibility State
+- Edibility Class
   - Fresh
   - Neutral-Fresh
   - Neutral
   - Neutral-Bad
   - Bad
 - Prediction Confidence
-  - This determines the degree, how 'sure' the system estimates the edibility by
+  - It determines the degree, how 'sure' the system estimates the edibility by
    checking the picture.
 - The corresponding timestamp
 
-### 6.1 Overview of User Interface
+### User Interface Overview
 
-### 6.1.1 Home
+#### Home
 
 ![Home-Page](ui_home.PNG)
 
@@ -356,19 +376,18 @@ the image content forward and backward. Underneath the gallery, an update button
 triggers the latest picture from the fridge's shelf along with the classified edibility
 data.
 
-### 6.1.2 Statistics
+#### Statistics
 
 ![Statistics](ui_statistics.PNG)
 
 The chart displays the edibility in a time-series fashion, representing the edibility
 as steady values between 1 (fresh) and 5 (spoiled).
 
-### 6.1.3 Log
+#### Log
 
 ![Log](ui_log.PNG)
 
 The log represents the saved data in compact table, resembling the database design.
-
 
 ## 7. Requirements matrix
 
