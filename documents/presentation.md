@@ -2,16 +2,6 @@
 % Christian, Jörn, Nils, Liuba
 % February 17, 2018
 
-# Agenda
-
-## Agenda
-
-- Project Management
-- Requirements
-- System Architecture
-- Quality
-- Live Demo
-
 # Project Management
 
 ## Our Software Lifecycle Model
@@ -40,6 +30,7 @@ Determined by software architecture:
 - Merging once branches reached final state
 ![branch network](branch_network.PNG "Branch Network")
 
+
 # Requirements
 
 ## What has been built
@@ -56,7 +47,6 @@ Determined by software architecture:
 
 ## User Case 3
 ![](Use_Case3.png "User_Case3") 
-
 
 
 # System Architecture
@@ -121,7 +111,6 @@ Determined by software architecture:
 - Code reviews
 - Coding standards (PEP8)
 ![training opportunities](example_wiki.PNG "Wiki")
-
 
 
 # Live Demo
