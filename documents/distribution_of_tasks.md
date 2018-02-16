@@ -34,4 +34,4 @@ The following tasks with corresponding responsibilities were identified:
 #### Web Interface
 + Webserver Apache & PHP5
 + basic HTML/CSS interface that shows image, notifications and date
-+ *responsible*: Jörn, Liuba
++ *responsible*: Jörn, Chris
