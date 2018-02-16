@@ -366,16 +366,6 @@ class MySQLConnector(SQLConnector):
 ```
 
 
-# Future functionalities?
-
-## Scenarios
-- Include more food items
-- Barcode input
-- Recommendations for recipes
-- Voice assistant integration
-- Food sharing
-
-
 # Lessons learned
 
 ## Teamwork
@@ -400,3 +390,13 @@ class MySQLConnector(SQLConnector):
 - Time-consuming to setup
 
 # Questions?
+
+# Future functionalities?
+
+## Scenarios
+- Include more food items
+- Barcode input
+- Recommendations for recipes
+- Voice assistant integration
+- Food sharing
+
