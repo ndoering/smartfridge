@@ -8,10 +8,11 @@ Names: Liuba, Nils, Jörn, Chris
 
 ## Revision History
 
-| Version | Date       | Commentary           |
-|---------|------------|----------------------|
-| 0.0     | 2017-12-19 | Initial Template     |
-| 1.0     | 2018-01-26 | Detailed description |
+| Version | Date       | Commentary                |
+|---------|------------|---------------------------|
+| 0.0     | 2017-12-19 | Initial Template          |
+| 1.0     | 2018-01-26 | Detailed description      |
+| 2.0     | 2018-02-16 | More detailed description |
 
 
 <div style="page-break-after: always;"></div>
