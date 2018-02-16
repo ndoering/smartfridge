@@ -378,15 +378,6 @@ class MySQLConnector(SQLConnector):
 ```
 
 
-# Lessons learned
-
-## Software lifecycle
-- Fixed requirements upfront
-
-## Automated testing and deployment
-- provides more confidence in code written
-- time-consuming to setup
-
 # Future functionalities?
 
 ## Scenarios
@@ -413,5 +404,10 @@ class MySQLConnector(SQLConnector):
 ## System & Software Design
 - Consider flexibility and expandiblity
 - Take the user's perspective
+- Fixed requirements upfront
 - Incrementally enhance basic prototype
 - Integrate testing early on
+
+## Automated testing and deployment
+- provides more confidence in code written
+- time-consuming to setup
