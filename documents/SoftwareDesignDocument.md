@@ -264,6 +264,7 @@ free-of-cost plan for testing purposes.
 
 #### Fridgelog
 
+| Name        | Description       |
 |-------------|-------------------|
 | fid         | ID of image       |
 | capturetime | Time of capture   |
@@ -271,7 +272,7 @@ free-of-cost plan for testing purposes.
 |-------------|-------------------|
 
 #### Allfruits
-
+| Name       | Description                     |
 |------------|---------------------------------|
 | fid        | ID of image                     |
 | afid       | associated image from fridgelog |
