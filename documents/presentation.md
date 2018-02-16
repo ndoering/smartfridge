@@ -121,7 +121,7 @@ Determined by software architecture:
 
 # Live Demo
 
-## take photo
+## Take photo
 ```python
 import io
 import picamera
@@ -148,7 +148,7 @@ def take_picture():
 ```
 
 
-## Image Processing Pipeline
+## Image processing pipeline
 ```python
 import cv2 as c
 
@@ -374,11 +374,31 @@ class MySQLConnector(SQLConnector):
 
 
 
-# future functionalities?
+# Future functionalities?
 
-## scenarios
+## Scenarios
 - Include more food items
 - Barcode input
 - Recommendations for recipes
 - Voice assistant integration
 - Food sharing
+
+
+# Lessons learned
+
+## Teamwork
+- Have clear goals and responsibilities
+- Keep everyone updated: Communication
+- Don't get lost in details
+
+## Productivity
+- Use enabling tools (GitHub, Slack)
+- Frequent meetings are essential
+- quick and dirty approach backfires
+- Set implicit/explicit deadlines
+
+## System & Software Design
+- Consider flexibility and expandiblity
+- Take the user's perspective
+- Incrementally enhance basic prototype
+- integrate testing early on
