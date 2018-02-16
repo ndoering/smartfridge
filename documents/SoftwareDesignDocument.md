@@ -286,12 +286,48 @@ free-of-cost plan for testing purposes.
 Due to the dynamic nature of *Python*, data types are not fixed.
 
 ## 5. Component design
-In this section, we take a closer look at what each component does in a more
+~~In this section, we take a closer look at what each component does in a more
 systematic way. If you gave a functional description in section 3.2, provide a
 summary of your algorithm for each function listed in 3.2 in procedural
 description language (PDL) or pseudocode. If you gave an OO description,
 summarize each object member function for all the objects listed in 3.2 in PDL
-or pseudocode. Describe any local data when necessary.
+or pseudocode. Describe any local data when necessary.~~
+
+### cli_parser
+This module takes the input of the commandline and parses it. It stores the path
+of the configuration file.
+
+### configuration_management
+This module uses the *Python* stdlib parses for *ini* files. This reads the
+configuration file and stores the information of the configuration in a
+two-dimensional *dict*.
+
+### sql_connector
+This module facilitates the access to the database to store the images taken by
+the camera.
+
+### slack_connector
+This module pushes notifications to a preconfigured Slack channel. The channel
+and the credentials are set in the configuration file.
+
+### clarifai_connector
+This module sends the taken image to the *Clarifai* webservice via a REST
+call. It awaits the response and returns a json string with the classification.
+
+### image_pipeline
+This module takes an image and processes it through a series of image
+processors. The sequence of processors is configured in the systems
+configuration. The image is handed to the first processor and returned from it
+after processing. Afterwards the resulting image is handed to the next processor
+until the sequence reaches its end. The final image is returned.
+
+### camera
+This module uses the *picamera* module to take an image from the camera.
+
+### web_interface
+This module takes the newest images and classifications from the database and
+displays it. It also provides a button to signal the middleware to take a new
+image. The website reloads to show the newest classified image.
 
 
 ## 6. Human interface design
