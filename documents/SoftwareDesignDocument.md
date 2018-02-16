@@ -283,11 +283,7 @@ free-of-cost plan for testing purposes.
 
 
 ### 4.2 Data Dictionary
-Alphabetically list the system entities or major data along with their types and
-descriptions. If you provided a functional description in Section 3.2, list all
-the functions and function parameters. If you provided an OO description, list
-the objects and its attributes, methods and method parameters.
-
+Due to the dynamic nature of *Python*, data types are not fixed.
 
 ## 5. Component design
 In this section, we take a closer look at what each component does in a more
@@ -318,11 +314,6 @@ A discussion of screen objects and actions associated with those objects.
 
 
 ## 7. Requirements matrix
-~~Provide a cross­reference that traces components and data structures to the
-requirements in your SRS document.  Use a tabular format to show which system
-components satisfy each of the functional requirements from the SRS. Refer to
-the functional requirements by the numbers/codes that you gave them in the
-SRS.~~
 
 | Module             | Requirements        |
 |--------------------|---------------------|
