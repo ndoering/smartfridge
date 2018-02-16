@@ -394,11 +394,11 @@ class MySQLConnector(SQLConnector):
 ## Productivity
 - Use enabling tools (GitHub, Slack)
 - Frequent meetings are essential
-- quick and dirty approach backfires
+- Quick-and-dirty approach backfires
 - Set implicit/explicit deadlines
 
 ## System & Software Design
 - Consider flexibility and expandiblity
 - Take the user's perspective
 - Incrementally enhance basic prototype
-- integrate testing early on
+- Integrate testing early on
