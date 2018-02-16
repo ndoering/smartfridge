@@ -239,6 +239,8 @@ Priority: high
 - REQ 2.4: Update model with user input (e.g. "still fresh", "not fresh anymore", ...)
 - REQ 2.5: Update notification database
 
+Priority: low
+
 #### 4.3	Notification of critical food status
 
 ###### 4.3.1	Description and Priority

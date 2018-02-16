@@ -324,10 +324,19 @@ components satisfy each of the functional requirements from the SRS. Refer to
 the functional requirements by the numbers/codes that you gave them in the
 SRS.~~
 
+| Module             | Requirements        |
+|--------------------|---------------------|
+| camera             | 1.1                 |
+| image_pipeline     | (1.3), (1.5), (2.1) |
+| clarifai_connector | 2.2, 2.3, 2.4, 2.5  |
+| slack_connector    | 3.3                 |
+| sql_connector      | 1.2, 1.4, 3.1       |
+| web_interface      | 3.2                 |
+| smartfridge        | 3.3                 |
 
 ### 7.1 Python
 
-We use *python* in version 3.6.
+We use *Python* in version 3.6.
 
 ### 7.2 Python modules
 
