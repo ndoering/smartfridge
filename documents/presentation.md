@@ -40,13 +40,13 @@ Determined by software architecture:
      - RaspberryPi 3 Model B
     
 ## User Case 1
-![](User_Case1.png "User_Case1")
+![](Usercase1.png "Connecting&Activating Camera")
 
 ## User Case 2
-![](Use_Case2.png "User_Case2")
+![](Usercase2.png "Saving&Prosessing Date")
 
 ## User Case 3
-![](Use_Case3.png "User_Case3") 
+![](Usercase3.png "Categorizing&Sending a Notification") 
 
 
 # System Architecture
