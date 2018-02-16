@@ -334,6 +334,8 @@ SRS.~~
 | web_interface      | 3.2                 |
 | smartfridge        | 3.3                 |
 
+Entries in parenthesis were cut due to the timeline.
+
 ### 7.1 Python
 
 We use *Python* in version 3.6.
