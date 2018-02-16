@@ -281,8 +281,6 @@ free-of-cost plan for testing purposes.
 | confidence | confidence for class            |
 | note       | optional note for the image     |
 
-
-
 ### 4.2 Data Dictionary
 Due to the dynamic nature of *Python*, data types are not fixed.
 
@@ -327,38 +325,49 @@ image. The website reloads to show the newest classified image.
 
 ## 6. Human interface design
 
-At the current stage the User Interface enables the users to check the groceries'
-state conveniently via smartphone or desktop computer. The edibility is 
-visualized in three awys: The actual images of the fridge's shelf, a time-series 
-chart displaying the edibility classes from 1 (fresh) to 5 (spoiled), as well as
-a logging-table which cronologicaly displays the Database entries.
+At the current stage our User Interface enables the users to check the groceries'
+state conveniently via smartphone or desktop computer. The content's edibility is 
+visualized in three ways: Actual images of the fridge's shelf, a time-series chart
+displaying the edibility classes from 1 (fresh) to 5 (spoiled), as well as a 
+page showing a plain logging-table which cronologicaly displays the Database entries.
+
+These are the basic attributes:
+
+- Edibility State
+  - Fresh
+  - Neutral-Fresh
+  - Neutral
+  - Neutral-Bad
+  - Bad
+- Prediction Confidence
+  - This determines the degree, how 'sure' the system estimates the edibility by
+   checking the picture.
+- The corresponding timestamp
 
 ### 6.1 Overview of User Interface
 
-### Home
+### 6.1.1 Home
 
-![Home-Page](ui_home.png)
+![Home-Page](ui_home.PNG)
 
-The Home page displays both, the latest picture and corresponding data, as
-well as elapsed pictures. By clicking the arrow on the right, the user can swipe 
-trough past-images.
+The Home page displays both, the latest picture with corresponding data, as well
+as past-images. By clicking the arrow on the right and left, the user swipes trough 
+the image content forward and backward. Underneath the gallery, an update button 
+triggers the latest picture from the fridge's shelf along with the classified edibility
+data.
 
-### Statistics
+### 6.1.2 Statistics
 
-![Statistics](ui_statistics.png)
+![Statistics](ui_statistics.PNG)
 
-### Log
+The chart displays the edibility in a time-series fashion, representing the edibility
+as steady values between 1 (fresh) and 5 (spoiled).
 
-![Log](ui_log.png)
+### 6.1.3 Log
 
-### 6.2 Screen Images
-Display screenshots showing the interface from the user’s perspective. These can
-be hand drawn or you can use an automated drawing tool. Just make them as
-accurate as possible.  (Graph paper works well.)
+![Log](ui_log.PNG)
 
-
-### 6.3 Screen Objects and Actions
-A discussion of screen objects and actions associated with those objects.
+The log represents the saved data in compact table, resembling the database design.
 
 
 ## 7. Requirements matrix
