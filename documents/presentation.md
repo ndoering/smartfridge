@@ -2,6 +2,11 @@
 % Christian, Jörn, Nils, Liuba
 % February 17, 2018
 
+# Motivation
+- Food waste reduction
+- Foundation for IoT projects
+
+
 # Project Management
 
 ## Our Software Lifecycle Model
