@@ -269,9 +269,9 @@ free-of-cost plan for testing purposes.
 | fid         | ID of image       |
 | capturetime | Time of capture   |
 | full_image  | BLOB of the image |
-|-------------|-------------------|
 
 #### Allfruits
+
 | Name       | Description                     |
 |------------|---------------------------------|
 | fid        | ID of image                     |
@@ -279,7 +279,6 @@ free-of-cost plan for testing purposes.
 | class      | classification from ML          |
 | confidence | confidence for class            |
 | note       | optional note for the image     |
-|------------|---------------------------------|
 
 
 
