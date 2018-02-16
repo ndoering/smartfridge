@@ -47,20 +47,12 @@ Names: Liuba, Nils, Jörn, Chris
 
 
 ### 1.1 Purpose
-~~Identify the purpose of this SDD and its intended audience. (e.g. “This
-software design document describes the architecture and system design of
-XX.”).~~
-
 This software design document describes the architecture and system design of
 the SmartFridge project that accompanies the Systems and Software Engineering
 class.
 
 
 ### 1.2 Scope
-~~Provide a description and scope of the software and explain the goals,
-objectives and benefits of your project. This will provide the basis for the
-brief description of your product.~~
-
 The software serves as a prototype or MVP (minimum viable product) to
 the overarching idea of a system that tracks content inside a consumer
 fridge. As such its scope is reduced to identify bananas and evaluate
@@ -71,31 +63,16 @@ This prototype is built to conveniently adopt more fruits and other products.
 
 
 ### 1.3 Overview
-~~Provide an overview of this document and its organization.~~
-
 This document is subdivided into 6 parts: system overview, system architecture,
 data design, component design, human interface design and a requirements matrix.
 
 
 ### 1.4 Reference Material
-~~This section is optional. List any documents, if any, which were used as
-sources of information for the test plan.~~
-
 The project has a [Wiki](https://github.com/ndoering/smartfridge/wiki) that
 includes the up to date reference material.
 
 
-### 1.5 Definitions and Acronyms
-~~This section is optional. Provide definitions of all terms, acronyms, and
-abbreviations that might exist to properly interpret the SDD. These definitions
-should be items used in the SDD that are most likely not known to the
-audience.~~
-
-
 ## 2. System overview
-~~Give a general description of the functionality, context and design of your
-project. Provide any background information if necessary.~~
-
 
 ### Web interface
 
@@ -130,17 +107,6 @@ purposes. This is facilitated by an on-site database server.
 
 
 ### 3.1 Architectural Design
-~~Develop a modular program structure and explain the relationships between the
-modules to achieve the complete functionality of the system. This is a high
-level overview of how responsibilities of the system were partitioned and then
-assigned to subsystems. Identify each high level subsystem and the roles or
-responsibilities assigned to it. Describe how these subsystems collaborate with
-each other in order to achieve the desired functionality. Don’t go into too much
-detail about the individual subsystems. The main purpose is to gain a general
-understanding of how and why the system was decomposed, and how the individual
-parts work together. Provide a diagram showing the major subsystems and data
-repositories and their interconnections. Describe the diagram if required.~~
-
 The prototype of the SmartFridge mainly consists of three layers,
 following the MVC (Model-View-Controller) architecture. The model
 consists of the SQL-Database server in the backend of the prototype,
@@ -156,14 +122,6 @@ Clarifai for classification and to the database for storage.
 
 
 ### 3.2 Decomposition Description
-~~Provide a decomposition of the subsystems in the architectural
-design. Supplement with text as needed. You may choose to give a functional
-description or an object-oriented description.  For a functional description,
-put top level data flow diagram (DFD) and structural decomposition diagrams. For
-an OO description, put subsystem model, object diagrams, generalization
-hierarchy diagram(s) (if any), aggregation hierarchy diagram(s) (if any),
-interface specifications, and sequence diagrams here.~~
-
 
 #### Model - Database
 
@@ -256,11 +214,6 @@ into the pipeline in the future include downscaling and segmentation of fruits.
 
 
 ### 3.3 Design Rationale
-~~Discuss the rationale for selecting the architecture described in
-3.1 including critical issues and trade/offs that were considered. You
-may discuss other architectures that were considered, provided that
-you explain why you didn’t choose them.~~
-
 
 #### MVC architecture
 
@@ -319,7 +272,6 @@ purposes.
 
 ## 4. Data design
 
-
 ### 4.1 Data Description
 Explain how the information domain of your system is transformed into data
 structures.  Describe how the major data or system entities are stored,
@@ -370,6 +322,7 @@ the functional requirements by the numbers/codes that you gave them in the SRS.
 
 ### 7.1 Python
 
+We use *python* in version 3.6.
 
 ### 7.2 Python modules
 
@@ -380,9 +333,3 @@ the functional requirements by the numbers/codes that you gave them in the SRS.
 | slackclient            | 1.1.0    |
 | opencv-python          | 3.4.0.12 |
 | confiparser            | 3.5.0    |
-
-
-## 8. Appendices
-This section is optional.  Appendices may be included, either directly or by
-reference, to provide supporting details that could aid in the understanding of
-the Software Design Document.
