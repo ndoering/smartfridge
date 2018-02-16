@@ -386,7 +386,7 @@ class MySQLConnector(SQLConnector):
 
 ## Productivity
 - Use enabling tools (GitHub, Slack)
-- Frequent meetings are essential
+- Regular meetings are essential
 - Quick-and-dirty approach backfires
 - Set implicit/explicit deadlines
 
@@ -395,10 +395,9 @@ class MySQLConnector(SQLConnector):
 - Take the user's perspective
 - Fixed requirements upfront
 - Incrementally enhance basic prototype
-- Integrate testing early on
 
 ## Automated testing and deployment
-- provides more confidence in code written
-- time-consuming to setup
+- Provides more confidence in code written
+- Time-consuming to setup
 
 # Questions?
