@@ -116,7 +116,7 @@ which regularly takes images of the fridge's content, preprocesses them, sends
 them to Clarifai for classification and to the database for storage.
 
 #### System architecture overview
-![Interactions within the system](Components.png)
+![Interactions within the system](Components2.png)
 
 
 ### 3.2 Decomposition Description
@@ -261,9 +261,25 @@ free-of-cost plan for testing purposes.
 ## 4. Data design
 
 ### 4.1 Data Description
-Explain how the information domain of your system is transformed into data
-structures.  Describe how the major data or system entities are stored,
-processed and organized. List any databases or data storage items.
+
+#### Fridgelog
+
+|-------------|-------------------|
+| fid         | ID of image       |
+| capturetime | Time of capture   |
+| full_image  | BLOB of the image |
+|-------------|-------------------|
+
+#### Allfruits
+
+|------------|---------------------------------|
+| fid        | ID of image                     |
+| afid       | associated image from fridgelog |
+| class      | classification from ML          |
+| confidence | confidence for class            |
+| note       | optional note for the image     |
+|------------|---------------------------------|
+
 
 
 ### 4.2 Data Dictionary
