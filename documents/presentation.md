@@ -42,8 +42,8 @@ Determined by software architecture:
 ## Connecting&Activating Camera
 ![](Usercase1.png "Connecting&Activating Camera")
 
-## Saving&Prosessing Date
-![](Usercase2.png "Saving&Prosessing Date")
+## Saving&Processing Dates
+![](Usercase2.png "Saving&Processing Dates")
 
 ## Categorizing&Sending a Notification
 ![](Usercase3.png "Categorizing&Sending a Notification") 
