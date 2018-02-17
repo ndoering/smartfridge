@@ -24,6 +24,7 @@
 <?php
 // Loading database queries.
 require_once './db_access.php';
+$MAXPOINTS = 10;
 ?>
 <!-- =============================== Page content ============================== -->
 <body>
@@ -54,8 +55,10 @@ require_once './db_access.php';
                     $i = 0;
     				foreach (array_reverse($join_resultset) as $result){
     				    // Copy content from SQL results into JS-Arrays. 
-    				    echo "class_ar[$i] = parseInt($result[class]);"; // js within php
-    				    echo "time_ar[$i] = '$result[capturetime]';"; // js within php
+    				    if ($i < $MAXPOINTS) {
+    				        echo "time_ar[$i] = '$result[capturetime]';"; // js within php
+    				        echo "class_ar[$i] = parseInt($result[class]);"; // js within php
+    				    }
     				    $i++;
                     }
     				?>
