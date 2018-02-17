@@ -24,7 +24,7 @@
 <?php
 // Loading database queries.
 require_once './db_access.php';
-$MAXPOINTS = 1000;
+$MAXPOINTS = 5;
 ?>
 <!-- =============================== Page content ============================== -->
 <body>
@@ -52,14 +52,17 @@ $MAXPOINTS = 1000;
 					
     			    // Loading content from joined table query results via php loop.
                     <?php 
-                    $i = 0;
-    				foreach (array_reverse($join_resultset) as $result){
+                    $i = $MAXPOINTS;
+    				foreach ($join_resultset as $result){
     				    // Copy content from SQL results into JS-Arrays. 
-    				    if ($i < $MAXPOINTS) {
+    				    if ($i >= 0) {
+    				        // Write the latest DB entry as latest Point into JS array.
+    				        // Write 2nd latest as 2nd latest point into JS array and so on...
+    				        // Stops by the n-MAXPOINT array element which is index 0 in JS array.
     				        echo "time_ar[$i] = '$result[capturetime]';"; // js within php
     				        echo "class_ar[$i] = parseInt($result[class]);"; // js within php
     				    }
-    				    $i++;
+    				    $i--;
                     }
     				?>
     				//console.log(class_ar);
