@@ -3,6 +3,8 @@
 % February 17, 2018
 
 # Motivation
+
+## Motivation criteria
 - Food waste reduction
 - Foundation for IoT projects
 
