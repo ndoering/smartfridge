@@ -24,7 +24,7 @@
 <?php
 // Loading database queries.
 require_once './db_access.php';
-$MAXPOINTS = 10;
+$MAXPOINTS = 1000;
 ?>
 <!-- =============================== Page content ============================== -->
 <body>
